@@ -1,0 +1,243 @@
+
+<style type="text/css">
+  
+  .sign_out_button_admin{
+
+width: 375px;
+height: 74px;
+background-color: #efefef;
+   
+color: #000000;
+font-family: "Helvetica Neue";
+font-size: 18px;
+font-weight: 600;
+letter-spacing: 4.57px;
+line-height: 8px;
+/* Text style for "Sign Out" */
+font-family: "Segoe UI";
+font-weight: 400;
+  }
+</style>
+
+<div class="container" style="       margin-top: -20px; background-color: #2382ff;        height: 250px;   max-width: 2020px;">
+                     <div class="row" style="margin-left: 15%;">
+                                <div class="col-lg-6">
+                                   
+                                   
+
+                                    <div class="row">
+                                <div class="col-2">
+              
+
+                                       
+                            <img src="/placeholder_admin.png" style="width: 120px;height: 120px;/**border-radius: 50%;border-width: 4px;border-style: solid;border-color:#ffffff; **/margin-top: 20px;">
+                                </div>
+
+
+                                <div class="col-8">
+                                
+                                 
+                                                 <h3 class="name_user" style="margin-left:20px;margin-top: 60px;color: #fff;"><%= Admin.find(session[:admin_id]).name %></h3>
+                                                 <p class="email-tel-user" style="margin-left:20px;color: #fff;">Admin - <%= Admin.find(session[:admin_id]).level %></p>
+
+                                            
+
+
+
+                                </div>
+
+                            </div>
+
+
+                                </div>
+
+
+                                <div class="col-lg-2">
+
+
+                                    <% if request.path.include?("users") && request.path != "/users" %>
+
+                                        
+                                         <img src="/delete_user_btn.png" style="margin-top:20px;margin-right:0%;height: 50px"  onclick="deleteUser()">
+
+
+                                          <img src="/send_msj_btn.png" style="margin-top:10px;margin-right:0%;height: 50px"  onclick="sendMessageToUser()">
+
+
+
+
+
+                                    <% else %>
+
+                                       <img src="/sign_out_admin.png" style="margin-top:20%;margin-right:0%;"  onclick="myFunction()">
+                         
+                                    <script>
+                                    function myFunction() {
+                                        window.location.replace("/logout_admin");
+                                    }
+                                    </script>
+
+
+                                    <% end %>
+
+                                 
+                        
+
+
+                                </div>
+
+                            </div>
+
+                            <br><br><br>
+
+
+             
+
+<% @current_admin = Admin.find(session[:admin_id]) %>
+                <div class="tabs-box">
+                    <ul class="nav nav-tabs" id="myTab" role="tablist" style="    text-align: left;    justify-content: left;margin-left: 280px;    margin-top: -50px;">
+                   
+
+
+                        <% if @current_admin.level == "Administrator" %>
+                          <% if request.path.include?("admin_dashboard") %>
+                  
+                         <li class="nav-item" style="width: 160px">
+
+                           <a class="nav-link active" href="/admin_dashboard" style="color:#fff;background: none;">Dashbaord</a><div id="line_first_profile" style="z-index:4;width: 60px;height: 1px;border: 1px solid #fff;margin-left: 53px;margin-top: -6px;"></div><img src="/rectangle_blue.png" style="width: 90px;margin-top: -10px;margin-left: 38px;z-index: 0;">
+                        </li>
+
+
+
+                        <% else %>
+
+                             <li class="nav-item" style="width: 160px">
+
+
+                     <a class="nav-link active" href="/admin_dashboard" style="color:#fff;background: none;">Dashbaord</a>
+                        </li>
+
+                        <% end %>
+
+
+ <% if request.path.include?("admins") %>
+                  
+                         <li class="nav-item" style="width: 160px">
+
+                           <a class="nav-link active" href="/admins" style="color:#fff;background: none;">Administrators</a><div id="line_first_profile" style="z-index:4;width: 60px;height: 1px;border: 1px solid #fff;margin-left: 53px;margin-top: -6px;"></div><img src="/rectangle_blue.png" style="width: 90px;margin-top: -10px;margin-left: 38px;z-index: 0;">
+                        </li>
+
+
+
+                        <% else %>
+
+                             <li class="nav-item" style="width: 160px">
+
+
+                     <a class="nav-link active" href="/admins" style="color:#fff;background: none;">Administrators</a>
+                        </li>
+
+                        <% end %>
+  <% if request.path.include?("users") %>
+                        <li class="nav-item" style="width: 160px;">
+                            <a class="nav-link"  href="/users" style="color:#fff;background: none;">Users</a><div id="line_first_profile" style="z-index:4;width: 60px;height: 1px;border: 1px solid #fff;margin-left: 53px;margin-top: -6px;"></div><img src="/rectangle_blue.png" style="width: 90px;margin-top: -10px;margin-left: 38px;z-index: 0;">
+                        </li>
+
+                        <% else %>
+
+
+                        <li class="nav-item" style="width: 160px;">
+                           <a class="nav-link"  href="/users" style="color:#fff;background: none;">Users</a>
+                        </li>
+
+
+                        <% end %>
+
+<% end %>
+                      
+
+                        <% if request.path.include?("brands") || request.path.include?("car_models")  %>
+
+                         <li class="nav-item" style="width: 160px;">
+                             <a class="nav-link"  href="/brands"  style="color:#fff;background: none;">Brands</a><div id="line_first_profile" style="z-index:4;width: 60px;height: 1px;border: 1px solid #fff;margin-left: 53px;margin-top: -6px;"></div><img src="/rectangle_blue.png" style="width: 90px;margin-top: -10px;margin-left: 38px;z-index: 0;">
+                        </li>
+
+                        <% else %>
+
+                         <li class="nav-item" style="width: 160px;">
+                            <a class="nav-link"  href="/brands"  style="color:#fff;background: none;">Brands</a>
+                        </li>
+
+                        <% end %>
+                        
+                      
+                             <% if request.path.include?("millages") %>
+            
+
+                         <li class="nav-item" style="width: 160px;">
+                            <a class="nav-link"  href="/millages/" style="color:#fff;background: none;">Kilometers</a><div id="line_first_profile" style="z-index:4;width: 60px;height: 1px;border: 1px solid #fff;margin-left: 53px;margin-top: -6px;"></div><img src="/rectangle_blue.png" style="width: 90px;margin-top: -10px;margin-left: 38px;z-index: 0;">
+                        </li>
+              
+                         <% else %>
+
+
+
+                         <li class="nav-item" style="width: 160px;">
+                             <a class="nav-link"  href="/millages/"  style="color:#fff;background: none;">Kilometers</a>
+                        </li>
+
+                          <% end %>
+
+
+
+
+
+
+
+
+
+
+
+                           <% if request.path.include?("years") %>
+            
+
+                         <li class="nav-item" style="width: 160px;">
+                            <a class="nav-link"  href="/years/" style="color:#fff;background: none;">Years</a><div id="line_first_profile" style="z-index:4;width: 60px;height: 1px;border: 1px solid #fff;margin-left: 53px;margin-top: -6px;"></div><img src="/rectangle_blue.png" style="width: 90px;margin-top: -10px;margin-left: 38px;z-index: 0;">
+                        </li>
+              
+                         <% else %>
+
+
+
+                         <li class="nav-item" style="width: 160px;">
+                             <a class="nav-link"  href="/years/"  style="color:#fff;background: none;">Years</a>
+                        </li>
+
+                          <% end %>
+
+
+
+                    
+
+                            <% if request.path.include?("tiers") %>
+            
+
+                         <li class="nav-item" style="width: 160px;">
+                            <a class="nav-link"  href="/tiers/" style="color:#fff;background: none;">Tiers</a><div id="line_first_profile" style="z-index:4;width: 60px;height: 1px;border: 1px solid #fff;margin-left: 53px;margin-top: -6px;"></div><img src="/rectangle_blue.png" style="width: 90px;margin-top: -10px;margin-left: 38px;z-index: 0;">
+                        </li>
+              
+                         <% else %>
+
+
+
+                         <li class="nav-item" style="width: 160px;">
+                             <a class="nav-link"  href="/tiers/"  style="color:#fff;background: none;">Tiers</a>
+                        </li>
+
+                          <% end %>
+
+                      
+                    </ul>
+               
+                </div>
+            </div> 

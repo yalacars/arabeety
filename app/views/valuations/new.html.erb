@@ -1,0 +1,1343 @@
+  
+<% if session[:user_id] %>
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f1f1f1;
+}
+
+#regForm {
+  background-color: #ffffff;
+  margin: 100px auto;
+  font-family: Raleway;
+  padding: 40px;
+  width: 100%;
+  border-radius: 4px;
+
+}
+
+
+
+input {
+  padding: 10px;
+  width: 100%;
+  font-size: 17px;
+  font-family: Raleway;
+  border: 1px solid #aaaaaa;
+}
+
+/* Mark input boxes that gets an error on validation: */
+input.invalid {
+  background-color: #ffdddd;
+}
+
+/* Hide all steps by default: */
+.tab {
+  display: none;
+}
+
+button {
+  background-color: #00357a;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 17px;
+  font-family: Raleway;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+#prevBtn {
+  background-color: #00357a;
+}
+
+/* Make circles that indicate the steps of the form: */
+.step {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #00357a;
+  border: none;  
+  border-radius: 50%;
+  display: inline-block;
+  opacity: 0.5;
+}
+
+.step.active {
+  opacity: 1;
+}
+
+/* Mark the steps that are finished and valid: */
+.step.finish {
+  background-color: #4CAF50;
+}
+.inputGroup {
+
+  }
+
+
+.first_div{
+
+  color: #ffffff;
+font-family: "Helvetica Neue";
+font-size: 17px;
+font-weight: 700;
+letter-spacing: 0.85px;
+line-height: 31px;
+/* Text style for "Damaged" */
+text-align: center;
+vertical-align: middle;
+line-height: 74px;
+font-weight: 700;
+  background-color: #ff8409;
+  border-radius: 4px;
+  height: 74px;
+}
+.form_label{
+  color: #4a4a4a;
+font-family: "Helvetica Neue";
+font-size: 17px;
+font-weight: 700;
+letter-spacing: 0.85px;
+line-height: 31px;
+/* Text style for "Engine Con" */
+font-weight: 500;
+}
+
+
+.special_selec{
+    color: #ffffff;
+font-family: "Helvetica Neue";
+font-size: 17px;
+font-weight: 700;
+letter-spacing: 0.85px;
+line-height: 31px;
+/* Text style for "Damaged" */
+text-align: center;
+vertical-align: middle;
+line-height: 74px;
+font-weight: 700;
+  background-color: #ff8409;
+  border-radius: 4px;
+  height: 74px;
+}
+.value_button{
+
+
+    max-width: 376px;
+    min-width: 280px;
+height: 75px;
+background-color: #ff8409;
+
+
+border: 1px solid #ffffff;
+color: #ffffff;
+font-family: "Helvetica Neue";
+font-size: 18px;
+font-weight: 600;
+
+letter-spacing: 4.57px;
+line-height: 8px;
+text-transform: uppercase;
+/* Text style for "VALUE YOUR" */
+
+font-weight: 400;
+
+}
+
+ .email-tel-user{
+
+
+
+color: #4a4a4a;
+font-family: "Helvetica Neue";
+font-size: 19px;
+font-weight: 300;
+letter-spacing: 2.62px;
+line-height: 11px;
+/* Text style for "ehabfcih94" */
+margin-top: 20px;
+font-weight: 300;
+    }
+
+    .name_user{
+        color: #4a4a4a;
+font-family: "Helvetica Neue";
+font-size: 22px;
+font-weight: 700;
+letter-spacing: 3.04px;
+line-height: 11px;
+/* Text style for "Ehab Moham" */
+font-family: "Segoe UI";
+font-weight: 700;
+    }
+
+
+    select {
+
+text-align-last: center;
+padding-right: 29px;
+
+  background-repeat: no-repeat, repeat;
+  background-position: right 20em top 50%, 0 0;
+  background-size: .65em auto, 100%;
+}
+
+</style>
+<section class="tabs-section" style="margin-top: -80px">
+
+
+
+ <%= render 'layouts/header_profile' %>
+
+
+
+<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
+<div class="container" >
+<div align="center">
+   <div class="row" style="background-color: #fff;height: 236px;margin-top: 75px;border-radius: 4px;">
+   
+   
+    <div class="col-2" style="margin-top: 80px; margin-left: 40px;x">
+      <img id="firs_ste" src="/1_blue.png">
+      <div style="margin-top:20px;width: 86px;height: 31px;color: #717171;font-family: 'Open Sans';font-size: 20px;font-weight: 600;line-height: 31px;font-weight: 400;">Step One</div>
+    </div>
+
+    <div class="col-3"  style="margin-top: 93px;margin-left: -50px;">
+          <img src="/first_line_steps.png">
+    </div>
+
+       <div class="col-2" style="margin-top: 80px;margin">
+      <img  id="second_step_number" src="/2_grey.png">
+         <div style="margin-top:20px;width: 86px;height: 31px;color: #717171;font-family: 'Open Sans';font-size: 20px;font-weight: 600;line-height: 31px;font-weight: 400;">Step Two</div>
+    </div>
+
+    <div class="col-3"  style="margin-top: 93px;margin-left: -50px;">
+          <img src="/first_line_steps.png">
+    </div>
+   <div class="col-2" style="margin-top: 80px;margin-left: 0px;">
+      <img  id="third_step_number" src="/3_grey.png">
+         <div style="margin-top:20px;width: 150px;height: 31px;color: #717171;font-family: 'Open Sans';font-size: 20px;font-weight: 600;line-height: 31px;font-weight: 400;">Step Three</div>
+    </div>
+
+ </div>
+</div>
+</div>
+
+                              <div class="container" >
+                     <div class="row">
+         
+<form id="regForm" action="/register_valuation" method="get" style="    margin-top: 40px;">
+
+<input type="hidden" name="valuation[user_id]" class="form-control" value="<%= session[:user_id] %>">
+  <!-- One "tab" for each step in the form: -->
+  <div class="tab">
+<div class="inputGroup">
+
+
+    <label for="option1" class="form_label"><div class="row">
+      
+    
+        <div class="col-8"  style="font-family: 'Open Sans';">
+             
+          I am a 
+        </div>
+
+
+        <div class="col-2">
+             
+           <div style="width: 39px;height: 1px;border: 1px solid #00357a;margin-left:10px;margin-top:15px;"></div>
+        </div>
+
+
+      </div> </label>
+    
+
+    <div class="row">
+    		<div class="col-6">
+    			<div class="first_div" id="buyer"  style="font-family: 'Open Sans';">Buyer<img id="buyer_check" style="margin-left:20px;"></div>
+
+
+    		</div>
+    		<div class="col-6">
+    			<div class="first_div" id="seller"  style="font-family: 'Open Sans';">Seller<img id="seller_check" style="margin-left:20px;"></div>
+    		</div>
+    	
+    </div>
+
+
+    <input type="hidden" id="valuation-valuation_type" name="valuation[valuation_type]"  class="form-control" >
+
+
+
+<br><br>
+ <div class="row">
+  	  
+    
+    		<div class="col-6">
+    			  <label for="option1" class="form_label"> 
+
+             <div class="row">
+      
+    
+        <div class="col-6"  style="font-family: 'Open Sans';">
+             
+          Brand 
+        </div>
+
+
+        <div class="col-6">
+             
+           <div style="width: 39px;height: 1px;border: 1px solid #00357a;margin-left:29px;margin-top:15px;"></div>
+        </div>
+
+
+      </div> </label><br>
+    			  <select class="special_selec"  name="valuation[brand]" style="width: 100%;height: 74px;font-family: 'Open Sans';">
+    			  	 
+    			  </select>
+    		
+    		</div>
+
+
+
+
+
+
+        <div class="col-6">
+            <label for="option1" class="form_label"> 
+
+             <div class="row">
+      
+    
+        <div class="col-6"  style="font-family: 'Open Sans';width: 170px;">
+             
+          Year 
+        </div>
+
+
+        <div class="col-6">
+             
+           <div style="width: 39px;height: 1px;border: 1px solid #00357a;margin-left:25px;margin-top:15px;"></div>
+        </div>
+
+
+      </div> </label><br>
+    
+
+            <select class="special_selec" name="valuation[year_car]" style="width: 100%;height: 74px;font-family: 'Open Sans';">
+              
+            
+           
+            </select>
+        
+        </div>
+
+
+
+
+
+        
+
+    		
+
+    	
+    </div>
+
+
+    <br><br>
+ <div class="row">
+  	  
+   <div class="col-6">
+             <label for="option1" class="form_label">
+
+
+             <div class="row">
+      
+    
+        <div class="col-6" style="font-family: 'Open Sans';">
+             
+          Model 
+        </div>
+
+
+        <div class="col-6">
+             
+           <div style="width: 39px;height: 1px;border: 1px solid #00357a;margin-left:28px;margin-top:15px;"></div>
+        </div>
+
+
+      </div> </label><br>
+            <select class="special_selec"  id="selectable_models" name="valuation[model_car]" style="width: 100%;height: 74px;font-family: 'Open Sans';">
+              
+              
+            </select>
+        
+        </div>
+    	
+    	 <div class="col-6">
+            <label for="option1" class="form_label">
+
+
+              <div class="row">
+      
+    
+        <div class="col-6"  style="font-family: 'Open Sans';">
+             
+          Kilometers 
+        </div>
+
+
+        <div class="col-6">
+             
+           <div style="width: 39px;height: 1px;border: 1px solid #00357a;margin-left:40px;margin-top:15px;"></div>
+        </div>
+
+
+      </div>
+
+       </label><br>
+            <select class="special_selec" id="valuation-kilometers" name="valuation[kilometers]" style="width: 100%;height: 74px;font-family: 'Open Sans';">
+              
+  
+            </select>
+        
+        </div>
+    
+
+
+    </div>
+
+
+        <br><br>
+
+  </div>
+  </div>
+  <div class="tab"><br><br>
+<div class="row">
+  	  
+    
+    		<div class="col-3">
+    			  <label for="option1" class="form_label" style="margin-top: 20px;">
+
+
+               <div class="row">
+      
+    
+        <div class="col-6"  style="font-family: 'Open Sans';">
+             
+          AC 
+        </div>
+
+
+        <div class="col-6">
+             
+           <div style="width: 39px;height: 1px;border: 1px solid #00357a;margin-left:52px;margin-top:15px;"></div>
+        </div>
+
+
+      </div>
+
+
+             </label><br>
+    			 
+    		
+    		</div>
+    		<div class="col-3">
+    				 
+    			<div class="first_div" id="bad_ac"  style="font-family: 'Open Sans';">Bad<img id="bad_ac_check" style="margin-left:20px;"></div>
+    		</div>
+    		<div class="col-3">
+    				 
+    		<div class="first_div" id="good_ac"  style="font-family: 'Open Sans';">Good<img id="good_ac_check" style="margin-left:20px;"></div>
+    		</div>
+    		<div class="col-3">
+    				 
+    		<div class="first_div" id="very_good_ac"  style="font-family: 'Open Sans';">Very Good<img id="very_good_ac_check" style="margin-left:20px;"></div>
+    		</div>
+
+    	    <input type="hidden" id="valuation-ac" name="valuation[ac]"  class="form-control" >
+
+    </div>
+  <br><br>
+
+<div class="row">
+  	  
+    
+    		<div class="col-3">
+    			  <label for="option1" class="form_label" style="margin-top: 20px;">
+
+              <div class="row">
+      
+    
+        <div class="col-6"  style="font-family: 'Open Sans';">
+             
+          Brakes 
+        </div>
+
+
+        <div class="col-6">
+             
+           <div style="width: 39px;height: 1px;border: 1px solid #00357a;margin-left: 40px;margin-top:15px;"></div>
+        </div>
+
+
+      </div>
+
+             </label><br>
+    			 
+    		
+    		</div>
+    		<div class="col-3">
+    				 
+    			<div class="first_div" id="bad_brakes"  style="font-family: 'Open Sans';">Bad<img id="bad_brakes_check" style="margin-left:20px;"></div>
+    		</div>
+    		<div class="col-3">
+    				 
+    		<div class="first_div" id="good_brakes"  style="font-family: 'Open Sans';">Good<img id="good_brakes_check" style="margin-left:20px;"></div>
+    		</div>
+    		<div class="col-3">
+    				 
+    		<div class="first_div" id="very_good_brakes"  style="font-family: 'Open Sans';">Very Good<img id="very_good_brakes_check" style="margin-left:20px;"></div>
+    		</div>
+ <input type="hidden" id="valuation-brakes" name="valuation[brakes]"  class="form-control" >
+    	
+    </div>
+  <br><br>
+
+<!--   <div class="row">
+  	  
+    
+    		<div class="col-3">
+    			  <label for="option1" class="form_label" style="margin-top: 20px;">
+
+               <div class="row">
+      
+    
+        <div class="col-6"  style="font-family: 'Open Sans';">
+             
+          Electrical 
+        </div>
+
+
+        <div class="col-6">
+             
+           <div style="width: 39px;height: 1px;border: 1px solid #00357a;margin-left:33px;margin-top:15px;"></div>
+        </div>
+
+
+      </div>
+
+             </label><br>
+    			 
+    		
+    		</div>
+    		<div class="col-3">
+    				 
+    			<div class="first_div" id="bad_electrical"  style="font-family: 'Open Sans';">Bad<img id="bad_electrical_check" style="margin-left:20px;"></div>
+    		</div>
+    		<div class="col-3">
+    				 
+    		<div class="first_div" id="good_electrical"  style="font-family: 'Open Sans';">Good<img id="good_electrical_check" style="margin-left:20px;"></div>
+    		</div>
+    		<div class="col-3">
+    				 
+    		<div class="first_div" id="very_good_electrical"  style="font-family: 'Open Sans';">Very Good<img id="very_good_electrical_check" style="margin-left:20px;"></div>
+    		</div>
+
+    	 <input type="hidden" id="valuation-electrical" name="valuation[electrical]"  class="form-control" >
+      
+    </div>
+  <br><br> -->
+
+
+    <div class="row">
+  	  
+    
+    		<div class="col-3">
+    			  <label for="option1" class="form_label" style="margin-top: 20px;"> 
+
+               <div class="row">
+      
+    
+        <div class="col-6"  style="font-family: 'Open Sans';">
+             
+          Rims 
+        </div>
+
+
+        <div class="col-6">
+             
+           <div style="width: 39px;height: 1px;border: 1px solid #00357a;margin-left: 45px;margin-top:15px;"></div>
+        </div>
+
+
+      </div>
+            </label><br>
+    			 
+    		
+    		</div>
+    		<div class="col-3">
+    				 
+    			<div class="first_div" id="bad_rims"  style="font-family: 'Open Sans';">Bad<img id="bad_rims_check" style="margin-left:20px;"></div>
+    		</div>
+    		<div class="col-3">
+    				 
+    		<div class="first_div" id="good_rims"  style="font-family: 'Open Sans';">Good<img id="good_rims_check" style="margin-left:20px;"></div>
+    		</div>
+    		<div class="col-3">
+    				 
+    		<div class="first_div" id="very_good_rims"  style="font-family: 'Open Sans';">Very Good<img id="very_good_rims_check" style="margin-left:20px;"></div>
+    		</div>
+ <input type="hidden" id="valuation-rims" name="valuation[rims]"  class="form-control" >
+    	
+    </div>
+  <br><br>
+  <div class="row">
+  	  
+    
+    		<div class="col-3">
+    			  <label for="option1" class="form_label" style="margin-top: 20px;">
+
+            <div class="row">
+      
+    
+        <div class="col-6"  style="font-family: 'Open Sans';">
+             
+          Seats 
+        </div>
+
+
+        <div class="col-6">
+             
+           <div style="width: 39px;height: 1px;border: 1px solid #00357a;margin-left: 45px;margin-top:15px;"></div>
+        </div>
+
+
+      </div>
+
+     </label><br>
+    			 
+    		
+    		</div>
+    		<div class="col-3">
+    				 
+    			<div class="first_div" id="bad_seats" style="font-family: 'Open Sans';">Bad<img id="bad_seats_check" style="margin-left:20px;"></div>
+    		</div>
+    		<div class="col-3">
+    				 
+    		<div class="first_div" id="good_seats" style="font-family: 'Open Sans';">Good<img id="good_seats_check" style="margin-left:20px;"></div>
+    		</div>
+    		<div class="col-3">
+    				 
+    		<div class="first_div" id="very_good_seats" style="font-family: 'Open Sans';">Very Good<img id="very_good_seats_check" style="margin-left:20px;"></div>
+    		</div>
+ <input type="hidden" id="valuation-seats" name="valuation[seats]"  class="form-control" >
+    	
+    </div>
+  <br><br>
+ <div class="row">
+      
+    
+        <div class="col-3">
+            <label for="option1" class="form_label" style="margin-top: 20px;"> 
+
+
+<div class="row">
+      
+    
+        <div class="col-6" style="font-family: 'Open Sans';">
+             
+          Radio 
+        </div>
+
+
+        <div class="col-6">
+             
+           <div style="width: 39px;height: 1px;border: 1px solid #00357a;margin-left: 43px;margin-top:15px;"></div>
+        </div>
+
+
+      </div>
+            </label><br>
+           
+        
+        </div>
+        <div class="col-3">
+             
+          <div class="first_div" id="bad_radio" style="font-family: 'Open Sans';">Bad<img id="bad_radio_check" style="margin-left:20px;"></div>
+        </div>
+        <div class="col-3">
+             
+        <div class="first_div" id="good_radio" style="font-family: 'Open Sans';">Good<img id="good_radio_check" style="margin-left:20px;"></div>
+        </div>
+        <div class="col-3">
+             
+        <div class="first_div" id="very_good_radio" style="font-family: 'Open Sans';">Very Good<img id="very_good_radio_check" style="margin-left:20px;"></div>
+        </div>
+ <input type="hidden" id="valuation-radio" name="valuation[radio]"  class="form-control" >
+      
+    </div>
+  <br><br>
+    <!-- <div class="row">
+      
+    
+        <div class="col-3">
+            <label for="option1" class="form_label" style="margin-top: 20px;">
+
+
+                 <div class="row">
+      
+    
+        <div class="col-6" style="font-family: 'Open Sans';">
+             
+          Steering 
+        </div>
+
+
+        <div class="col-6">
+             
+           <div style="width: 39px;height: 1px;border: 1px solid #00357a;margin-left: 35px;margin-top:15px;"></div>
+        </div>
+
+
+      </div>
+             </label><br>
+           
+        
+        </div>
+        <div class="col-3">
+             
+          <div class="first_div" id="bad_steering" style="font-family: 'Open Sans';">Bad<img id="bad_steering_check" style="margin-left:20px;"></div>
+        </div>
+        <div class="col-3">
+             
+        <div class="first_div" id="good_steering" style="font-family: 'Open Sans';">Good<img id="good_steering_check" style="margin-left:20px;"></div>
+        </div>
+        <div class="col-3">
+             
+        <div class="first_div" id="very_good_steering" style="font-family: 'Open Sans';">Very Good<img id="very_good_steering_check" style="margin-left:20px;"></div>
+        </div>
+ <input type="hidden" id="valuation-steering" name="valuation[steernig]"  class="form-control" >
+      
+    </div>
+  <br><br> -->
+    <div class="row">
+      
+    
+        <div class="col-3">
+            <label for="option1" class="form_label" style="margin-top: 20px;">
+
+
+                 <div class="row">
+      
+    
+        <div class="col-6" style="font-family: 'Open Sans';">
+             
+          Suspension 
+        </div>
+
+
+        <div class="col-6">
+             
+           <div style="width: 39px;height: 1px;border: 1px solid #00357a;margin-left: 25px;margin-top:15px;"></div>
+        </div>
+
+
+      </div>
+
+     </label><br>
+           
+        
+        </div>
+        <div class="col-3">
+             
+          <div class="first_div" id="bad_suspension" style="font-family: 'Open Sans';">Bad<img id="bad_suspension_check" style="margin-left:20px;"></div>
+        </div>
+        <div class="col-3">
+             
+        <div class="first_div" id="good_suspension" style="font-family: 'Open Sans';">Good<img id="good_suspension_check" style="margin-left:20px;"></div>
+        </div>
+        <div class="col-3">
+             
+        <div class="first_div"  id="very_good_suspension" style="font-family: 'Open Sans';">Very Good<img id="very_good_suspension_check" style="margin-left:20px;"></div>
+        </div>
+ <input type="hidden" id="valuation-suspension" name="valuation[suspension]"  class="form-control" >
+      
+    </div>
+  <br><br>
+    <div class="row">
+      
+    
+        <div class="col-3">
+            <label for="option1" class="form_label" style="margin-top: 20px;">
+                <div class="row">
+      
+    
+        <div class="col-6"  style="font-family: 'Open Sans';">
+             
+          Transmission 
+        </div>
+
+
+        <div class="col-6">
+             
+           <div style="width: 39px;height: 1px;border: 1px solid #00357a;margin-left: 20px;margin-top:15px;"></div>
+        </div>
+
+
+      </div>
+
+
+             </label><br>
+           
+        
+        </div>
+        <div class="col-3">
+             
+          <div class="first_div" id="bad_transmission" style="font-family: 'Open Sans';">Bad<img id="bad_transmission_check" style="margin-left:20px;"></div>
+        </div>
+        <div class="col-3">
+             
+        <div class="first_div" id="good_transmission" style="font-family: 'Open Sans';">Good<img id="good_transmission_check" style="margin-left:20px;"></div>
+        </div>
+        <div class="col-3">
+             
+        <div class="first_div" id="very_good_transmission" style="font-family: 'Open Sans';">Very Good<img id="very_good_transmission_check" style="margin-left:20px;"></div>
+        </div>
+ <input type="hidden" id="valuation-transmission" name="valuation[transmission]"  class="form-control" >
+      
+    </div>
+  <br><br>
+    <div class="row">
+      
+    
+        <div class="col-3">
+            <label for="option1" class="form_label" style="margin-top: 20px;">
+
+                  <div class="row">
+      
+    
+        <div class="col-6" style="font-family: 'Open Sans';">
+             
+          Tyres 
+        </div>
+
+
+        <div class="col-6">
+             
+           <div style="width: 39px;height: 1px;border: 1px solid #00357a;margin-left: 43px;margin-top:15px;"></div>
+        </div>
+
+
+      </div>
+             </label><br>
+           
+        
+        </div>
+        <div class="col-3">
+             
+          <div class="first_div" id="bad_tyres" style="font-family: 'Open Sans';">Bad<img id="bad_tyres_check" style="margin-left:20px;"></div>
+        </div>
+        <div class="col-3">
+             
+        <div class="first_div" id="good_tyres" style="font-family: 'Open Sans';">Good<img id="good_tyres_check" style="margin-left:20px;"></div>
+        </div>
+        <div class="col-3">
+             
+        <div class="first_div" id="very_good_tyres" style="font-family: 'Open Sans';">Very Good<img id="very_good_tyres_check" style="margin-left:20px;"></div>
+        </div>
+
+       <input type="hidden" id="valuation-tyres" name="valuation[tyres]"  class="form-control" >
+    </div>
+  <!--   <br><br>
+ <div class="row">
+      
+    
+        <div class="col-3">
+            <label for="option1" class="form_label" style="margin-top: 20px;">
+
+                  <div class="row">
+      
+    
+        <div class="col-6" style="font-family: 'Open Sans';">
+             
+          Chasis 
+        </div>
+
+
+        <div class="col-6">
+             
+           <div style="width: 39px;height: 1px;border: 1px solid #00357a;margin-left: 40px;margin-top:15px;"></div>
+        </div>
+
+
+      </div>
+             </label><br>
+           
+        
+        </div>
+        <div class="col-3">
+             
+          <div class="first_div" id="bad_chasis" style="font-family: 'Open Sans';">Bad<img id="bad_chasis_check" style="margin-left:20px;"></div>
+        </div>
+        <div class="col-3">
+             
+        <div class="first_div" id="good_chasis" style="font-family: 'Open Sans';">Good<img id="good_chasis_check" style="margin-left:20px;"></div>
+        </div>
+        <div class="col-3">
+             
+        <div class="first_div" id="very_good_chasis" style="font-family: 'Open Sans';">Very Good<img id="very_good_chasis_check" style="margin-left:20px;"></div>
+        </div>
+
+       <input type="hidden" id="valuation-chasis" name="valuation[chasis]"  class="form-control" >
+    </div> --><br><br>
+  </div>
+ 
+  <div class="tab">
+
+
+
+    <label for="option1" class="form_label" style="margin-top: 20px;">
+
+                  <div class="row">
+      
+    
+        <div class="col-6" style="font-family: 'Open Sans';width: 750px">
+             
+         Did You have any Problems in Your Engine ?
+        </div>
+
+
+        <div class="col-6">
+             
+           <div style="width: 39px;height: 1px;border: 1px solid #00357a;margin-left: 10px;margin-top:15px;"></div>
+        </div>
+
+
+      </div>
+             </label>
+
+
+
+    
+    
+
+    <div class="row">
+    		<div class="col-6">
+    			<div class="first_div"  data-toggle="modal" data-target="#modalEngine" id="yes_engine_problem"  style="font-family: 'Open Sans';">Yes<img id="yes_engine_problem_check" style="margin-left:20px;"></div>
+    		</div>
+    		<div class="col-6">
+    			<div class="first_div" id="no_engine_problem" style="font-family: 'Open Sans';">No<img id="no_engine_problem_check" style="margin-left:20px;"></div>
+    		</div>
+           <input type="hidden" id="valuation-engine_problem" name="valuation[engine_problem]"  class="form-control" >
+             <input type="hidden" id="valuation-notes_engine_input" name="valuation[notes_engine]"  class="form-control" >
+             <input type="hidden" id="valuation-engine_condition" name="valuation[engine_condition]"  class="form-control" >
+
+    	
+    </div>
+<br><br>
+
+ <label for="option1" class="form_label"><div class="row">
+      
+    
+        <div class="col-10" style="font-family: 'Open Sans';">
+             
+          Did You Paint Your Car ?
+        </div>
+
+
+        <div class="col-2">
+             
+           <div style="width: 39px;height: 1px;border: 1px solid #00357a;margin-left: 90px;margin-top:15px;"></div>
+        </div>
+
+
+      </div> </label>
+    
+
+    <div class="row">
+    		<div class="col-6">
+    			<div class="first_div" id="yes_car_paint"  data-toggle="modal" data-target="#modalPaint" style="font-family: 'Open Sans';">Yes<img id="yes_car_paint_check" style="margin-left:20px;"></div>
+    		</div>
+    		<div class="col-6">
+    			<div class="first_div" id="no_car_paint" style="font-family: 'Open Sans';">No<img id="no_car_paint_check" style="margin-left:20px;"></div>
+    		</div>
+    	 <input type="hidden" id="valuation-car_paint" name="valuation[car_paint]"  class="form-control" >
+    </div>
+
+         <input type="hidden" id="valuation-paint_lights_left_front" name="valuation[paint_lights_left_front]"  class="form-control" >
+         <input type="hidden" id="valuation-paint_lights_hood" name="valuation[paint_lights_hood]"  class="form-control" >
+         <input type="hidden" id="valuation-paint_lights_right_front" name="valuation[paint_lights_right_front]"  class="form-control" >
+         <input type="hidden" id="valuation-paint_first_side" name="valuation[paint_first_side]"  class="form-control" >
+         <input type="hidden" id="valuation-paint_second_side" name="valuation[paint_second_side]"  class="form-control" >
+         <input type="hidden" id="valuation-paint_third_side" name="valuation[paint_third_side]"  class="form-control" >
+
+         <input type="hidden" id="valuation-paint_second_left_side" name="valuation[paint_second_left_side]"  class="form-control" >
+         <input type="hidden" id="valuation-paint_third_left_side" name="valuation[paint_third_left_side]"  class="form-control" >
+
+
+         <input type="hidden" id="valuation-paint_fourth_side" name="valuation[paint_fourth_side]"  class="form-control" >
+         <input type="hidden" id="valuation-paint_first_top" name="valuation[paint_first_top]"  class="form-control" >
+         <input type="hidden" id="valuation-paint_second_top" name="valuation[paint_second_top]"  class="form-control" >
+         <input type="hidden" id="valuation-paint_third_top" name="valuation[paint_third_top]"  class="form-control" >
+         <input type="hidden" id="valuation-paint_left_back" name="valuation[paint_left_back]"  class="form-control" >
+          <input type="hidden" id="valuation-paint_middle_back" name="valuation[paint_middle_back]"  class="form-control" >
+        
+         <input type="hidden" id="valuation-paint_right_back" name="valuation[paint_right_back]"  class="form-control" >
+
+
+
+<br><br>
+
+ <label for="option1" class="form_label">      <div class="row">
+      
+    
+        <div class="col-10" style="font-family: 'Open Sans';">
+             
+          Did You have any Accident ? 
+        </div>
+
+
+        <div class="col-2">
+             
+           <div style="width: 39px;height: 1px;border: 1px solid #00357a;margin-left: 75px;margin-top:15px;"></div>
+        </div>
+
+
+      </div> </label>
+    
+
+    <div class="row">
+    		<div class="col-6">
+    			<div class="first_div" id="yes_accident"   data-toggle="modal" data-target="#modalAccident" style="font-family: 'Open Sans';">Yes<img id="yes_accident_check" style="margin-left:20px;"></div>
+    		</div>
+    		<div class="col-6">
+    			<div class="first_div" id="no_accident" style="font-family: 'Open Sans';">No<img id="no_accident_check" style="margin-left:20px;"></div>
+    		</div>
+    	<input type="hidden" id="valuation-accident" name="valuation[accident]"  class="form-control" >
+
+       <input type="hidden" id="valuation-accident_lights_left_front" name="valuation[accident_lights_left_front]"  class="form-control" >
+       <input type="hidden" id="valuation-accident_lights_hood" name="valuation[accident_lights_hood]"  class="form-control" >
+       <input type="hidden" id="valuation-accident_lights_right_front" name="valuation[accident_lights_right_front]"  class="form-control" >
+
+
+
+               <input type="hidden" id="valuation-accident_first_side" name="valuation[accident_first_side]"  class="form-control" >
+          <input type="hidden" id="valuation-accident_second_side" name="valuation[accident_second_side]"  class="form-control" >
+           <input type="hidden" id="valuation-accident_third_side" name="valuation[accident_third_side]"  class="form-control" >
+            <input type="hidden" id="valuation-accident_fourth_side" name="valuation[accident_fourth_side]"  class="form-control" >
+            
+
+
+             <input type="hidden" id="valuation-accident_second_left_side" name="valuation[accident_second_left_side]"  class="form-control" >
+           <input type="hidden" id="valuation-accident_third_left_side" name="valuation[accident_third_left_side]"  class="form-control" >
+
+
+
+         <input type="hidden" id="valuation-accident_first_top" name="valuation[accident_first_top]"  class="form-control" >
+          <input type="hidden" id="valuation-accident_second_top" name="valuation[accident_second_top]"  class="form-control" >
+           <input type="hidden" id="valuation-accident_third_top" name="valuation[accident_third_top]"  class="form-control" >
+            
+         <input type="hidden" id="valuation-accident_right_back" name="valuation[accident_right_back]"  class="form-control" >
+          <input type="hidden" id="valuation-accident_middle_back" name="valuation[accident_middle_back]"  class="form-control" >
+           <input type="hidden" id="valuation-accident_left_back" name="valuation[accident_left_back]"  class="form-control" >
+
+
+    </div>
+<br><br>
+
+
+  </div>
+ 
+  <!-- Circles which indicates the steps of the form: -->
+  <!-- <div style="text-align:center;margin-top:40px;">
+
+    <span class="step"></span>
+    <span class="step"></span>
+    <span class="step"></span>
+  </div> -->
+</form>
+
+
+
+
+                            </div>
+ <div style="overflow:auto;    margin-top: -60px;margin-left: 40px;">
+    <div style="" align="center">
+      <button type="button" id="prevBtn" onclick="nextPrev(-1)" style="width: 301px;height: 65px;font-weight: 700;letter-spacing: 0.85px;line-height: 31px;font-family: Arial;font-weight: 300;font-family: 'Open Sans';"><img src='/arrow_left.png' style='margin-right:40px;'><span style="margin-right:70px;font-family: 'Open Sans';">Previous</span></button>
+      <button type="button" id="nextBtn" onclick="nextPrev(1)" style="width: 301px;height: 65px;font-weight: 700;letter-spacing: 0.85px;line-height: 31px;font-family: Arial;font-weight: 300;"><span style='margin-left:70px;font-family: 'Open Sans';'>Next Step</span><img src='/arrow-next.png' style='margin-left:40px;'></button>
+    </div>
+  </div>
+
+
+  <script>
+ 
+
+var currentTab = 0; // Current tab is set to be the first tab (0)
+showTab(currentTab); // Display the current tab
+function fill_all2() { 
+var accident = document.getElementById("valuation-accident").value;
+var engine_problem = document.getElementById("valuation-engine_problem").value;
+var car_paint = document.getElementById("valuation-car_paint").value;
+
+
+
+            if(accident == "" || engine_problem == "" || car_paint == ""){
+              alert("Please select all your car conditions 2"); 
+            }else{
+document.getElementById("nextBtn").setAttribute( "onClick", "nextPrev(1)" );
+              nextPrev(1);
+
+            }
+  }
+
+
+    
+function showTab(n) {
+  // This function will display the specified tab of the form...
+  var x = document.getElementsByClassName("tab");
+  x[n].style.display = "block";
+  //... and fix the Previous/Next buttons:
+  if (n == 0) {
+    document.getElementById("prevBtn").style.display = "none";
+  } else {
+    document.getElementById("prevBtn").style.display = "inline";
+  }
+  if (n == (x.length - 1)) {
+    document.getElementById("nextBtn").innerHTML = "Evaluate";
+document.getElementById("nextBtn").setAttribute( "onClick", "fill_all2()" );
+  } else {
+    document.getElementById("nextBtn").innerHTML = "<span style='margin-left:70px;'>Next Step</span><img src='/arrow-next.png' style='margin-left:40px;'>";
+  }
+  //... and run a function that will display the correct step indicator:
+  fixStepIndicator(n)
+}
+
+
+function fill_all(n) { 
+
+  if(n == 0){
+    var ac = document.getElementById("valuation-ac").value;
+
+
+  var transmission = document.getElementById("valuation-transmission").value;
+  var brakes = document.getElementById("valuation-brakes").value;
+  //var electrical = document.getElementById("valuation-electrical").value;
+  var radio = document.getElementById("valuation-radio").value;
+  var rims = document.getElementById("valuation-rims").value;
+  var seats = document.getElementById("valuation-seats").value;
+  //var steering = document.getElementById("valuation-steering").value;
+  var suspension = document.getElementById("valuation-suspension").value;
+  var tyres = document.getElementById("valuation-tyres").value;
+  //var chasis = document.getElementById("valuation-chasis").value;
+
+
+            if((ac == "" || transmission == "" || brakes == "" || radio == "" || rims == "" || seats == "" || suspension == "" || tyres == "")){
+              alert("Please select all your car conditions 1"); 
+              alert()
+            }else{
+document.getElementById("nextBtn").setAttribute( "onClick", "nextPrev(1)" );
+              nextPrev(1);
+
+            }
+
+       }
+   }
+
+function nextPrev(n) {
+
+  var buyer = document.getElementById("valuation-valuation_type").value;
+  var ac = document.getElementById("valuation-ac").value;
+  var transmission = document.getElementById("valuation-transmission").value;
+  var brakes = document.getElementById("valuation-brakes").value;
+  //var electrical = document.getElementById("valuation-electrical").value;
+  var radio = document.getElementById("valuation-radio").value;
+  var rims = document.getElementById("valuation-rims").value;
+  var seats = document.getElementById("valuation-seats").value;
+  //var steering = document.getElementById("valuation-steering").value;
+  var suspension = document.getElementById("valuation-suspension").value;
+  var tyres = document.getElementById("valuation-tyres").value;
+  //var chasis = document.getElementById("valuation-chasis").value;
+  var model = document.getElementById("selectable_models").value;
+  var millage = document.getElementById("valuation-kilometers").value;
+
+
+ if( buyer == "" || buyer == null){
+
+   alert("Please select if your a buyer or seller.");
+ 
+ }else{
+
+
+  // This function will figure out which tab to display
+  var x = document.getElementsByClassName("tab");
+  // Exit the function if any field in the current tab is invalid:
+
+  // Hide the current tab:
+  if(x[currentTab]){
+      x[currentTab].style.display = "none";
+  }
+
+  // Increase or decrease the current tab by 1:
+  currentTab = currentTab + n;
+
+
+
+
+   if(currentTab == 0){
+ document.getElementById("second_step_number").src = "/2_grey.png";
+     document.getElementById("third_step_number").src = "/3_grey.png";
+
+    if (currentTab >= x.length) {
+          // ... the form gets submitted:
+          document.getElementById("regForm").submit();
+          return false;
+        }
+        // Otherwise, display the correct tab:
+        showTab(currentTab);
+  }
+
+ if (currentTab == 0){
+
+  document.getElementById("firs_ste").src = "/1_blue.png";
+     document.getElementById("second_step_number").src = "/2_grey.png";
+     document.getElementById("third_step_number").src = "/3_grey.png";
+  document.getElementById("nextBtn").setAttribute( "onClick", "nextPrev(1)");
+
+
+
+          if (currentTab >= x.length) {
+          // ... the form gets submitted:
+          document.getElementById("regForm").submit();
+          return false;
+        }
+        // Otherwise, display the correct tab:
+        showTab(currentTab);
+      
+ }
+  if (currentTab == 1){
+
+     document.getElementById("second_step_number").src = "/2_blue.png";
+     document.getElementById("third_step_number").src = "/3_grey.png";
+  document.getElementById("nextBtn").setAttribute( "onClick", "fill_all(0)" );
+
+
+
+          if (currentTab >= x.length) {
+          // ... the form gets submitted:
+          document.getElementById("regForm").submit();
+          return false;
+        }
+        // Otherwise, display the correct tab:
+        showTab(currentTab);
+      
+
+  }
+
+
+  if(currentTab == 2){
+   
+
+  document.getElementById("second_step_number").src = "/2_blue.png";
+   document.getElementById("third_step_number").src = "/3_blue.png";
+   document.body.scrollTop = 600;
+   document.documentElement.scrollTop = 600;
+
+
+
+  if (currentTab >= x.length) {
+    // ... the form gets submitted:
+    document.getElementById("regForm").submit();
+    return false;
+  }
+   showTab(currentTab);
+
+
+
+
+
+
+
+  }
+
+
+
+
+
+
+ if(currentTab > 2){
+
+   document.getElementById("regForm").submit();
+    return false;
+ }
+
+
+
+
+ }
+
+
+
+ 
+}
+
+
+
+
+
+
+
+function validateForm() {
+  // This function deals with validation of the form fields
+  var x, y, i, valid = true;
+  x = document.getElementsByClassName("tab");
+  y = x[currentTab].getElementsByTagName("input");
+  // A loop that checks every input field in the current tab:
+  for (i = 0; i < y.length; i++) {
+    // If a field is empty...
+    if (y[i].value == "") {
+      // add an "invalid" class to the field:
+      y[i].className += " invalid";
+      // and set the current valid status to false
+      valid = false;
+    }
+  }
+  // If the valid status is true, mark the step as finished and valid:
+  if (valid) {
+    document.getElementsByClassName("step")[currentTab].className += " finish";
+  }
+  return valid; // return the valid status
+}
+
+function fixStepIndicator(n) {
+  // This function removes the "active" class of all steps...
+  var i, x = document.getElementsByClassName("step");
+  for (i = 0; i < x.length; i++) {
+    x[i].className = x[i].className.replace(" active", "");
+  }
+  //... and adds the "active" class on the current step:
+  if(x[n]){
+    x[n].className += " active";
+  }
+  
+}
+</script>
+                            <br><br><br>
+
+
+ </div>
+            </div>
+        </section>
+
+        <% else %>
+        <div align="center">
+ <button class="value_button" data-toggle="modal" data-target="#modalLoginForm" style="margin-top: 35%;">PLEASE SIGN IN</button>
+</div><br><br><br>
+        <% end %>

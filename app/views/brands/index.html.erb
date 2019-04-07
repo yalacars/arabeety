@@ -1,0 +1,185 @@
+<% if session[:admin_id] %>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.js"></script>
+
+    <section class="tabs-section"style="margin-top: -80px">
+     <%= render 'layouts/header_profile_admin' %>
+<link href="https://www.cssscript.com/demo/date-range-picker-lightpick/css/lightpick.css" rel="stylesheet" type="text/css">
+<br><br><br>
+
+
+            <div class="container" >
+   <div class="row">
+   
+
+
+
+        <form action="/brands/" method="get" style="width: 100%;margin-top: -20px;margin-left: 16px;">               
+
+    <div class="row">
+
+
+      
+          <div class="col-10">
+            <input type="text" id="demo" name="brand_name" placeholder="Filter by Brand Name" class="form-control form-control-sm" style="height: 40px" value="<%= params[:brand_name] %>"> 
+          </div>
+<div class="col-2">
+   <button class="btn btn-default" style="margin-left:50px;width: 100px;height: 40px;background-color: #00357a;color: #fff;border-radius: 4px;cursor:pointer;text-align: center;pad">Filter</button>
+          </div>
+
+
+    </div>
+ 
+<br><br>
+</form>
+
+
+
+
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <% if params[:brand_name] %>
+                                <h4 class="card-title">Filtered Brands <a href="/brands/new" style="font-size: 16px;">Add Brand</a></h4>
+                                <% pa = params[:brand_name] %>
+                                  <% @brands = Brand.where("name like '%#{pa}%'")  %>
+                      <% else %>
+
+ <h4 class="card-title">Brands <a href="/brands/new" style="font-size: 16px;">Add Brand</a></h4>
+   <% @brands = Brand.all %>
+                        <% end %>
+              <div class="table-responsive m-t-40">
+                                    <div id="example23_wrapper" class="dataTables_wrapper dt-bootstrap4">
+
+                                    
+
+
+                                          <table id="example23" class="display nowrap table table-hover table-bordered dataTable" cellspacing="0" width="100%" role="grid" aria-describedby="example23_info" style="width: 100%;">
+                                        <thead>
+                                        <tr><th rowspan="1" colspan="1">Name</th><th rowspan="1" colspan="1">Registered</th><th rowspan="1" colspan="1">Picture/Logo</th><th rowspan="1" colspan="1"></th><th rowspan="1" colspan="1"></th><th rowspan="1" colspan="1"></th></tr>
+                                        </thead>
+                                     
+                                        <tbody>
+                                
+                                            
+                           
+                                  
+    
+
+           <% @brands.each do |brand| %>
+                                            
+                                        <tr role="row" class="odd">
+                                 
+                                                <td class="sorting_1"><div  style="margin-top: 12px;margin-left: 15px;"><%= brand.name %></div></td>
+                                                   <td class="sorting_1" ><div  style="margin-top: 12px;margin-left: 15px;"><%= brand.created_at.strftime("%m/%d/%Y") %></div></td>
+                                               <td><img src="<%= brand.picture.url %>" style="width: 50px;"></td>
+                                                <td>
+                                                    
+                                                     <td><a href="/car_models/new?brand=<%= brand.id %>">Add Model</a></td>
+                                                <td>
+                                          <table id="example23" class="display nowrap table table-hover table-striped table-bordered dataTable" cellspacing="0" width="100%" role="grid" aria-describedby="example23_info" style="width: 100%;">
+                                        <thead>
+                                        <tr><th rowspan="1" colspan="1">Order</th><th rowspan="1" colspan="1">Name</th><th rowspan="1" colspan="1">Price</th><th rowspan="1" colspan="1">From</th><th rowspan="1" colspan="1">To</th><th rowspan="1" colspan="1">Tier</th><th rowspan="1" colspan="1"></th></tr>
+                                        </thead>
+                                     
+                                        <tbody>
+                                
+                                            
+                           
+           
+    <style type="text/css">
+      input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+    </style>
+
+<% @nonull = CarModel.where("brand =? AND order_c is not null",brand.id).order("order_c asc") %>
+<% @yesnull = CarModel.where("brand =? AND order_c is null",brand.id) %>
+<% @wanted = @nonull+@yesnull %>
+           <% @wanted.each do |car_model| %>
+                                            
+                                        <tr role="row" class="odd">
+                                     <td class="sorting_1"><form action="/add_order_to_model" method="get"><input type="number" name="order_c" value="<%= car_model.order_c %>" style="width: 60px;"><input type="hidden" name="car_model" value="<%= car_model.id %>" style="width: 60px;"></form></td>
+                                                <td class="sorting_1"><%= car_model.name %></td>
+                                                        <td class="sorting_1"><%= car_model.price %></td>
+                                                        <% if car_model.years %>
+                                                        <td class="sorting_1"><%= Year.find(car_model.years).date %></td>
+
+                                                        <% else %>
+                                                           <td class="sorting_1"></td>
+                                                        <% end %>
+                                                         <% if car_model.years_end %>
+                                                        <td class="sorting_1"><%= Year.find(car_model.years_end).date %></td>
+
+                                                        <% else %>
+                                                           <td class="sorting_1"></td>
+                                                        <% end %>
+
+                                                           <% if car_model.tier %>
+                                                        <td class="sorting_1"><%= Tier.find(car_model.tier).tier_name %></td>
+
+                                                        <% else %>
+                                                           <td class="sorting_1"></td>
+                                                        <% end %>
+
+
+
+                                                 <td><button type="button" class="btn btn-default" data-toggle="dropdown" aria-expanded="false" style="background-color: transparent;">
+                  <img src="/3-Dots.png" style="margin-top: 10px;margin-left: -15px;" style="background-color: transparent;">
+                 
+                  </button>
+                  <ul class="dropdown-menu" role="menu" style="width: 140px;  height: 102px;  border: solid 1px #d2d2d2;  background-color: #f7f8f9;">
+                    <li class="options_links"><a href="/car_models/<%= car_model.id %>/edit" style="color: #a4a4a4;">Edit Model</a></li>
+                    <li class="options_links"><a href="/delete_car_model?car_model=<%= car_model.id %>" style="color: #a4a4a4;">Delete Model</a></li>
+                  
+               
+                  </ul></td>
+                                            </tr>
+                    <% end %>
+
+
+
+                                        </tbody>
+                                    </table>
+
+
+                                                </td>
+                                                 <td><button type="button" class="btn btn-default" data-toggle="dropdown" aria-expanded="false" style="background-color: transparent;">
+                  <img src="/3-Dots.png" style="margin-top: 10px;margin-left: -15px;" style="background-color: transparent;">
+                 
+                  </button>
+                  <ul class="dropdown-menu" role="menu" style="width: 140px;  height: 102px;  border: solid 1px #d2d2d2;  background-color: #f7f8f9;">
+                    <li class="options_links"><a href="/brands/<%= brand.id %>/edit" style="color: #a4a4a4;">Edit Brand</a></li>
+                    <li class="options_links"><a href="/delete_brand?brand=<%= brand.id %>" style="color: #a4a4a4;">Delete Brand</a></li>
+                  
+               
+                  </ul></td>
+                                            </tr>
+ <% end %>
+
+
+
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                                </div>
+                                </div>
+                                </div>
+                                </div>
+                                </div>
+
+            </div>
+
+
+
+        </section>
+
+        <% else %>
+        <div align="center" style="margin-top: -700px;">
+ <button class="value_button" data-toggle="modal" data-target="#modalLoginForm" style="margin-top: 35%;">PLEASE SIGN IN</button>
+</div><br><br><br>
+        <% end %>
+
+

@@ -1,0 +1,757 @@
+
+<style type="text/css">
+  .value_button{
+
+
+    max-width: 376px;
+    min-width: 280px;
+height: 75px;
+background-color: #ff8409;
+
+
+border: 1px solid #ffffff;
+color: #ffffff;
+font-family: "Helvetica Neue";
+font-size: 18px;
+font-weight: 600;
+
+letter-spacing: 4.57px;
+line-height: 8px;
+text-transform: uppercase;
+/* Text style for "VALUE YOUR" */
+
+font-weight: 400;
+
+}
+</style>
+<% if session[:user_id] || session[:admin_id] %>
+
+<style type="text/css">
+.value_button{
+
+
+    max-width: 376px;
+    min-width: 280px;
+height: 75px;
+background-color: #ff8409;
+
+
+border: 1px solid #ffffff;
+color: #ffffff;
+font-family: "Helvetica Neue";
+font-size: 18px;
+font-weight: 600;
+
+letter-spacing: 4.57px;
+line-height: 8px;
+text-transform: uppercase;
+/* Text style for "VALUE YOUR" */
+
+font-weight: 400;
+
+}
+    .email-tel-user{
+
+
+
+color: #4a4a4a;
+font-family: "Helvetica Neue";
+font-size: 19px;
+font-weight: 300;
+letter-spacing: 2.62px;
+line-height: 11px;
+/* Text style for "ehabfcih94" */
+margin-top: 20px;
+font-weight: 300;
+    }
+
+    .name_user{
+        color: #4a4a4a;
+font-family: "Helvetica Neue";
+font-size: 22px;
+font-weight: 700;
+letter-spacing: 3.04px;
+line-height: 11px;
+/* Text style for "Ehab Moham" */
+font-family: "Segoe UI";
+font-weight: 700;
+    }
+
+</style>
+<section class="tabs-section" style="margin-top: -80px">
+
+  <% if session[:user_id] %>
+     <%= render 'layouts/header_profile' %>
+     <% else %>
+
+       <%= render 'layouts/header_profile_admin' %>
+     <% end %>
+      <br><br><br><br> 
+
+
+      <div class="container" >
+                
+<div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">My Messages</h4>
+
+
+
+
+  <div class="table-responsive m-t-40">
+                                    <div id="example23_wrapper" class="dataTables_wrapper dt-bootstrap4">
+
+                                    
+
+
+                       <table id="example23" class="display nowrap table table-hover table-striped table-bordered dataTable" cellspacing="0" width="100%" role="grid" aria-describedby="example23_info" style="width: 100%;">
+                               
+                                     
+                                        <tbody>
+                                
+                                            
+                           
+            <% if session[:admin_id] %>
+    
+            
+           <% Message.where("admin_id =?",session[:admin_id]).each do |message| %>
+                                            <% if message.user_id != 5 %>
+                                        <tr role="row" class="odd">
+                                            <td class="sorting_1"><img src="/user_placeholder_final.png" style="width: 49px;height: 49px;margin-top: 0px;border-radius: 50%;border: solid 4px #ffffff;"></td>
+                                                <td class="sorting_1"><div  style="margin-top: 12px;margin-left: 15px;"><%= User.find(message.user_id).name %></div></td>
+                                               <td><div  style="margin-top: 12px;margin-left: 15px;"><%= message.subject %></div></td>
+                                               <td><div  style="margin-top: 12px;margin-left: 15px;"><%= message.text %></div></td>
+                              
+                                                 <td align="center"><button type="button" class="btn btn-default" data-toggle="dropdown" aria-expanded="false" style="background-color: transparent;">
+                  <img src="/3-Dots.png" style="margin-top: 10px;margin-left: -15px;" style="background-color: transparent;">
+                 
+                  </button>
+                  <ul class="dropdown-menu" role="menu" style="width: 140px;  height: 102px;  border: solid 1px #d2d2d2;  background-color: #f7f8f9;">
+                   <% subj = message.subject  %>
+
+                   <% if message.text.include? "," %>
+                    <% msj = message.text.gsub! ', ', ' '    %>
+                   <% else %>
+                    <% msj = message.text %>
+
+                   <% end %>
+               
+                    <li class="options_links"><a   href="#"  onclick="return viewMessage('<%= subj %>','<%= msj %>');" style="color: #a4a4a4;">View Message</a></li>
+           
+                  
+               
+                  </ul></td>
+                                            </tr>
+
+
+                                            <% end %>
+            <% end %>
+
+            <% else %>
+
+               <% Message.where("user_id =?",session[:user_id]).each do |message| %>
+                                            
+                                        <tr role="row" class="odd">
+                                            <td class="sorting_1"><img src="/user_placeholder_final.png" style="width: 49px;height: 49px;margin-top: 0px;border-radius: 50%;border: solid 4px #ffffff;"></td>
+                                                <td class="sorting_1"><div  style="margin-top: 12px;margin-left: 15px;"><%= message.subject %></div></td>
+                                               <td><div  style="margin-top: 12px;margin-left: 15px;"><%= message.text %></div></td>
+                              
+
+                                   <% subj = message.subject  %>
+                <% if message.text.include? "," %>
+                    <% msj = message.text.gsub! ', ', ' '    %>
+                   <% else %>
+                    <% msj = message.text %>
+
+                   <% end %>
+
+                   
+                                                 <td align="center"><a   href="#"  onclick="return viewMessage('<%= subj %>','<%= msj %>');" style="color: #a4a4a4;">View Message</a></td>
+                                            </tr>
+            <% end %>
+
+            <% end %>
+
+                                        </tbody>
+                                    </table>
+
+                                    <% if session[:user_id] %>
+<img src="/send_message_profile.png"  onclick="return goMessageModal();">
+<% end %>
+                                </div>
+                                </div>
+
+  </div>  </div>  </div>  </div>
+
+
+                        <style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f1f1f1;
+}
+
+#regForm {
+  background-color: #ffffff;
+  margin: 100px auto;
+  font-family: Raleway;
+  padding: 40px;
+  width: 100%;
+  min-width: 300px;
+}
+
+
+
+input {
+  padding: 10px;
+  width: 100%;
+  font-size: 17px;
+  font-family: Raleway;
+  border: 1px solid #aaaaaa;
+}
+
+/* Mark input boxes that gets an error on validation: */
+input.invalid {
+  background-color: #ffdddd;
+}
+
+/* Hide all steps by default: */
+.tab {
+  display: none;
+}
+
+button {
+  background-color: #00357a;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 17px;
+  font-family: Raleway;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+#prevBtn {
+  background-color: #00357a;
+}
+
+/* Make circles that indicate the steps of the form: */
+.step {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #00357a;
+  border: none;  
+  border-radius: 50%;
+  display: inline-block;
+  opacity: 0.5;
+}
+
+.step.active {
+  opacity: 1;
+}
+
+/* Mark the steps that are finished and valid: */
+.step.finish {
+  background-color: #00357a;
+}
+.inputGroup {
+
+  }
+
+
+.first_div{
+
+  color: #ffffff;
+font-family: "Helvetica Neue";
+font-size: 17px;
+font-weight: 700;
+letter-spacing: 0.85px;
+line-height: 31px;
+/* Text style for "Damaged" */
+text-align: center;
+vertical-align: middle;
+line-height: 74px;
+font-weight: 700;
+  background-color: #ff8409;
+  border-radius: 4px;
+  height: 74px;
+}
+.form_label{
+  color: #4a4a4a;
+font-family: "Helvetica Neue";
+font-size: 17px;
+font-weight: 700;
+letter-spacing: 0.85px;
+line-height: 31px;
+/* Text style for "Engine Con" */
+font-weight: 700;
+}
+
+
+.special_selec{
+    color: #ffffff;
+font-family: "Helvetica Neue";
+font-size: 17px;
+font-weight: 700;
+letter-spacing: 0.85px;
+line-height: 31px;
+/* Text style for "Damaged" */
+text-align: center;
+vertical-align: middle;
+line-height: 74px;
+font-weight: 700;
+  background-color: #ff8409;
+  border-radius: 4px;
+  height: 74px;
+}
+
+
+
+</style>
+                        
+
+
+
+
+
+
+
+           
+
+</div>
+
+
+
+        </section>
+
+
+
+
+        <div class="modal fade" id="sendMessageModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content"  style="margin-left: -250px;width: 950px;height: 645px;background-color: #ffffff;;margin-top: 130px;">
+      
+      <form id="message_form" action="/send_message">
+      <div class="modal-body mx-3" style="margin-left: 100px;margin-top: 50px;">
+
+                <div class="row" style="margin-left: 50px;">
+        <div class="col-12">
+            <label for="option1" class="form_label">
+
+              <div class="row">
+      
+    
+        <div class="col-4" >
+                          <div style="width: 164px;
+height: 31px;
+opacity: 0.74;
+color: #b5b5b5;
+font-family: 'Helvetica Neue';
+font-size: 17px;
+font-weight: 700;
+letter-spacing: 0.85px;
+line-height: 31px;
+
+font-family: Arial;
+font-weight: 700;">
+          Subject 
+        </div>
+        </div>
+
+
+        <div class="col-8">
+             
+           <div style="width: 39px;height: 1px;border: 1px solid #ff8409;margin-left:-5px;margin-top:17px;"></div>
+        </div>
+
+
+      </div>
+
+
+            </label>
+            <input type="text"  name="subject" placeholder="Subject" class="form-control" style="width: 439px;
+height: 74px;border-radius: 8px;background-color: #f6f6f6;color: #4a4a4a;font-family: 'Helvetica Neue';font-size: 14px;font-weight: 700;letter-spacing: 0.7px;line-height: 26px;font-family: Arial;font-weight: 700;" >
+
+
+
+  <% if session[:user_id] %>
+
+     <input type="hidden"  name="user_id" value="<%= session[:user_id] %>" class="form-control" >
+
+  <% else %>
+
+       <input type="hidden"  name="admin_id" value="<%= session[:user_id] %>" class="form-control" >
+  <% end %>
+
+        </div>
+     
+    </div>
+
+
+
+
+
+
+
+<br><br>
+
+        <div class="row" style="margin-left: 50px;"s>
+        <div class="col-12">
+            <label for="option1" class="form_label">
+
+              <div class="row">
+      
+    
+        <div class="col-4" >
+                          <div style="width: 164px;
+height: 31px;
+opacity: 0.74;
+color: #b5b5b5;
+font-family: 'Helvetica Neue';
+font-size: 17px;
+font-weight: 700;
+letter-spacing: 0.85px;
+line-height: 31px;
+
+font-family: Arial;
+font-weight: 700;">
+          Message 
+        </div>
+        </div>
+
+
+        <div class="col-8">
+             
+           <div style="width: 39px;height: 1px;border: 1px solid #ff8409;margin-left:5px;margin-top:17px;"></div>
+        </div>
+
+
+      </div>
+
+
+            </label>
+ <textarea class="form-control" name="text" placeholder="Message" style="margin-left: 0px;width: 80%;height: 194px;background-color: #f6f6f6;"></textarea>  
+
+
+        </div>
+     
+    </div>
+
+
+
+
+
+
+        
+      </div>
+
+      <div class="modal-footer d-flex justify-content-center" style="border-top: 0px;">
+  <img src="/send_message_profile.png"  onclick="return submitForm();">
+      </div>
+
+
+       </form>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+   <div class="modal fade" id="sendMessageModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content"  style="margin-left: -250px;width: 950px;height: 645px;background-color: #ffffff;;margin-top: 130px;">
+      
+      <form id="message_form" action="/send_message">
+      <div class="modal-body mx-3" style="margin-left: 100px;margin-top: 50px;">
+
+                <div class="row" style="margin-left: 50px;">
+        <div class="col-12">
+            <label for="option1" class="form_label">
+
+              <div class="row">
+      
+    
+        <div class="col-4" >
+                          <div style="width: 164px;
+height: 31px;
+opacity: 0.74;
+color: #b5b5b5;
+font-family: 'Helvetica Neue';
+font-size: 17px;
+font-weight: 700;
+letter-spacing: 0.85px;
+line-height: 31px;
+
+font-family: Arial;
+font-weight: 700;">
+          Subject 
+        </div>
+        </div>
+
+
+        <div class="col-8">
+             
+           <div style="width: 39px;height: 1px;border: 1px solid #ff8409;margin-left:-5px;margin-top:17px;"></div>
+        </div>
+
+
+      </div>
+
+
+            </label>
+            <input type="text"  name="subject" placeholder="Subject" class="form-control" style="width: 439px;
+height: 74px;border-radius: 8px;background-color: #f6f6f6;color: #4a4a4a;font-family: 'Helvetica Neue';font-size: 14px;font-weight: 700;letter-spacing: 0.7px;line-height: 26px;font-family: Arial;font-weight: 700;" >
+
+
+
+  <% if session[:user_id] %>
+
+     <input type="hidden"  name="user_id" value="<%= session[:user_id] %>" class="form-control" >
+
+  <% else %>
+
+       <input type="hidden"  name="admin_id" value="<%= session[:user_id] %>" class="form-control" >
+  <% end %>
+
+        </div>
+     
+    </div>
+
+
+
+
+
+
+
+<br><br>
+
+        <div class="row" style="margin-left: 50px;"s>
+        <div class="col-12">
+            <label for="option1" class="form_label">
+
+              <div class="row">
+      
+    
+        <div class="col-4" >
+                          <div style="width: 164px;
+height: 31px;
+opacity: 0.74;
+color: #b5b5b5;
+font-family: 'Helvetica Neue';
+font-size: 17px;
+font-weight: 700;
+letter-spacing: 0.85px;
+line-height: 31px;
+
+font-family: Arial;
+font-weight: 700;">
+          Message 
+        </div>
+        </div>
+
+
+        <div class="col-8">
+             
+           <div style="width: 39px;height: 1px;border: 1px solid #ff8409;margin-left:5px;margin-top:17px;"></div>
+        </div>
+
+
+      </div>
+
+
+            </label>
+ <textarea class="form-control" name="text" placeholder="Message" style="margin-left: 0px;width: 80%;height: 194px;background-color: #f6f6f6;"></textarea>  
+
+
+        </div>
+     
+    </div>
+
+
+
+
+
+
+        
+      </div>
+
+      <div class="modal-footer d-flex justify-content-center" style="border-top: 0px;">
+  <img src="/send_message_profile.png"  onclick="return submitForm();">
+      </div>
+
+
+       </form>
+    </div>
+  </div>
+</div>
+
+
+
+   <div class="modal fade" id="viewMessageModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content"  style="margin-left: -250px;width: 950px;height: 645px;background-color: #ffffff;;margin-top: 130px;">
+      
+      
+<form id="message_form>
+      <div class="modal-body mx-3" style="margin-left: 100px;margin-top: 50px;">
+
+                <div class="row" style="margin-left: 50px;">
+        <div class="col-12">
+            <label for="option1" class="form_label">
+
+              <div class="row">
+        <input type="hidden" id="message_to_show">
+    
+        <div class="col-4" >
+                          <div style="width: 164px;
+height: 31px;
+opacity: 0.74;
+color: #b5b5b5;
+font-family: 'Helvetica Neue';
+font-size: 17px;
+font-weight: 700;
+letter-spacing: 0.85px;
+line-height: 31px;
+
+font-family: Arial;
+font-weight: 700;">
+          Subject 
+        </div>
+        </div>
+
+
+        <div class="col-8">
+             
+           <div style="width: 39px;height: 1px;border: 1px solid #ff8409;margin-left:-5px;margin-top:17px;"></div>
+        </div>
+
+
+      </div>
+
+
+            </label>
+        <div id="view_message_subject"></div>
+
+
+        </div>
+     
+    </div>
+
+
+
+
+
+
+
+<br><br>
+
+        <div class="row" style="margin-left: 50px;"s>
+        <div class="col-12">
+            <label for="option1" class="form_label">
+
+              <div class="row">
+      
+    
+        <div class="col-4" >
+                          <div style="width: 164px;
+height: 31px;
+opacity: 0.74;
+color: #b5b5b5;
+font-family: 'Helvetica Neue';
+font-size: 17px;
+font-weight: 700;
+letter-spacing: 0.85px;
+line-height: 31px;
+
+font-family: Arial;
+font-weight: 700;">
+          Message 
+        </div>
+        </div>
+
+
+        <div class="col-8">
+             
+           <div style="width: 39px;height: 1px;border: 1px solid #ff8409;margin-left:5px;margin-top:17px;"></div>
+        </div>
+
+
+      </div>
+
+
+            </label>
+         <div id="view_message_message"></div>
+
+        </div>
+     
+    </div>
+
+
+
+
+
+
+        
+      </div>
+
+
+       </form>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+<script type="text/javascript">
+   function submitForm(){
+
+
+    var form = document.getElementById("message_form");
+    form.submit();
+  }
+
+  function goMessageModal(){
+    $('#sendMessageModal').modal('show');
+
+
+  }
+
+
+
+
+  function viewMessage(subject,message){
+document.getElementById("view_message_message").innerHTML = message ;
+
+document.getElementById("view_message_subject").innerHTML = subject ;
+
+
+    $('#viewMessageModal').modal('show');
+
+  }
+</script>
+
+
+        <% else %>
+        <div align="center" style="margin-top: -700px;">
+ <button class="value_button" data-toggle="modal" data-target="#modalLoginForm" style="margin-top: 35%;">PLEASE SIGN IN</button>
+</div><br><br><br>
+        <% end %>
+
+
+

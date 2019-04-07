@@ -1,0 +1,41 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  trim_types: MyString
+  millages: MyString
+  years: MyString
+  number_owners: MyString
+  ac: MyString
+  breaks: MyString
+  electrical: MyString
+  rims: MyString
+  seats: MyString
+  radio: MyString
+  steerng: MyString
+  suspension: MyString
+  transmission: MyString
+  chasis: MyString
+  engine_condition: MyString
+  paint: MyString
+  accident: MyString
+  tier_name: MyString
+
+two:
+  trim_types: MyString
+  millages: MyString
+  years: MyString
+  number_owners: MyString
+  ac: MyString
+  breaks: MyString
+  electrical: MyString
+  rims: MyString
+  seats: MyString
+  radio: MyString
+  steerng: MyString
+  suspension: MyString
+  transmission: MyString
+  chasis: MyString
+  engine_condition: MyString
+  paint: MyString
+  accident: MyString
+  tier_name: MyString

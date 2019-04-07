@@ -1,0 +1,100 @@
+
+
+<%= form_with(model: car, local: true, :html => {:class => 'floating-labels m-t-40'}) do |form| %><br><br><br>
+                                    
+  
+   <div class="form-group">
+                                        <label>Choose Car Brand</label>
+                                        <select class="form-control" name="car[brand]">
+                                            <% Brand.all.each do |brand| %>
+                                            <% if brand.id == @car.brand %>
+                                                <option value="<%= brand.id %>" selected><%= brand.name %></option>
+                                            <% else %>
+                                            <option value="<%= brand.id %>"><%= brand.name %></option>
+                                            <% end %>
+                                                    
+                                             <% end %>
+                                        </select>
+                                          
+                                    </div>
+
+
+
+
+                                       <div class="form-group">
+                                        <label>Choose Car Model</label>
+                                        <select class="form-control" name="car[model]">
+                                            <% CarModel.all.each do |car_model| %>
+                                            <% if @car.model == car_model.id %>
+                                                <option value="<%= car_model.id %>" selected><%= car_model.name %></option>
+                                            <% else %>
+                                            <option value="<%= car_model.id %>"><%= car_model.name %></option>
+                                            <% end %>
+                                                    
+                                             <% end %>
+                                        </select>
+                                          
+                                    </div>
+
+
+
+
+                                     <div class="form-group">
+                                        <label>Choose Car Mileage</label>
+                                        <select class="form-control" name="car[mileage]">
+                                            <% Millage.all.each do |millage| %>
+                                            <% if @car.mileage == millage.id %>
+                                                <option value="<%= millage.id %>" selected><%= millage.range %></option>
+                                            <% else %>
+                                            <option value="<%= millage.id %>"><%= millage.range %></option>
+                                            <% end %>
+                                                    
+                                             <% end %>
+                                        </select>
+                                          
+                                    </div>
+
+
+
+
+
+                                   <div class="form-group">
+                                                <label class="col-md-12">Car Year</label>
+                                                <div class="col-md-12">
+                                                    <input type="text" placeholder="Car Year" class="form-control form-control-line" name="car[year]" value="<%= @car.year %>">
+                                                    
+                                                </div>
+                                            </div>
+
+
+                                            <div class="form-group">
+                                                <label class="col-md-12">Car Condition</label>
+                                                <div class="col-md-12">
+                                                    <input type="text" placeholder="Car Condition" class="form-control form-control-line" name="car[condition]" value="<%= @car.condition %>">
+                                                    
+                                                </div>
+                                            </div>
+                                            
+
+
+                                             <div class="form-group">
+                                                <label class="col-md-12">Car Damages</label>
+                                                <div class="col-md-12">
+                                                    <input type="text" placeholder="Car Damages" class="form-control form-control-line" name="car[damages]" value="<%= @car.damages %>">
+                                                    
+                                                </div>
+                                            </div>
+                                            
+                                      
+                                         
+                                            <div class="form-group">
+                                                <div class="col-sm-12">
+                                                    <button class="btn btn-success">Add/Update Car</button>
+                                                </div>
+                                            </div>
+                                      <% end %>
+
+
+
+
+      

@@ -1,0 +1,2 @@
+class Millage < ApplicationRecord
+end
