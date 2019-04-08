@@ -61,6 +61,28 @@ Rails.application.routes.draw do
   get "getBrands" => "home#getBrands", :as => "getBrands"
   get "getYears" => "home#getYears", :as => "getYears"
   get "getKM" => "home#getKM", :as => "getKM"
+
+
+
+
+  # API Methods
+
+
+  post "register_user_service" => "api#register_user_service", :as => "register_user_service"
+  post "login_user_service" => "api#login_user_service", :as => "login_user_service"
+  post "register_valuation_service" => "api#register_valuation_service", :as => "register_valuation_service"
+  post "send_password_reset_service" => "api#send_password_reset_service", :as => "send_password_reset_service"
+  post "update_info_service" => "api#update_info_service", :as => "update_info_service"
+
+
+
+  get "get_km_service" => "api#get_km_service", :as => "get_km_service"
+  get "get_years_service" => "api#get_years_service", :as => "get_years_service"
+  get "get_brands_service" => "api#get_brands_service", :as => "get_brands_service"
+  get "get_models_service" => "api#get_models_service", :as => "get_models_service"
+
+
+
     
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
