@@ -1,279 +1,12 @@
-class HomeController < ApplicationController
+class ApiController < ApplicationController
 
 
-	def index 
 
-		@users = User.all
-		@valuations = Valuation.all
-		@partners = Partner.all
+		def register_valuation_service
 
-	end
-
-	def administrator
-
-
-	end
-
-def add_order_to_model
-
-@car_model = CarModel.find(params[:car_model])
-@car_model.order_c = params[:order_c]
-@car_model.save
-
-redirect_to brands_url
-
-end
-
-
-def update_model_listing
-
-  @brand = Brand.find(params[:brand_id])
-  @model = CarModel.find(params[:car_model])
-
-  @model.order_c = params[:order_c]
-  @model.name = params[:name]
-  @model.price = params[:price]
-  @model.years = params[:years]
-  @model.years_end = params[:years_end]
-  @model.tier = params[:tier]
-  @model.save
-
-  redirect_to brands_url
-
-end
-
-
-		def update_pass
-
-			  @user = User.find_by_password_reset_token!(params[:token])
-		  if @user.password_reset_sent_at < 2.hours.ago
-		    redirect_to root_url, :alert => "Password reset has expired."
-		  else
-		   @user.update(user_params)
-		    redirect_to root_url, :notice => "Your password has been reset!"
-		  end
-
-		end
-
-
-def getKM
-
-		@array = []
-		for brand in Millage.all
-
-			@array.push(:id => brand.id.to_s, :name => brand.range)
-
-		end
-		render :json => @array
-
-
-end
-
-
-def getYears
-
-
-@array = []
-		for brand in Year.all.reverse
-
-			@array.push(:id => brand.id.to_s, :name => brand.date)
-
-		end
-		render :json => @array
-
-
-end
-
-
-def getBrands
-
-@array = []
-		for brand in Brand.all
-
-			@array.push(:id => brand.id.to_s, :name => brand.name)
-
-		end
-		render :json => @array
-
-end
-
-
-	def getModels
-
-
-
-		@models = CarModel.where("brand =?",params[:brand_id])
-
-		@model_years = []
-
-
-		@years = Year.all
-
-		#Year.where('date >= ? AND date <= ?', params[:years], params[:years_end])
-
-				for model in @models
-					if model.years
-
-						if model.years_end
-
-            
-
-
-							if Year.find(model.years).date <= Year.find(params[:years]).date and Year.find(params[:years]).date <= Year.find(model.years_end).date   
-				
-								@model_years.push(model)
-							end
-
-
-						else
-
-								if Year.find(model.years).date >= Year.find(params[:years]).date 
-				
-								@model_years.push(model)
-							end
-
-
-						end
-
-
-					end
-				end
-
-
-
-
-
-
-		@array = []
-		for model in @model_years
-
-			@array.push(:id => model.id.to_s, :name => model.name)
-
-		end
-		render :json => @array
-
-
-
-	end
-
-	def delete_admin
-
-		@admin = Admin.find(params[:admin])
-
-		@admin.destroy
-		redirect_to admins_url
-	end
-
-
-
-	def delete_user
-
-		@user = User.find(params[:user_id])
-		@valuations = Valuation.where("user_id =?",@user.id)
-		@messages = Message.where("user_id =?",@user.id)
-		@user_stat = UserStat.new
-
-		@user_stat.state = "Deleted"
-		@user_stat.email = @user.email
-		@user_stat.save
-
-		@valuations.delete_all
-		@messages.delete_all
-		@user.destroy
-
-
-
-
-		redirect_to users_url
-
-	end
-
-
-	def delete_tier
-
-		@tier = Tier.find(params[:tier])
-		@car_models = CarModel.where("tier =?",@tier.id)
-		@car_models.delete_all
-		@tier.destroy
-
-
-		redirect_to tiers_url
-
-
-	end
-
-
-	def delete_year
-
-		@year = Year.find(params[:year])
-		Valuation.where("year_car =?",@year.id).delete_all
-		CarModel.where("years =?",@year.id).delete_all
-		CarModel.where("years_end =?",@year.id).delete_all
-		@year.destroy
-		redirect_to years_url
-		
-	end
-
-	def delete_owner
-
-		@owner = Owner.find(params[:owner])
-
-		Valuation.where("number_owners =?",@owner.id).delete_all
-		@owner.destroy
-		redirect_to owners_url
-		
-	end
-
-	def delete_brand
-
-		@brand = Brand.find(params[:brand])
-
-
-
-		CarModel.where("brand =?",@brand.name).delete_all
-		Valuation.where("brand =?",@brand.id).delete_all
-
-
-		@brand.destroy
-		redirect_to brands_url
-		
-	end
-
-
-
-	def delete_car_model
-
-		@carmodel = CarModel.find(params[:car_model])
-		Valuation.where("model_car =?",@carmodel.id).delete_all
-		@carmodel.destroy
-		redirect_to brands_url
-
-	end
-
-	def delete_trim
-
-		@trim = Trim.find(params[:trim])
-		Valuation.where("trim_select =?",@trim.id).delete_all
-		@trim.destroy
-		redirect_to brands_url
-
-	end
-
-	def delete_millage
-
-		@millage = Millage.find(params[:millage])
-		Valuation.where("kilometers =?",@millage.id).delete_all
-		@millage.destroy
-		redirect_to millages_url
-	end
-
-
-
-	def register_valuation
-
-		@valuation = Valuation.new(valuation_params)
+			@valuation = Valuation.new(valuation_params)
 		@user = User.find(params[:valuation][:user_id])
-    respond_to do |format|
+
       if @valuation.save
         @valuation.save
       	 @model = CarModel.find(@valuation.model_car)
@@ -1161,183 +894,45 @@ logger.info("Middle Back Bumper: " + @back_middle_bumper_accident_percentage.to_
       @valuation.final_condition = @condition_string
       
       @valuation.save
-      logger.info("wooooow")
-        format.html { redirect_to @valuation }
-        format.json { render :show, status: :created, location: @valuation }
-      else
-        format.html { render :new }
-        format.json { render json: @valuation.errors, status: :unprocessable_entity }
-      end
-    end
 
-	end
+	  logger.info("wooooow")	
+      render :json => @valuation
+      
+      
+			else
 
+			render :json => {:Status => "There was an error saving the valuation"}.to_json() 
 
-	def getMessages
-
-
-		@messages = Message.all
-
-		render :json => @messages
-
-	end
-
-
-
-	def send_message
-
-
-		@message = Message.new
-
-		if params[:admin_id]
-
-			@message.admin_id =  params[:admin_id]
-			@message.user_id =  params[:user_id]
-			@message.text = params[:text]
-			@message.subject = params[:subject]
-			@message.save!
-
-		else
-
-			@message.admin_id =  Admin.all[0].id
-			@message.user_id =  params[:user_id]
-			@message.text = params[:text]
-			@message.subject = params[:subject]
-			@message.save!
-		end
-
-			redirect_to messages_url
-
-
-	end
-
-
-
-
-
-
-
-	def send_message_to_user
-
-		@conversation = Conversation.find_by_user_id(params[:user_id])
-
-		if @conversation
-
-           @message = Message.new
-           @message.user_id = params[:user_id]
-           @message.user_id = params[:admin_id]
-           @message.text = params[:text_to_send]
-           @message.conversation_id = @conversation.id
-           @message.save
-
-		else
-			@conversation = Conversation.new
-			@conversation.user_id = params[:user_id]
-			@conversation.admin_id = params[:admin_id]
-			@conversation.save
-
-			@message = Message.new
-           @message.user_id = params[:user_id]
-           @message.user_id = params[:admin_id]
-           @message.text = params[:text_to_send]
-           @message.conversation_id = @conversation.id
-           @message.save
+			end
 
 		end
 
-		redirect_to admin_dashboard_url
+		def send_password_reset_service
 
 
+			if params[:email]
 
-	end
+			user = User.find_by_email(params[:email])
+			if user
+		  		user.send_password_reset 
+				render :json => {:Status => "Email sent with password reset instructions"}.to_json() 
+			else
+			
+				render :json => {:Status => "No account was found with that email"}.to_json() 
 
-
-
-	def send_message_to_admin
-
-		@conversation = Conversation.find_by_user_id(params[:admin_id])
-
-		if @conversation
-
-           @message = Message.new
-           @message.user_id = params[:user_id]
-           @message.user_id = params[:admin_id]
-           @message.text = params[:text_to_send]
-           @message.conversation_id = @conversation.id
-           @message.save
-
+			end	
 		else
-			@conversation = Conversation.new
-			@conversation.user_id = params[:user_id]
-			@conversation.admin_id = params[:admin_id]
-			@conversation.save
 
-			@message = Message.new
-           @message.user_id = params[:user_id]
-           @message.user_id = params[:admin_id]
-           @message.text = params[:text_to_send]
-           @message.conversation_id = @conversation.id
-           @message.save
+			render :json => {:Status => "Please enter your email"}.to_json() 
+		end
+
+
+
 
 		end
 
-		redirect_to profile_url
 
-
-	end
-
-
-
-
-	def user_registration
-
-
-				@user = User.find_by_email(params[:user][:email])
-
-				if @user
-
-					redirect_to root_url
-
-				else
-						
-					
-
-		
-			      if params[:user][:password] == params[:user][:password_confirmation]
-			      	@user = User.new(user_params)
-			      	@user.save
-
-			      	UserMailer.registration_confirmation(@user).deliver
-			      	#session[:user_id] = @user.id
-			        redirect_to root_url
-			      else
-
-
-			        redirect_to root_url
-			      end
-
-   				end
-
-	end
-
-
-	def update_user_info
-
-		@user = User.find(params[:user_id])
-		@user.name = params[:name]
-		@user.email = params[:email]
-		@user.phone = params[:phone]
-		@user.password = params[:password]
-		@user.password_confirmation = params[:password_confirmation]
-		@user.save
-
-		redirect_to profile_url
-
-	end
-
-
-	def register_user_js
-
+		def register_user_service
 
 
 				@user = User.find_by_email(params[:email])
@@ -1388,39 +983,14 @@ logger.info("Middle Back Bumper: " + @back_middle_bumper_accident_percentage.to_
    				end
 
 
-
-
-	end
-
-
-	def send_password_reset
-
-		if params[:email]
-
-			user = User.find_by_email(params[:email])
-			if user
-		  		user.send_password_reset 
-				render :json => {:Status => "Email sent with password reset instructions"}.to_json() 
-			else
-			
-				render :json => {:Status => "No account was found with that email"}.to_json() 
-
-			end	
-		else
-
-			render :json => {:Status => "Please enter your email"}.to_json() 
 		end
 
 
-		
-	end
+
+		def login_user_service
 
 
-
-	def login_user_js
-
-
-		@user = User.find_by_email(params[:email])
+			@user = User.find_by_email(params[:email])
 
 		if @user
 
@@ -1459,7 +1029,7 @@ logger.info("Middle Back Bumper: " + @back_middle_bumper_accident_percentage.to_
 
 
 
-						render :json => {:Status => "Login in"}.to_json() 
+						render :json => {:Status => "Login in",:User => @user}.to_json() 
 						
 			else
 				render :json => {:Status => "Your email does not match your password"}.to_json() 
@@ -1484,7 +1054,7 @@ logger.info("Middle Back Bumper: " + @back_middle_bumper_accident_percentage.to_
 						@user_stat.save
 
 		
-						render :json => {:Status => "Login in"}.to_json() 
+						render :json => {:Status => "Login in", :User => @user}.to_json() 
 				
 				else
 				render :json => {:Status => "Your phone does not match your password"}.to_json() 
@@ -1499,145 +1069,132 @@ logger.info("Middle Back Bumper: " + @back_middle_bumper_accident_percentage.to_
 			
 		end
 
-	end
 
 
 
-	def goUser
-		@user = User.find_by_email(params[:email])
-
-		if @user
-
-			if @user.authenticate(params[:password])
-
-					if @user.email_confirmed
-						@user.active_flag = true
-						@user.save
-						session[:user_id] = @user.id
-
-						redirect_to root_url
-					else
-
-						
-						redirect_to root_url
-					end
-			else
-				redirect_to root_url
-
-			end
-
-
-		else
-			@user = User.find_by_phone(params[:email])
-
-			if @user
-
-				if @user.authenticate(params[:password])
-
-					if @user.email_confirmed
-						session[:user_id] = @user.id
-						@user.active_flag = true
-						@user.save
-						redirect_to root_url
-					else
-
-
-						redirect_to root_url
-					end
-
-				
-			else
-				redirect_to root_url
-
-			end
-
-			else
-
-				redirect_to root_url
-
-			end
-
-			
 		end
 
-	end
+
+		def update_info_service
+
+		@user = User.find(params[:user_id])
+		@user.name = params[:name]
+		@user.email = params[:email]
+		@user.phone = params[:phone]
+		@user.password = params[:password]
+		@user.password_confirmation = params[:password_confirmation]
+		@user.save
+
+		render :json => @user
+
+		end
 
 
-def admin_dashboard
+
+## GET Methods
 
 
-end
-
-	def goAdmin
-
-		@admin = Admin.find_by_email(params[:email])
-
-		if @admin
-
-			if @admin.authenticate(params[:password])
-
-				session[:admin_id] = @admin.id
-
-				if @admin.level == "Administrator"
 
 
-					if session[:user_id]
 
-						session[:user_id] = nil
+
+ 	def get_km_service
+
+ 		@array = []
+		for brand in Millage.all
+
+			@array.push(:id => brand.id.to_s, :name => brand.range)
+
+		end
+		render :json => @array
+
+
+
+ 	end
+
+
+ 	def get_years_service
+
+
+ 		@array = []
+		for brand in Year.all.reverse
+
+			@array.push(:id => brand.id.to_s, :name => brand.date)
+
+		end
+		render :json => @array
+
+
+
+ 	end
+
+ 	def get_brands_service
+
+
+ 		@array = []
+		for brand in Brand.all
+
+			@array.push(:id => brand.id.to_s, :name => brand.name)
+
+		end
+		render :json => @array
+
+
+ 	end
+
+ 	def get_models_service
+
+ 		@models = CarModel.where("brand =?",params[:brand_id])
+
+		@model_years = []
+
+
+		@years = Year.all
+
+		#Year.where('date >= ? AND date <= ?', params[:years], params[:years_end])
+
+				for model in @models
+					if model.years
+
+						if model.years_end
+
+            
+
+
+							if Year.find(model.years).date <= Year.find(params[:years]).date and Year.find(params[:years]).date <= Year.find(model.years_end).date   
+				
+								@model_years.push(model)
+							end
+
+
+						else
+
+								if Year.find(model.years).date >= Year.find(params[:years]).date 
+				
+								@model_years.push(model)
+							end
+
+
+						end
+
 
 					end
-					redirect_to admin_dashboard_url
-
-				else
-					redirect_to brands_url
-
 				end
 
-				
-			else
-				redirect_to administrator_url
-
-			end
 
 
-		else
 
-			redirect_to administrator_url
+
+
+		@array = []
+		for model in @model_years
+
+			@array.push(:id => model.id.to_s, :name => model.name)
+
 		end
+		render :json => @array
 
-
-	end
-
-
-	def logout_admin
-
-		session[:admin_id] = nil
-		redirect_to root_url
-
-
-	end
-
-
-
-	def logout
-		@user = User.find(session[:user_id])
-		session[:user_id] = nil
-		@user.active_flag = false
-						@user.save
-
-
-						@user_stat = UserStat.new
-
-		@user_stat.state = "Inactive"
-		@user_stat.email = @user.email
-		@user_stat.save
-
-
-
-		redirect_to root_url
-
-	end
-
+ 	end
 
  private
     # Use callbacks to share common setup or constraints between actions.
@@ -1672,5 +1229,5 @@ end
 
 
 
-
 end
+
