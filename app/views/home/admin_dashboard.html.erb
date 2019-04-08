@@ -315,6 +315,40 @@ line-height: 40px;
     }
 });
 </script>
+     <div class="row" style="    width: 100%;margin-top: 45px;">
+
+
+
+
+
+        <div class="col-4" style="background: url(/daily_users.png) no-repeat;height: 213px;width: 245px;">
+
+       
+
+     
+
+
+                <p class="titles_first_blocks" style="margin-left: 55px;">Total Visitors</p>
+                 <p class="numbers_admin_starters"><%= DailyVisitor.all.count %></p>
+
+        </div>
+
+            <div class="col-4" style="background: url(/daily_registrations.png) no-repeat;height: 213px;width: 245px;">
+
+              <p class="titles_first_blocks" style="margin-left: 50px;">Total Registration</p>
+                   <p class="numbers_admin_starters"><%= User.all.count %></p>
+        </div>
+
+
+            <div class="col-4" style="background: url(/daily_evaluations.png) no-repeat;height: 213px;width: 245px;">
+
+ <p class="titles_first_blocks" style="margin-left: 50px;">Total Evaluations</p>
+                   <p class="numbers_admin_starters"><%= Valuation.all.count %></p>
+        </div>
+
+      </div>
+
+
 
 
       <div class="row" style="    width: 100%;margin-top: 45px;">
