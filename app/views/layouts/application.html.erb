@@ -51,6 +51,13 @@
 <!-- Latest compiled JavaScript -->
 
  <link rel="stylesheet" href="/toastr.css">
+
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+
+
   </head>
 
 
@@ -118,7 +125,28 @@ toastr.info('<h5 style="margin-top: 0px; margin-bottom: 5px;color:#000;"><b><%= 
 
   });
 
+    $( ".row_position").sortable({
+        delay: 150,
+        stop: function() {
+            var selectedData = new Array();
+            $('.row_position>tr').each(function() {
+                selectedData.push($(this).attr("id"));
+            });
+            updateOrder(selectedData);
+        }
+    });
 
+
+    function updateOrder(data) {
+        $.ajax({
+            url:"ajaxPro.php",
+            type:'post',
+            data:{position:data},
+            success:function(){
+                alert('your change successfully saved');
+            }
+        })
+    }
 </script>
 
 

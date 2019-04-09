@@ -81,7 +81,7 @@
                                         <tr><th rowspan="1" colspan="1">Name</th><th rowspan="1" colspan="1">Price</th><th rowspan="1" colspan="1">From</th><th rowspan="1" colspan="1">To</th><th rowspan="1" colspan="1">Tier</th><th rowspan="1" colspan="1"></th></tr>
                                         </thead>
                                      
-                                        <tbody>
+                                        <tbody class="row_position ui-sortable">
                                 
                                             
                            
@@ -99,11 +99,12 @@ input[type=number]::-webkit-outer-spin-button {
 <% @wanted = @nonull+@yesnull %>
            <% @wanted.each do |car_model| %>
                                             
-                                        <tr role="row" class="odd">
-                                     <td class="sorting_1">
+                                        <tr role="row" class="ui-sortable-handle">
+                                                    <form action="/update_model_listing" method="get">
+                              
 
 
-                                      <form action="/update_model_listing" method="get">
+                            
 
 
                                      
@@ -112,10 +113,12 @@ input[type=number]::-webkit-outer-spin-button {
                                        <input type="hidden" name="brand_id" value="<%= car_model.brand %>" style="width: 60px;"></td>
 
 
-                                                <td class="sorting_1"><input type="text" name="name" value="<%= car_model.name %>" style="width: 110px;"></td>
-                                                        <td class="sorting_1"><input type="text" name="price" value="<%= car_model.price %>" style="width: 80px;"></td>
+                                                <td >
+
+                                                  <input type="text" name="name" value="<%= car_model.name %>" style="width: 110px;"></td>
+                                                        <td ><input type="text" name="price" value="<%= car_model.price %>" style="width: 80px;"></td>
                                                         <% if car_model.years %>
-                                                        <td class="sorting_1">
+                                                        <td >
 
 
                                                           <select class="form-control" name="years">
@@ -136,7 +139,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 
                                                         <% else %>
-                                                           <td class="sorting_1"></td>
+                                                           <td ></td>
                                                         <% end %>
                                                          <% if car_model.years_end %>
                                                         <td class="sorting_1"><select class="form-control" name="years_end">
@@ -151,11 +154,11 @@ input[type=number]::-webkit-outer-spin-button {
                                         </select></td>
 
                                                         <% else %>
-                                                           <td class="sorting_1"></td>
+                                                           <td ></td>
                                                         <% end %>
 
                                                            <% if car_model.tier %>
-                                                        <td class="sorting_1"><select class="form-control" name="tier">
+                                                        <td ><select class="form-control" name="tier">
                                             <% Tier.all.each do |tier| %>
                                             <% if tier.id.to_i == car_model.tier.to_i %>
                                                 <option value="<%= tier.id %>" selected><%= tier.tier_name %></option>
@@ -167,7 +170,7 @@ input[type=number]::-webkit-outer-spin-button {
                                         </select></td>
 
                                                         <% else %>
-                                                           <td class="sorting_1"></td>
+                                                           <td ></td>
                                                         <% end %>
 
 
@@ -218,6 +221,7 @@ input[type=number]::-webkit-outer-spin-button {
                                 </div>
 
             </div>
+
 
 
 
