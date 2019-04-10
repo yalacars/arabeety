@@ -507,6 +507,8 @@ li:hover > .dropdown {
 
 #home-section {
   overflow: hidden;
+  overflow-y: hidden;
+  overflow-x: hidden;
   background: #111111; }
   #home-section .tp-caption.Concept-Title {
     font-size: 40px;
@@ -654,7 +656,7 @@ section.page-banner-section {
    * If anything went wrong trying to separate the file from its
    * extension, set a background value without doing anything to it.
    */ }
-  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+  @media all  {
     section.page-banner-section {
       background: #111 url("../upload/banners/ban1@2x.jpg") center center no-repeat;
       background-size: cover; } }
@@ -700,7 +702,7 @@ section.page-banner-section.portfolio-banner {
    * If anything went wrong trying to separate the file from its
    * extension, set a background value without doing anything to it.
    */ }
-  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+  @media all  {
     section.page-banner-section.portfolio-banner {
       background: #111 url("../upload/banners/ban4@2x.jpg") center center no-repeat;
       background-size: cover; } }
@@ -739,7 +741,7 @@ section.page-banner-section.blog-banner {
    * If anything went wrong trying to separate the file from its
    * extension, set a background value without doing anything to it.
    */ }
-  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+  @media all  {
     section.page-banner-section.blog-banner {
       background: #111 url("../upload/banners/ban5@2x.jpg") center center no-repeat;
       background-size: cover; } }
@@ -813,7 +815,7 @@ section.testimonial-section {
    * extension, set a background value without doing anything to it.
    */
   text-align: center; }
-  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+  @media all  {
     section.testimonial-section {
     } }
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
@@ -1027,7 +1029,7 @@ section.video-section {
    * If anything went wrong trying to separate the file from its
    * extension, set a background value without doing anything to it.
    */ }
-  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+  @media all {
     section.video-section {
       background: #111 url("../upload/banners/ban3@2x.jpg") center center no-repeat;
       background-size: cover; } }
@@ -1338,7 +1340,7 @@ section.quote-section {
    * extension, set a background value without doing anything to it.
    */
   text-align: center; }
-  @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+  @media all  {
     section.quote-section {
       background: #111 url("/2-back.png") center  no-repeat;
       background-size: cover; } }
@@ -1363,7 +1365,7 @@ section.quote-section {
 
 
 
-      @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
+      @media all  {
     section.quote-section2 {
       background: #111 url("/2-back.png") center  no-repeat;
       background-size: cover; } }
@@ -1683,6 +1685,7 @@ section.about-section {
   position: relative; }
   section.about-section .container {
     position: relative;
+    width: 100%;
     z-index: 2; }
   section.about-section .about-box {
     padding-bottom: 30px; }
