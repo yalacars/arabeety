@@ -39,7 +39,13 @@
                                       <a  href="#" class="" onclick="myFunction()" style="margin-top:20%;margin-right:0%"><img src="/value_car_profile_button.png"></a>
                                     <script>
                                     function myFunction() {
-                                        window.location.replace("/valuations/new");
+
+                                      <% if session[:user_id] %>
+                                      window.location.replace("/valuations/new");
+                                      <% else %>
+                                      $('#modalLoginForm').modal('show');
+                                      <% end %>
+                                        
                                     }
                                     </script>
                                   <% else %>
@@ -48,7 +54,11 @@
                                  
                                     <script>
                                     function myFunction() {
-                                        window.location.replace("/valuations/new");
+                                        <% if session[:user_id] %>
+                                      window.location.replace("/valuations/new");
+                                      <% else %>
+                                      $('#modalLoginForm').modal('show');
+                                      <% end %>
                                     }
                                     </script>
                                   <% end %>
