@@ -141,8 +141,7 @@ input[type=number]::-webkit-outer-spin-button {
                                                         <% else %>
                                                            <td ></td>
                                                         <% end %>
-                                                         <% if car_model.years_end %>
-                                                        <td class="sorting_1"><select class="form-control" name="years_end">
+                                                          <td class="sorting_1"><select class="form-control" name="years_end">
                                             <% Year.all.reverse.each do |year| %>
                                             <% if year.id.to_i == car_model.years_end.to_i %>
                                                 <option value="<%= year.id %>" selected><%= year.date %></option>
@@ -153,12 +152,7 @@ input[type=number]::-webkit-outer-spin-button {
                                              <% end %>
                                         </select></td>
 
-                                                        <% else %>
-                                                           <td ></td>
-                                                        <% end %>
-
-                                                           <% if car_model.tier %>
-                                                        <td ><select class="form-control" name="tier">
+                                                          <td ><select class="form-control" name="tier">
                                             <% Tier.all.each do |tier| %>
                                             <% if tier.id.to_i == car_model.tier.to_i %>
                                                 <option value="<%= tier.id %>" selected><%= tier.tier_name %></option>
@@ -168,10 +162,6 @@ input[type=number]::-webkit-outer-spin-button {
                                                     
                                              <% end %>
                                         </select></td>
-
-                                                        <% else %>
-                                                           <td ></td>
-                                                        <% end %>
 
 
 
