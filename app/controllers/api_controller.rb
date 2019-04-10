@@ -565,7 +565,7 @@ logger.info("Original PRICE - " + @price_model.to_s)
   end
 
 
-      if @valuation.engine_problem == true
+      if @valuation.engine_problem == "yes"
 
         logger.info("CALCULATING ENGINE DISCOUNT")
         

@@ -832,7 +832,7 @@ logger.info("Original PRICE - " + @price_model.to_s)
   end
 
 
-      if @valuation.engine_problem == true
+      if @valuation.engine_problem == "yes"
 
         logger.info("CALCULATING ENGINE DISCOUNT")
         
@@ -840,16 +840,16 @@ logger.info("Original PRICE - " + @price_model.to_s)
  logger.info("Engin Condition:   " + @valuation.engine_condition.to_s)
 
 
-          if @valuation.engine_condition == "damaged"
-@condition_string = "bad"
+          if @valuation.engine_condition.to_s == "damaged"
+          @condition_string = "bad"
           @engine_percentage = @tier.engine_damaged
 
-        elsif @valuation.engine_condition == "repaired"
-@condition_string = "average"
+        elsif @valuation.engine_condition.to_s == "repaired"
+          @condition_string = "average"
           @engine_percentage = @tier.engine_repaired    
         
-        elsif @valuation.engine_condition == "changed"
-@condition_string = "average"
+        elsif @valuation.engine_condition.to_s == "changed"
+          @condition_string = "average"
           @engine_percentage = @tier.engine_changed    
 
         end
