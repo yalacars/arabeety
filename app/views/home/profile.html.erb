@@ -98,7 +98,7 @@ font-weight: 700;
                                           <% end %>
                                             <br><br>
                                              <h2 style="color: #4a4a4a;font-family: 'Helvetica Neue';font-size: 13px;font-weight: 500;letter-spacing: 1.79px;line-height: 8px;font-family: 'Segoe UI';font-weight: 400;"><%= Brand.find(valuation.brand).name %> - <%= CarModel.find(valuation.model_car).name %><br><br><br><%= valuation.created_at.strftime("%m/%d/%Y") %></h2>
-                                                    <span><a href="/valuations/<%= valuation.id %>" style="color: #4a4a4a;font-family: 'Helvetica Neue';font-size: 9px;
+                                                    <span><a href="/valDetail?id=<%= valuation.id %>" style="color: #4a4a4a;font-family: 'Helvetica Neue';font-size: 9px;
 font-weight: 700;letter-spacing: 1.24px;line-height: 8px;text-transform: uppercase;font-family: 'Segoe UI';font-weight: 700;">SEE DETAILS</a></span>
                                      <br><br>
                                         </div>
@@ -129,6 +129,10 @@ font-weight: 700;letter-spacing: 1.24px;line-height: 8px;text-transform: upperca
 
                         </div>
                
+
+
+
+
                         <style>
 * {
   box-sizing: border-box;

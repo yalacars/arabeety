@@ -14,6 +14,10 @@ class HomeController < ApplicationController
 
 	end
 
+  def valDetail
+
+  end
+
 def add_order_to_model
 
 @car_model = CarModel.find(params[:car_model])

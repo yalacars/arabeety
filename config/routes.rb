@@ -28,7 +28,7 @@ Rails.application.routes.draw do
 
   root :to => 'home#index'
 
-
+  get "valDetail" => "home#valDetail", :as => "valDetail"
   get "add_order_to_model" => "home#add_order_to_model", :as => "add_order_to_model"
   get '/:token/confirm_email/', :to => "users#confirm_email", as: 'confirm_email'
   get "logout_admin" => "home#logout_admin", :as => "logout_admin"
