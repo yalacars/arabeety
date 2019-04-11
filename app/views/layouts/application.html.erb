@@ -2247,7 +2247,7 @@ $.getJSON('/getBrands', function (data) {
       }
 
 
-      $.getJSON('/getModels?years=' + <%= Year.all.reverse.first.id.to_s %> + "&brand_id="+ <%=Brand.all.first.id.to_s %>, function (data) {
+      $.getJSON('/getModels?years=10' + "&brand_id="+ <%=Brand.all.first.id.to_s %>, function (data) {
     models_select.empty();
    
 
@@ -2325,7 +2325,7 @@ $.getJSON('/getBrands', function (data) {
       }
 
 
-      $.getJSON('/getModels?years=' + <%= Year.all.reverse.first.id.to_s %> + "&brand_id="+ <%=Brand.all.first.id.to_s %>, function (data) {
+      $.getJSON('/getModels?years=10' + "&brand_id="+ <%=Brand.all.first.id.to_s %>, function (data) {
     models_select.empty();
    
 
@@ -7101,7 +7101,7 @@ var kilometers = $('select[name="valuation[kilometers]"]');
       years.append(opt);
       }
 
-  $.getJSON('/getModels?years=' + <%= Year.all.first.id %> + "&brand_id="+ brand, function (data) {
+  $.getJSON('/getModels?years=' + document.getElementById("valuationyear").value + "&brand_id="+ brand, function (data) {
     input_state2.empty();
    
 

@@ -367,7 +367,7 @@ padding-right: 29px;
       </div> </label><br>
     
 
-            <select class="special_selec" name="valuation[year_car]"  value="<%= @valuation.year_car %>" style="width: 100%;height: 74px;font-family: 'Open Sans';">
+            <select class="special_selec" name="valuation[year_car]"  id="valuationyear"  value="<%= @valuation.year_car %>" style="width: 100%;height: 74px;font-family: 'Open Sans';">
               
             <% Year.all.each do |year| %>
     			  	<% if year.id.to_i == @valuation.year_car.to_i %>

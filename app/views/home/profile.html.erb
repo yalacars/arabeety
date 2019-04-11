@@ -84,7 +84,7 @@ font-weight: 700;
                  <div class="tab-content" id="myTabContent" style="background-color: #f3f3f3" >
                         <div class="tab-pane fade active show" id="ser-1" role="tabpanel" aria-labelledby="ser-1-tab">
                         
-       <% @valuations = Valuation.where("user_id =?",session[:user_id]) %>
+       <% @valuations = Valuation.where("user_id =?",session[:user_id]).reverse %>
 
                                     <div class="row">
                                       <% if @valuations.count != 0 %>
