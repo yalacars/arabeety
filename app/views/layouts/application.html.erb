@@ -6944,6 +6944,50 @@ function signUpFromSignin() {
 }, 1000);
 }
 
+function validateEmail(email) {
+  var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return re.test(email);
+}
+
+
+function goProfile(){
+
+  var profile_name = document.getElementById("profile_name").value;
+  var email = document.getElementById("profile_email").value;
+  var pass = document.getElementById("profile_password").value;
+  var pass_confirm = document.getElementById("profile_password_confirmation").value;
+  var phone_number = document.getElementById("profile_phone").value;
+
+     if (!validateEmail(email)) {
+
+      alert("Please enter a valid email");
+      document.getElementById("profile_email").value = "";
+     }else if(phone_number.length != 11){
+
+      alert("Please enter a valid phone number it has to have 11 digits");
+      document.getElementById("profile_phone").value = "";
+     }else if(pass_confirm != pass){
+
+      alert("Your password does not match your password confirmation");
+      document.getElementById("profile_password_confirmation").value = "";
+      document.getElementById("profile_password").value = "";
+
+       e.preventDefault();
+   return false;
+     }else{
+
+
+     $.getJSON('/update_user_info?email=' + email + '&password=' + pass + '&password_confirmation=' + pass_confirm + '&phone=' + phone_number + '&user_id=' + <%= session[:user_id].to_s %> + '&name=' + profile_name , function (data) {
+    
+         
+       alert("You have updated your information correctly");
+
+  });
+
+     }
+  
+  
+}
 
 $("#register_form").submit(function(e) {
    document.getElementById("errorAlertRegister").innerHTML = "";
