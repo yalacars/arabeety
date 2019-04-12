@@ -6,7 +6,7 @@
                        <div style="margin-top: 0px;">
 
 <br><br>
-                       <img src="/logo.png" alt="" style="width: 217px;margin-top:250px;"><br><br><br>
+                       <img class="logo" src="/logo.png" alt=""><br><br><br>
 
 
                        <span class="istant-txt"><%=t :Instant_Vehicle_Valuation %></span>
@@ -52,7 +52,7 @@
                                 <div class="feature-content">
                                     <div class="row">
                                         <div class="col-2">
-                                                <img src="/accurate.png">
+                                                <img class= "icons" src="/accurate.png">
                                 
                                         </div>
 
@@ -265,6 +265,7 @@ ul.tabs li.current {
     letter-spacing: 7.82px;
     line-height: 24px;
     text-transform: uppercase;
+
 }
 
 .step_subtitle{
@@ -412,8 +413,16 @@ margin-top: 15px;
     font-family: Arial;
     font-weight: 700;
   }
+  .logo{
+      width: 217px;
+      margin-top:250px;
+  }
 /* when using mobile or tablet remove the tabs section  */
 @media (max-width: 1024px) {
+    .logo{
+    width: 200px;
+    margin-top:200px;
+  }
   ul.tabs
     {
       display: none;
@@ -471,11 +480,13 @@ margin-top: 15px;
       color: #ffffff;
       font-family: "Helvetica Neue";
       font-size: 15px;
-      margin-left: 2px;
       font-weight: 500;
       letter-spacing: 7.82px;
       line-height: 24px;
       text-transform: uppercase;
+      display: block;
+      margin-right: auto;
+      margin-left: auto;
   }
   .info-section{
     margin-left: 50px;
@@ -540,6 +551,15 @@ margin-top: 15px;
     line-height: 31px;
     font-family: Arial;
     font-weight: 700;
+  }
+  .feature-image{
+    max-width: 400px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .icons{
+      width:8px;
   }
 }
 </style>

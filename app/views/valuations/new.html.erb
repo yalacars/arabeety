@@ -188,42 +188,141 @@ padding-right: 29px;
   background-position: right 20em top 50%, 0 0;
   background-size: .65em auto, 100%;
 }
+.nextbtn{
+  width: 301px;
+  height: 65px;
+  font-weight: 700;
+  letter-spacing: 0.85px;
+  line-height: 31px;
+  font-family: Arial;
+  font-weight: 300;
+}
+.arrow{
+  margin-left:40px;
+}
+.first_step{
+  margin-top:20px;
+  width: 86px;
+  height: 31px;
+  color: #717171;
+  font-family: 'Open Sans';
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 31px;
+  font-weight: 400;
+}
+.second_step{
+  margin-top:20px;
+  width: 86px;
+  height: 31px;
+  color: #717171;
+  font-family: 'Open Sans';
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 31px;
+  font-weight: 400;
+}
+.third_step{
+  margin-top:20px;
+  width: 150px;
+  height: 31px;
+  color: #717171;
+  font-family: 'Open Sans';
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 31px;
+  font-weight: 400;
+}
+.steps_div{
+  background-color: #fff;
+  height: 236px;
+  margin-top: 75px;
+  border-radius: 4px;
+}
+.icon_1{
+  margin-top: 80px;
+  margin-left: 40px;
+}
+.icon_2{
+  margin-top: 93px;
+  margin-left: -50px;
+}
+.line{
+  margin-top: 80px;
+}
+.icon_3{
+  margin-top: 80px;
+  margin-left: 0px;
+}
+@media (max-width: 1024px) {
+.nextbtn{
+  width: 201px;
+  height: 55px;
+  font-weight: 700;
+  letter-spacing: 0.85px;
+  line-height: 31px;
+  font-family: Arial;
+  font-weight: 300;
+}
+.arrow{
+  margin-left:20px;
+}
+.first_step{
+  /* margin-top:20px; */
+  width: 60px;
+  height: 20px;
+  color: #717171;
+  font-family: 'Open Sans';
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 31px;
+  font-weight: 400;
+}
+/* .icon_1{
+}
+.second_step{
+}
+.third_step{
+}
+.steps_div{
+}
 
+.icon_2{
+}
+.line{
+  width: 1;
+}
+.icon_3{
+
+} */
+}
 </style>
 <section class="tabs-section" style="margin-top: -80px">
-
-
-
  <%= render 'layouts/header_profile' %>
-
-
-
 <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
 <div class="container" >
 <div align="center">
-   <div class="row" style="background-color: #fff;height: 236px;margin-top: 75px;border-radius: 4px;">
-   
-   
-    <div class="col-2" style="margin-top: 80px; margin-left: 40px;x">
+   <div class="row steps_div">
+    <div class="col-2 icon_1">
       <img id="firs_ste" src="/1_blue.png">
-      <div style="margin-top:20px;width: 86px;height: 31px;color: #717171;font-family: 'Open Sans';font-size: 20px;font-weight: 600;line-height: 31px;font-weight: 400;">Step One</div>
+      <div class="first_step">Step One</div>
     </div>
 
-    <div class="col-3"  style="margin-top: 93px;margin-left: -50px;">
+    <div class="col-3 icon_2">
           <img src="/first_line_steps.png">
     </div>
 
-       <div class="col-2" style="margin-top: 80px;margin">
+       <div class="col-2 line">
       <img  id="second_step_number" src="/2_grey.png">
-         <div style="margin-top:20px;width: 86px;height: 31px;color: #717171;font-family: 'Open Sans';font-size: 20px;font-weight: 600;line-height: 31px;font-weight: 400;">Step Two</div>
+         <div class="second_step">Step Two</div>
     </div>
 
-    <div class="col-3"  style="margin-top: 93px;margin-left: -50px;">
+    <div class="col-3 icon_2">
           <img src="/first_line_steps.png">
     </div>
-   <div class="col-2" style="margin-top: 80px;margin-left: 0px;">
+   <div class="col-2 icon_3">
       <img  id="third_step_number" src="/3_grey.png">
-         <div style="margin-top:20px;width: 150px;height: 31px;color: #717171;font-family: 'Open Sans';font-size: 20px;font-weight: 600;line-height: 31px;font-weight: 400;">Step Three</div>
+         <div class="third_step">Step Three</div>
     </div>
 
  </div>
@@ -1072,7 +1171,8 @@ padding-right: 29px;
  <div style="overflow:auto;    margin-top: -60px;margin-left: 40px;">
     <div style="" align="center">
       <button type="button" id="prevBtn" onclick="nextPrev(-1)" style="width: 301px;height: 65px;font-weight: 700;letter-spacing: 0.85px;line-height: 31px;font-family: Arial;font-weight: 300;font-family: 'Open Sans';"><img src='/arrow_left.png' style='margin-right:40px;'><span style="margin-right:70px;font-family: 'Open Sans';">Previous</span></button>
-      <button type="button" id="nextBtn" onclick="nextPrev(1)" style="width: 301px;height: 65px;font-weight: 700;letter-spacing: 0.85px;line-height: 31px;font-family: Arial;font-weight: 300;"><span style='margin-left:70px;font-family: 'Open Sans';'>Next Step</span><img src='/arrow-next.png' style='margin-left:40px;'></button>
+      <button type="button" class= "nextbtn" id="nextBtn" onclick="nextPrev(1)"><span style='margin-left:70px;font-family: "Open Sans";'>Next Step</span><img src='/arrow-next.png'></button>
+      <%# <button class="btn"><i class="fa fa-home"></i> Home</button> %>
     </div>
   </div>
 
