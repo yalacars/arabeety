@@ -94,9 +94,9 @@ input[type=number]::-webkit-outer-spin-button {
 }
     </style>
 
-<% @nonull = CarModel.where("brand =? AND order_c is not null",brand.id).order("order_c asc") %>
-<% @yesnull = CarModel.where("brand =? AND order_c is null",brand.id) %>
-<% @wanted = @nonull+@yesnull %>
+<% @nonull = CarModel.where("brand =?",brand.id).order("name ASC") %>
+
+<% @wanted = @nonull %>
            <% @wanted.each do |car_model| %>
                                             
                                         <tr role="row" class="ui-sortable-handle">
@@ -122,14 +122,34 @@ input[type=number]::-webkit-outer-spin-button {
 
 
                                                           <select class="form-control" name="years">
-                                                              <% Year.all.reverse.each do |year| %>
-                                                              <% if year.id.to_i == car_model.years.to_i %>
-                                                                  <option value="<%= year.id %>" selected><%= year.date %></option>
-                                                              <% else %>
-                                                              <option value="<%= year.id %>"><%= year.date %></option>
-                                                              <% end %>
-                                                                      
-                                                               <% end %>
+                                                  
+
+
+                                                                                <% years = [] %>
+
+                                                  
+                                                            <% y = Year.new() %>
+                                                   
+                                                            <% y.date = "No Year" %>
+
+                                                            <% years.push(y) %>
+                                                            
+                                                              <% Year.all.each do |ye| %>
+                                                               <% years.push(ye) %>
+                                                            <% end %>
+                                                          <% years.each do |year| %>
+                                                                    
+                                                                      <% if year.id.to_i == car_model.years.to_i %>
+                                                                                <option value="<%= year.id %>" selected><%= year.date %></option>
+                                                                            <% else %>
+                                                                            <option value="<%= year.id %>"><%= year.date %></option>
+                                                                            <% end %>
+                                                                  
+                                                           <% end %>
+
+
+
+
                                                           </select>
 
                                                          </td>
@@ -141,26 +161,69 @@ input[type=number]::-webkit-outer-spin-button {
                                                         <% else %>
                                                            <td ></td>
                                                         <% end %>
-                                                          <td class="sorting_1"><select class="form-control" name="years_end">
-                                            <% Year.all.reverse.each do |year| %>
-                                            <% if year.id.to_i == car_model.years_end.to_i %>
-                                                <option value="<%= year.id %>" selected><%= year.date %></option>
-                                            <% else %>
-                                            <option value="<%= year.id %>"><%= year.date %></option>
-                                            <% end %>
-                                                    
-                                             <% end %>
-                                        </select></td>
+                                                          <td class="sorting_1">
+
+                                                            <select class="form-control" name="years_end">
+                                                        <% years = [] %>
+
+                                                  
+                                                            <% y = Year.new() %>
+                                                   
+                                                            <% y.date = "No Year" %>
+
+                                                            <% years.push(y) %>
+                                                            
+                                                              <% Year.all.each do |ye| %>
+                                                               <% years.push(ye) %>
+                                                            <% end %>
+                                                          <% years.each do |year| %>
+                                                                    
+                                                                      <% if year.id.to_i == car_model.years_end.to_i %>
+                                                                                <option value="<%= year.id %>" selected><%= year.date %></option>
+                                                                            <% else %>
+                                                                            <option value="<%= year.id %>"><%= year.date %></option>
+                                                                            <% end %>
+                                                                  
+                                                           <% end %>
+
+
+
+
+                                                         </select></td>
 
                                                           <td ><select class="form-control" name="tier">
-                                            <% Tier.all.each do |tier| %>
-                                            <% if tier.id.to_i == car_model.tier.to_i %>
-                                                <option value="<%= tier.id %>" selected><%= tier.tier_name %></option>
-                                            <% else %>
-                                            <option value="<%= tier.id %>"><%= tier.tier_name %></option>
-                                            <% end %>
+                                                            <% tiers = [] %>
+
+                                                  
+                                                            <% t = Tier.new() %>
+                                                   
+                                                            <% t.tier_name = "No Tier" %>
+
+                                                            <% tiers.push(t) %>
+                                                            
+                                                      <% Tier.all.each do |tier| %>
+                                                       <% tiers.push(tier) %>
+                                                    <% end %>
+                                            <% tiers.each do |tier| %>
+                                                      
+                                                    <% if tier.id.to_i == car_model.tier.to_i %>
+
+                                                        <option value="<%= tier.id %>" selected><%= tier.tier_name %></option>
+                                                          
+                                                    <% else %>
+
+                                                        <option value="<%= tier.id %>"><%= tier.tier_name %></option>
+
+                                                    <% end %>
+
                                                     
                                              <% end %>
+                                            
+
+                                      
+
+
+
                                         </select></td>
 
 
