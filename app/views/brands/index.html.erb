@@ -41,11 +41,11 @@
                                 <% if params[:brand_name] %>
                                 <h4 class="card-title">Filtered Brands <a href="/brands/new" style="font-size: 16px;">Add Brand</a></h4>
                                 <% pa = params[:brand_name] %>
-                                  <% @brands = Brand.where("name like '%#{pa}%'")  %>
+                                  <% @brands = Brand.where("name like '%#{pa}%'").order('name ASC')  %>
                       <% else %>
 
  <h4 class="card-title">Brands <a href="/brands/new" style="font-size: 16px;">Add Brand</a></h4>
-   <% @brands = Brand.all %>
+   <% @brands = Brand.all.order('name ASC') %>
                         <% end %>
               <div class="table-responsive m-t-40">
                                     <div id="example23_wrapper" class="dataTables_wrapper dt-bootstrap4">
