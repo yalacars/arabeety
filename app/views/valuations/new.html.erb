@@ -285,14 +285,14 @@ select {
   border-radius: 4px;
   height: 50px;
 }
-.line{
+/* .line{
   width: 17px;
-}
+} */
 .line_img{
   width: 100%;
   height: auto;
 }
-.third_step{
+/* .third_step{
   width: 60px;
   height: 20px;
   color: #717171;
@@ -301,18 +301,18 @@ select {
   font-weight: 500;
   line-height: 31px;
   font-weight: 400;
-}
-.line_select{
+} */
+/* .line_select{
   display:none;
-}
+} */
 .typo{
   font-size: 15px;
 }
-.main_div{
+/* .main_div{
   height: 50px;
   line-height: 50px;
   font-size: 14px;
-}
+} */
 }
 </style>
 
@@ -1315,16 +1315,16 @@ function nextPrev(n) {
  if (currentTab == 0){
 
   document.getElementById("firs_ste").src = "/1_blue.png";
-     document.getElementById("second_step_number").src = "/2_grey.png";
-     document.getElementById("third_step_number").src = "/3_grey.png";
+  document.getElementById("second_step_number").src = "/2_grey.png";
+  document.getElementById("third_step_number").src = "/3_grey.png";
   document.getElementById("nextBtn").setAttribute( "onClick", "nextPrev(1)");
 
 
 
-          if (currentTab >= x.length) {
-          // ... the form gets submitted:
-          document.getElementById("regForm").submit();
-          return false;
+        if (currentTab >= x.length) {
+        // ... the form gets submitted:
+        document.getElementById("regForm").submit();
+        return false;
         }
         // Otherwise, display the correct tab:
         showTab(currentTab);
@@ -1332,16 +1332,14 @@ function nextPrev(n) {
  }
   if (currentTab == 1){
 
-     document.getElementById("second_step_number").src = "/2_blue.png";
-     document.getElementById("third_step_number").src = "/3_grey.png";
+  document.getElementById("second_step_number").src = "/2_blue.png";
+  document.getElementById("third_step_number").src = "/3_grey.png";
   document.getElementById("nextBtn").setAttribute( "onClick", "fill_all(0)" );
 
-
-
-          if (currentTab >= x.length) {
-          // ... the form gets submitted:
-          document.getElementById("regForm").submit();
-          return false;
+        if (currentTab >= x.length) {
+        // ... the form gets submitted:
+        document.getElementById("regForm").submit();
+        return false;
         }
         // Otherwise, display the correct tab:
         showTab(currentTab);
@@ -1354,9 +1352,9 @@ function nextPrev(n) {
    
 
   document.getElementById("second_step_number").src = "/2_blue.png";
-   document.getElementById("third_step_number").src = "/3_blue.png";
-   document.body.scrollTop = 600;
-   document.documentElement.scrollTop = 600;
+  document.getElementById("third_step_number").src = "/3_blue.png";
+  document.body.scrollTop = 600;
+  document.documentElement.scrollTop = 600;
 
 
 
