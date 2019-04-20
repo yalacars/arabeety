@@ -25,35 +25,24 @@ font-weight: 400;
 }
 </style>
 <% if session[:user_id] %>
-
 <style type="text/css">
 .value_button{
-
-
-    max-width: 376px;
-    min-width: 280px;
+max-width: 376px;
+min-width: 280px;
 height: 75px;
 background-color: #ff8409;
-
-
 border: 1px solid #ffffff;
 color: #ffffff;
 font-family: "Helvetica Neue";
 font-size: 18px;
 font-weight: 600;
-
 letter-spacing: 4.57px;
 line-height: 8px;
 text-transform: uppercase;
 /* Text style for "VALUE YOUR" */
-
 font-weight: 400;
-
 }
-    .email-tel-user{
-
-
-
+.email-tel-user{
 color: #4a4a4a;
 font-family: "Helvetica Neue";
 font-size: 19px;
@@ -63,20 +52,31 @@ line-height: 11px;
 /* Text style for "ehabfcih94" */
 margin-top: 20px;
 font-weight: 300;
-    }
+}
 
-    .name_user{
-        color: #4a4a4a;
-font-family: "Helvetica Neue";
-font-size: 22px;
-font-weight: 700;
-letter-spacing: 3.04px;
-line-height: 11px;
-/* Text style for "Ehab Moham" */
-font-family: "Segoe UI";
-font-weight: 700;
-    }
+.name_user{
+  color: #4a4a4a;
+  font-family: "Helvetica Neue";
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 3.04px;
+  line-height: 11px;
+  /* Text style for "Ehab Moham" */
+  font-family: "Segoe UI";
+  font-weight: 700;
+}
+.add_new_val{
+  color: #4a4a4a;font-family: 'Helvetica Neue';
+  font-size: 13px;font-weight: 500;
+  letter-spacing: 1.79px;line-height: normal;
+  font-family: 'Segoe UI';font-weight: 400;}
 
+@media(max-width: 1024px){
+.add_div{
+  height:200px;
+  width: 150px;
+}
+}
 </style>
 <section class="tabs-section" style="margin-top: -80px">
      <%= render 'layouts/header_profile' %>
@@ -89,7 +89,7 @@ font-weight: 700;
                                     <div class="row">
                                       <% if @valuations.count != 0 %>
                                          <% @valuations.each do |valuation| %>
-                                        <div class="col-3" align="center" style="background-color: #fff;border-radius: 4px;margin-left: 20px;margin-top:20px;">
+                                        <div class="col-4" align="center" style="background-color: #fff;border-radius: 4px;margin-left: 20px;margin-top:20px;">
                                           <% if Brand.find_by_name(valuation.brand) %>
                                           <img src="<%= Brand.find_by_name(valuation.brand).picture.url %>" style="width: 200px; margin-top: 20px;" alt="">
                                           <%else %>
@@ -107,16 +107,14 @@ font-weight: 700;letter-spacing: 1.24px;line-height: 8px;text-transform: upperca
                                             <div class="col-3" id="add_new_valuation" align="center" style="background-color: #fff;border-radius: 4px;margin-left: 20px;margin-top:20px;">
 
                                             <img src="/add_valuation.png" style="margin-top: 70px;" alt=""><br><br>
-                                             <h2 style="color: #4a4a4a;font-family: 'Helvetica Neue';font-size: 13px;font-weight: 500;letter-spacing: 1.79px;line-height: 8px;font-family: 'Segoe UI';font-weight: 400;">Add New Evaluation</h2>
+                                             <div class="add_div"><h2 class="add_new_val">Add New Evaluation</h2></div>
                                           
                                      <br><br>
                                         </div>
                                         <% else %>
-
                                        <div class="col-3" align="center"  id="add_new_valuation"  style="background-color: #fff;border-radius: 4px;margin-left: 20px;">
-
                                             <img src="/add_valuation.png" style="margin-top: 70px;" alt=""><br><br>
-                                             <h2 style="color: #4a4a4a;font-family: 'Helvetica Neue';font-size: 13px;font-weight: 500;letter-spacing: 1.79px;line-height: 8px;font-family: 'Segoe UI';font-weight: 400;">Add New Evaluation</h2>
+                                            <div class="add_div"><h2 class="add_new_val">Add New Evaluation</h2></div>
                                           
                                      <br><br>
                                         </div>
@@ -263,16 +261,8 @@ font-weight: 700;
 
 
 </style>
-                        
-
-
-
-
-
-
-
                          
-                    </div>
+  </div>
 
 </div>
 
