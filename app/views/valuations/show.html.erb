@@ -149,8 +149,48 @@ text-transform: uppercase;
 font-weight: 400;
 
 }
-
-
+.white_line{
+  width: 994px;height: 1px;border: 4px solid #ffffff;
+}
+.blue_line{
+  width: auto;height: 1px;border: 4px solid #00357a;margin-top:80px;align:center;
+}
+.value_another_car{
+  width: 254px;height: 65px;background-color: #ff8409;border-radius: 4px;
+  color: #ffffff;
+  display:table-cell;
+  margin:10px auto;
+  margin-left: 10px;
+  font-family: 'Helvetica Neue';font-size: 17px;font-weight: 700;
+  letter-spacing: 0.85px;line-height: 31px;font-family: Arial;font-weight: 700;
+}
+.back_btn{
+  width: 254px;height: 65px;background-color: #0f5dc3;border-radius: 4px;
+  font-family: 'Helvetica Neue';
+  display:table-cell;
+  margin:0 auto;
+  font-size: 17px;font-weight: 700;letter-spacing: 0.85px;line-height: 31px;
+  font-family: Arial;font-weight: 700;
+}
+.price_bar{
+  margin-left: 100px;
+  margin-top: 30px;
+  width: 80%;
+}
+@media (max-width: 1024px){
+  .condition{
+    display:none;
+  }
+  .white_line{
+    width: auto;
+  }
+  .price_bar{
+  margin-left:20px;
+  margin-top: 30px;
+  align:center;
+  width: 80%;
+}
+}
 </style>
 <section class="tabs-section" style="margin-top: -80px">
 
@@ -174,7 +214,8 @@ User Report</h2>
 
 <h2 style="width: 58px;height: 28px;color: #ffffff;font-family: 'Helvetica Neue';font-size: 24px;font-weight: 700;letter-spacing: 2.21px;line-height: 10px;text-transform: uppercase;font-family: Arial;font-weight: 700;">EGP</h2>
 
-<div style="width: 994px;height: 1px;border: 4px solid #ffffff;"></div>
+
+<div class="white_line"></div>
                             </div>
 
 
@@ -182,7 +223,8 @@ User Report</h2>
 
 
 
-<div class="white_line"></div>
+  <div class="col-12" style="width: 1200px;background-color: #fff;">
+
 <br><br>
 
 
@@ -303,11 +345,11 @@ User Report</h2>
         </div>
 
    
-   <div>  
-<div  style="margin-top: 50px">Condition</div>
-</div>
-<div>  
-<img src="/vertical_line.png" style="margin-top: 30px">
+<div class="col-1 condition">  
+  <div  style="margin-top: 50px">Condition</div>
+  </div>
+  <div class="col-1 ">  
+  <img class= "condition"src="/vertical_line.png" style="margin-top: 30px;margin-left: 0px;">
 </div>
 
        <div class="col-6">  
@@ -961,23 +1003,7 @@ li .painted {
   padding: 16px;
   text-decoration: none;
 }
-.white_line{
-  width: 994px;height: 1px;border: 4px solid #ffffff;
-}
-.blue_line{
-  width: auto;height: 1px;border: 4px solid #00357a;margin-top:80px;align:center;
-}
-@media (max-width: 1024px){
-  .condition{
-    display:none;
-  }
-  .white_line{
-  width: auto;
-}
-  /* .blue_line{
-  width: auto;
-} */
-}
+
 
 </style>
 
@@ -1199,8 +1225,7 @@ text-transform: uppercase;font-family: Arial;font-weight: 700;margin-left: 20px"
 
 
       </div>
-<img src="/progress_limits.png" style="margin-left: 100px;margin-top: 30px;width: 80%">
-
+<img src="/progress_limits.png" class="price_bar ">
 <div class="row" style="width: 100%">
 
 <div class="col-6" align="left">
@@ -1227,38 +1252,26 @@ text-transform: uppercase;font-family: Arial;font-weight: 700;margin-left: 20px"
 
 
   <% else %>
-
-<div class="row" style="width: 100%;margin-top: 20px;">
-<div class="col-6">
-
-
-<button onclick="goHome()" style="width: 254px;height: 65px;background-color: #0f5dc3;border-radius: 4px;margin-left: 300px"><div style="width: 128px;height: 31px;color: #ffffff;font-family: 'Helvetica Neue';
-font-size: 17px;font-weight: 700;letter-spacing: 0.85px;line-height: 31px;font-family: Arial;font-weight: 700; margin-left:40px;">Go Back</div></button>
+<div class="col-md-8" style="display: table-cell;overflow: auto;">
+  <button onclick="goHome()" class="back_btn">Go Back</button>
+  <button onclick="newValuation()" class="value_another_car ">Evaluate Another Car</button>
 </div>
-
-<div class="col-6" style="">
-<button onclick="newValuation()" style="width: 254px;height: 65px;background-color: #ff8409;border-radius: 4px;margin-right: 300px"><div style="width: 190px;height: 31px;color: #ffffff;font-family: 'Helvetica Neue';font-size: 17px;font-weight: 700;letter-spacing: 0.85px;line-height: 31px;font-family: Arial;font-weight: 700; margin-left:10px;" align="center">Evaluate Another Car</div></button>
-  </div>
-
-  </div>
   <% end %>
+  </div>
 
 
-      </div>
+<script>
+  function goHome() {
+      window.location.replace("/valuations/<%= @valuation.id %>/edit?tab=2");
+  }
 
+  function goBack() {
+      window.location.replace("/users/<%= @valuation.user_id %>");
+  }
 
-             <script>
-function goHome() {
-    window.location.replace("/valuations/<%= @valuation.id %>/edit?tab=2");
-}
-
-function goBack() {
-    window.location.replace("/users/<%= @valuation.user_id %>");
-}
-
-function newValuation() {
-    window.location.replace("/valuations/new");
-}
+  function newValuation() {
+      window.location.replace("/valuations/new");
+  }
 </script>
 
 
