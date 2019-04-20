@@ -182,8 +182,7 @@ User Report</h2>
 
 
 
-  <div class="col-12" style="width: 1200px;background-color: #fff;">
-
+<div class="white_line"></div>
 <br><br>
 
 
@@ -304,10 +303,10 @@ User Report</h2>
         </div>
 
    
-   <div class="col-1">  
+   <div>  
 <div  style="margin-top: 50px">Condition</div>
 </div>
-<div class="col-1">  
+<div>  
 <img src="/vertical_line.png" style="margin-top: 30px">
 </div>
 
@@ -400,7 +399,7 @@ User Report</h2>
 
 
 
-<div align="center" style="margin-top:80px;"><img src="/line_acc.png"></div>
+<div class="blue_line"></div>
 
 <br><br>
 
@@ -962,7 +961,23 @@ li .painted {
   padding: 16px;
   text-decoration: none;
 }
-
+.white_line{
+  width: 994px;height: 1px;border: 4px solid #ffffff;
+}
+.blue_line{
+  width: auto;height: 1px;border: 4px solid #00357a;margin-top:80px;align:center;
+}
+@media (max-width: 1024px){
+  .condition{
+    display:none;
+  }
+  .white_line{
+  width: auto;
+}
+  /* .blue_line{
+  width: auto;
+} */
+}
 
 </style>
 
@@ -975,7 +990,7 @@ li .painted {
 <% @val =  @valuation %>
     <div class=""  style="" align="center" style="border:0px solid rgba(0,0,0,.2);;">
       <br>
-<div align="center" style="margin-top:20px;"><img src="/line_acc.png"></div>
+<div class="blue_line"></div>
 
 <% if @val.accident_lights_left_front != "" ||  @val.accident_second_top != "" ||  @val.accident_lights_hood != "" %>
 
