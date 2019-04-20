@@ -225,33 +225,24 @@ select {
 }
 .icon_1{
   margin-top: 80px; 
-  margin-left: 40px;x
+  /* margin-left: 40px; */
 }
 .icon_2{
   margin-top: 80px;
-  margin
+  float:center;
 }
 .line{
   margin-top: 93px;
-  margin-left: -50px;
+  
 }
 .icon_3{
   margin-top: 80px;
-  margin-left: 0px;
 }
-.mob_header{
-  display: none;
+.line_img{
+  width: 100%;
+  height: auto;
 }
 @media (max-width: 1024px) {
-/* .nextbtn{
-  width: 201px;
-  height: 55px;
-  font-weight: 700;
-  letter-spacing: 0.85px;
-  line-height: 31px;
-  font-family: Arial;
-  font-weight: 300;
-} */
 .first_div{
   font-size: 14px;
   height: 50px;
@@ -269,6 +260,11 @@ select {
   line-height: 31px;
   font-weight: 400;
 }
+.third_step{
+  width: 60px;
+  height: 20px;
+  font-size: 14px;
+}
 .special_selec{
   color: #ffffff;
   font-family: "Helvetica Neue";
@@ -285,34 +281,13 @@ select {
   border-radius: 4px;
   height: 50px;
 }
-/* .line{
-  width: 17px;
-} */
 .line_img{
   width: 100%;
   height: auto;
 }
-/* .third_step{
-  width: 60px;
-  height: 20px;
-  color: #717171;
-  font-family: 'Open Sans';
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 31px;
-  font-weight: 400;
-} */
-/* .line_select{
-  display:none;
-} */
 .typo{
   font-size: 15px;
 }
-/* .main_div{
-  height: 50px;
-  line-height: 50px;
-  font-size: 14px;
-} */
 }
 </style>
 
@@ -329,21 +304,21 @@ select {
       <div class="first_step">Step One</div>
     </div>
 
-    <div class="col-3 line">
-          <img class="line_img" src="/first_line_steps.png">
+    <div class="col-sm-3 line ">
+      <img class="line_img" src="/first_line_steps.png">
     </div>
 
-       <div class="col-2 icon_2">
+    <div class="col-2 icon_2">
       <img  id="second_step_number" src="/2_grey.png">
-         <div class="first_step">Step Two</div>
+      <div class="first_step">Step Two</div>
     </div>
 
-    <div class="col-3 line">
-          <img class="line_img" src="/first_line_steps.png">
+    <div class="col-sm-3 line">
+      <img class="line_img" src="/first_line_steps.png">
     </div>
    <div class="col-2 icon_3">
       <img  id="third_step_number" src="/3_grey.png">
-         <div class="third_step">Step Three</div>
+      <div class="third_step">Step Three</div>
     </div>
 
  </div>
