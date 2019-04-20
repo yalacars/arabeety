@@ -220,10 +220,33 @@ toastr.info('<h5 style="margin-top: 0px; margin-bottom: 5px;color:#000;"><b><%= 
                        .modal {
   overflow-y:auto;
 }
-
-
-
-                     </style>  
+.engin-dialog{
+  width: 920px;
+  margin-left:-200px;
+  margin-top: 130px;
+}
+.note{
+  width: 39px;height: 1px;
+  border: 1px solid #00357a;margin-left: -10px;
+  margin-top:15px;
+}
+.engine_note{
+  width: 100%;height: 194px;background-color: #f6f6f6;
+}
+@media (max-width: 1024px){
+ .engin-dialog{
+  width: auto;
+  margin-left:0px;
+  margin-top: 130px;
+} 
+.note{
+  width: auto;height: 1px;
+  margin-left: 0px;
+  margin-left: 10px;
+  margin-top:15px;
+}
+}
+</style>  
 </head>
 <body onload="">
   
@@ -903,7 +926,7 @@ font-weight: 700;
 <div class="modal fade" id="modalEngine" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
   aria-hidden="true">
   <div class="modal-dialog" role="document">
-    <div class="modal-content"  style="width: 920px;margin-left:-200px;margin-top: 130px;" align="">
+    <div class="modal-content engin-dialog">
 
             
       
@@ -1065,7 +1088,7 @@ font-weight: 700;
 
         <div class="col-6">
              
-           <div style="width: 39px;height: 1px;border: 1px solid #00357a;margin-left: -10px;margin-top:15px;"></div>
+           <div class="note"></div>
         </div>
 
 
@@ -1073,18 +1096,14 @@ font-weight: 700;
           </label><br><br>
            
         
-        <div class="row" >
-      
-    
-     <% if params[:id] && request.path.include?("valuation") %>
-    <textarea class="form-control" id="notes_engine" style="margin-left: 20px;width: 100%;height: 194px;background-color: #f6f6f6;"><%= Valuation.find(params[:id]).notes_engine %></textarea>  
-     <% else %>
+      <div class="col-12">
+        <% if params[:id] && request.path.include?("valuation") %>
+        <textarea class="form-control engine_note" id="notes_engine"><%= Valuation.find(params[:id]).notes_engine %></textarea>  
+        <% else %>
 
-    <textarea class="form-control" id="notes_engine" style="margin-left: 20px;width: 100%;height: 194px;background-color: #f6f6f6;"></textarea>  
-     <% end %>
-      
+        <textarea class="form-control engine_note" id="notes_engine"></textarea>  
+        <% end %>
     </div>
-
       <br><br>
 
       <div align="center">
