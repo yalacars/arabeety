@@ -106,7 +106,7 @@ end
 
 
 
-		@models = CarModel.where("brand =?",params[:brand_id])
+		@models = CarModel.where("brand =?",params[:brand_id]).order('name ASC')
 
 		@model_years = []
 
