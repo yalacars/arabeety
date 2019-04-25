@@ -25,7 +25,7 @@ class PartnersController < ApplicationController
   # POST /partners.json
   def create
     @partner = Partner.new(partner_params)
-
+    @partner.id = Partner.last.id + 1 
     respond_to do |format|
       if @partner.save
         format.html { redirect_to partners_url}

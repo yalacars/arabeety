@@ -25,7 +25,7 @@ class MillagesController < ApplicationController
   # POST /millages.json
   def create
     @millage = Millage.new(millage_params)
-
+    @millage.id = Millage.last.id + 1 
     respond_to do |format|
       if @millage.save
         format.html { redirect_to millages_url}

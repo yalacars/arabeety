@@ -25,7 +25,7 @@ class TiersController < ApplicationController
   # POST /tiers.json
   def create
     @tier = Tier.new(tier_params)
-
+    @tier.id = Tier.last.id + 1 
     respond_to do |format|
       if @tier.save
         format.html { redirect_to tiers_url, notice: 'Tier was successfully created.' }

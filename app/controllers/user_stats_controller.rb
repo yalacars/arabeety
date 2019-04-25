@@ -25,7 +25,7 @@ class UserStatsController < ApplicationController
   # POST /user_stats.json
   def create
     @user_stat = UserStat.new(user_stat_params)
-
+    @user_stat.id = UserStat.last.id + 1 
     respond_to do |format|
       if @user_stat.save
         format.html { redirect_to @user_stat, notice: 'User stat was successfully created.' }

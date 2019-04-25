@@ -25,7 +25,7 @@ class ConversationsController < ApplicationController
   # POST /conversations.json
   def create
     @conversation = Conversation.new(conversation_params)
-
+    @conversation.id = Conversation.last.id + 1  
     respond_to do |format|
       if @conversation.save
         format.html { redirect_to @conversation}

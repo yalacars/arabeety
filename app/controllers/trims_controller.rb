@@ -25,7 +25,7 @@ class TrimsController < ApplicationController
   # POST /trims.json
   def create
     @trim = Trim.new(trim_params)
-
+    @trim.id = Trim.last.id + 1 
     respond_to do |format|
       if @trim.save
         format.html { redirect_to trims_url}

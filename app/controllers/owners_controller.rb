@@ -25,7 +25,7 @@ class OwnersController < ApplicationController
   # POST /owners.json
   def create
     @owner = Owner.new(owner_params)
-
+    @owner.id = Owner.last.id + 1 
     respond_to do |format|
       if @owner.save
         format.html { redirect_to owners_url}
