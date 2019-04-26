@@ -1,12 +1,8 @@
 <% if request.path == "/administrator" || request.path.include?("password_resets") %>
 
-
-
 <!DOCTYPE html>
 <html>
   <head>
-   
-    
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
@@ -50,27 +46,18 @@
 
 <!-- Latest compiled JavaScript -->
 
- <link rel="stylesheet" href="/toastr.css">
-
-   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-
-
-
+  <link rel="stylesheet" href="/toastr.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
   </head>
-
-
 <%= yield %>
 
 
 
 
-  <script src="/toastr.min.js"></script>
+    <script src="/toastr.min.js"></script>
   <!-- jQuery 2.2.3 -->
-
-
-   
     <!-- Bootstrap popper Core JavaScript -->
     <script src="/admin_template/assets/node_modules/popper/popper.min.js"></script>
 
@@ -94,14 +81,9 @@
     <!-- Chart JS -->
     <script src="/admin_template/web/dist/js/dashboard1.js"></script>
 
-
 <script>
 
-
-
-
   $(function () {
-
     "use strict";
     //TOASTR NOTIFICATION
     // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
@@ -116,9 +98,8 @@
     };
 
   <% flash.each do |key, value| %>
-toastr.info('<h5 style="margin-top: 0px; margin-bottom: 5px;color:#000;"><b><%= value %></b></h5>');
-       
-      <% end %>
+    toastr.info('<h5 style="margin-top: 0px; margin-bottom: 5px;color:#000;"><b><%= value %></b></h5>'); 
+  <% end %>
 
 
 
@@ -149,21 +130,11 @@ toastr.info('<h5 style="margin-top: 0px; margin-bottom: 5px;color:#000;"><b><%= 
     }
 </script>
 
-
-
-
 </body>
-
-
 
 </html>
 
-
-
-    
-
 <% else %>
-
 
 <!doctype html>
 
@@ -173,35 +144,31 @@ toastr.info('<h5 style="margin-top: 0px; margin-bottom: 5px;color:#000;"><b><%= 
 	<title>3arabeety - Instant Vehicle Valuation</title>
 
 	<meta charset="utf-8">
-
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-
 	<meta name="keywords" content="" />
-    <meta name="author" content="Riyad Faek Anatawi Rojas" />
-    <meta name="robots" content="index,follow" />    
-    <meta name="description" content="" />
-    <meta name="og:title" property="og:title" content="3arabeety - Instant Vehicle Valuation">
+  <meta name="author" content="Riyad Faek Anatawi Rojas" />
+  <meta name="robots" content="index,follow" />    
+  <meta name="description" content="" />
+  <meta name="og:title" property="og:title" content="3arabeety - Instant Vehicle Valuation">
 
 
- <link rel="stylesheet" href="/toastr.css">
-
+  <link rel="stylesheet" href="/toastr.css">
 	<link rel="stylesheet" href="/landing/css/minimali-assets.min.css">
 	<link rel="stylesheet" type="text/css" href="/landing/css/style.css">
-<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 
 
 
-                             <style type="text/css">
+<style type="text/css">
 .no-js{
   width:100%;
   overflow-y:auto;
   overflow-x:hidden;
   height: 100%;
 }
-                       .options_links{
-                         width: 109px;
+.options_links{
+  width: 109px;
   height: 15px;
   font-family: Arial;
   font-size: 13px;
@@ -214,12 +181,12 @@ toastr.info('<h5 style="margin-top: 0px; margin-bottom: 5px;color:#000;"><b><%= 
   color: #a4a4a4;
   margin-left: 20px;
   margin-top: 20px
-                       }
+}
 .logo_icon{
   margin-left:140px;width: 195px;
 }
 
-                       .modal {
+.modal {
   overflow-y:auto;
 }
 .engin-dialog{
@@ -242,7 +209,7 @@ toastr.info('<h5 style="margin-top: 0px; margin-bottom: 5px;color:#000;"><b><%= 
   margin-top: 130px;
 } 
 .logo_icon{
-  margin-left:0px;width: auto;
+  margin-left:0px;width: 150px;
 }
 .note{
   width: auto;height: 1px;
@@ -298,15 +265,10 @@ toastr.info('<h5 style="margin-top: 0px; margin-bottom: 5px;color:#000;"><b><%= 
 <% end %>
       <br><br><br><br><br><br><br><br>
 				<div class="container-fluid">
-
 					<a class="navbar-brand" href="/">
 						<img src="/logo.png" alt="" class="logo_icon">
 					</a>
-
-
-
          <!-- ALERT ICON <div style="width: 25px;  height: 25px;  background-color: #ff6e6e;border-radius: 50%;margin-top: -60px;margin-left: 20px;"><div style="color: #fff;padding-left: 10px;padding-top: 5px;">1</div></div> -->
-
 
 <% if session[:user_id] || session[:admin_id] %>
 			
@@ -314,8 +276,7 @@ toastr.info('<h5 style="margin-top: 0px; margin-bottom: 5px;color:#000;"><b><%= 
 						<ul class="navbar-nav ml-auto">
 						<% if session[:user_id] || session[:admin_id] %>
 					<% if session[:user_id] %>
-<li><a href="/logout/"><img src="/log-out.png" style="height: 45px;    margin-right: -20px;margin-top: 5px;"></a></li>
-
+            <li><a href="/logout/"><img src="/log-out.png" style="height: 45px;    margin-right: -20px;margin-top: 5px;"></a></li>
             <% @messages = Message.where("user_id =? AND read is NULL",session[:user_id]) %>
 
             <% if @messages.count != 0 %>
@@ -328,16 +289,11 @@ toastr.info('<h5 style="margin-top: 0px; margin-bottom: 5px;color:#000;"><b><%= 
 							<% else %>
 
 			 <% @messages = Message.where("admin_id =? AND seen_admin is NULL",session[:admin_id]) %>
-
-        
-                <li><a href="/logout_admin/"><img src="/log-out.png" style="height: 45px;    margin-right: -20px;margin-top: 5px;"></a></li>
-                <% if Admin.find(session[:admin_id]).level == "Administrator" %>
-
+        <li><a href="/logout_admin/"><img src="/log-out.png" style="height: 45px;    margin-right: -20px;margin-top: 5px;"></a></li>
+        <% if Admin.find(session[:admin_id]).level == "Administrator" %>
     <% if @messages.count != 0 %>
 
                    <li><a href="/messages"><img src="/messages_badge.png" style="height: 45px;    margin-right: -20px;margin-top: 5px;"><span style="margin-left: -25px;color: #fff;"><%= @messages.count %></span></a></li>
-
-
                     <% else %>
 
                      <li><a href="/messages"><img src="/messages_icon.png" style="height: 45px;    margin-right: -20px;margin-top: 5px;"></a></li>
