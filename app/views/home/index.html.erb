@@ -1,12 +1,14 @@
 
-<section id="home-section" style="height:1080px;margin-top: -200px;background-image: url('/1-back.png');background-repeat: no-repeat;  background-size: 100% 100%;">
+<section class="background_img">
+ <div class="layer">
+
       
       <div ;width:1920px;height: 1081px;" align="center">
                        <!-- LAYERS -->
                        <div style="margin-top: 0px;">
 
 <br><br>
-                       <img class="logo" src="/logo.png" alt=""><br><br><br>
+                       <img class="logo" src="/logo.png" alt=""><br><br>
 
 
                        <span class="istant-txt"><%=t :Instant_Vehicle_Valuation %></span>
@@ -25,6 +27,7 @@
 
             </div>
             <!-- END REVOLUTION SLIDER -->
+            </div>
         </section>
         <!-- End home section -->
 
@@ -196,15 +199,16 @@ ul.tabs{
     margin: 0px;
     padding: 0px;
     list-style: none;
+    width: 1920px;
+    margin-left: -420px;
 }
 ul.tabs li{
-
     background-color: #fff;
     color: #222;
     display: inline-block;
-    padding: 10px 15px;
+    padding: 10px 10px;
     cursor: pointer;
-        background-size: 100% 100%;
+    background-size: 100% 100%;
     width: 436px;
     height: 196px;
     color: #000;
@@ -219,9 +223,9 @@ ul.tabs li.current {
 }
 
 .tab-content{
-    margin-top: 30px;
-    display: none;
-    padding: 15px;
+  margin-top: 30px;
+  display: none;
+  padding: 15px;
 }
 
 .tab-content.current{
@@ -255,7 +259,13 @@ ul.tabs li.current {
     font-weight: 700;
 }
 
-
+.background_img{
+    height:1080px;margin-top: -200px;
+    background-image: url('/1-back.png');
+    background-repeat: no-repeat;  background-size: 100% 100%;
+}
+.layer {
+}
 .step_title{
     height: 26px;
     color: #ffffff;
@@ -417,35 +427,86 @@ margin-top: 15px;
       width: 217px;
       margin-top:250px;
   }
+  .car_img{
+    width: 800px;
+    margin-top: -400px;
+    margin-right: -1500px;
+  }
+  .pc_img{
+    width:700px;margin-top: -90px;
+  }
+  .pc_2_img{
+    width:700px;margin-top: -90px;
+  }
+  .sign_up_btn{
+    width: 90%;
+  }
 /* when using mobile or tablet remove the tabs section  */
 @media (max-width: 1024px) {
-    .logo{
-    width: 200px;
-    margin-top:200px;
+.logo{
+  width: 200px;
+  margin-top:200px;
+}
+  .car_img{
+    width: 500px;
+    margin-top: -90px;
+    margin-right: 1200px;
   }
-  ul.tabs
-    {
-      display: none;
-    }
-  .sign-up-btn{
-      width: 80%;
-      align: center;
+  .pc_img{
+    width:500px;margin-top: -90px; margin-right: 1200px;
+  }
+  .pc_2_img{
+    width:500px;margin-top: -90px;margin-right: 1200px;
+  }
+ul.tabs{
+    list-style: none;
+    width: 750px;
+    margin-left: -28px;
+}
+
+ul.tabs li{
+    padding: 10px 15px;
+    width: 250px;
+}
+
+ul.tabs li.current {
+    width: 250px;
+    height: 230px;
+}
+
+.background_img{
+  height:900px;margin-top: -200px;
+  background-image: url('/bg.png');
+  background-repeat: no-repeat;  background-size: 100% 100%;
+  fill: rgba(10,58,142,0.659);
+  }
+
+  .layer {
+    display:block;
+    background-color: rgba(10,58,142,0.659);
+    position: absolute;
+    height:900px;
+    width: 100%;
     }
 
+.sign-up-btn{
+    width: 80%;
+    align: center;
+  }
   .step_subtitle{
-      height: 41px;
-      color: #ffffff;
-      font-family: "Helvetica Neue";
-      font-size: 15px;
-      font-weight: 500;
-      letter-spacing: 3.28px;
-      line-height: 24px;
-      align: center;
-      /* Text style for "Fill out i" */
+    height: 41px;
+    color: #ffffff;
+    font-family: "Helvetica Neue";
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 3.28px;
+    line-height: 24px;
+    align: center;
+    /* Text style for "Fill out i" */
   }
 
   .value-btn{
-    width: 80%;
+    width: 70%;
   }
   .istant-txt{
     color: #fff;
@@ -513,11 +574,11 @@ margin-top: 15px;
     height: 107px;
   }
   .car-img{
-    width: 100%;
+    width: 320px;
     position: center;
     margin-left: 10px;
-     margin-right: 10px;
-     margin-top: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
   }
   .why_1_point{
     margin-left: 50px;
@@ -561,31 +622,48 @@ margin-top: 15px;
   .icons{
       width:8px;
   }
+  .sign_up_btn{
+    width: 88%;
+  }
+ 
 }
 </style>
 
 
-<section class="quote-section2" style="height: 1007px; ">
+<section class="quote-section2" style="height: 880px; ">
 
 <div class="container">
 <div class="title-section">
-                     <h1 class="how_it_works_sec"><%=t :How_it_works %></h1>
-                     <img src="/divider_footer_blue.png">
-                    <p class="how_subtitle_sec"><%=t :how_subtitle %></p>
-
-
-                    <br>
-
-                </div>
+  <h1 class="how_it_works_sec"><%=t :How_it_works %></h1>
+  <img src="/divider_footer_blue.png">
+  <p class="how_subtitle_sec"><%=t :how_subtitle %></p>
+  <br>
+</div>
             
-    <ul class="tabs" style="width: 1920px;margin-left: -420px">
-        <li class="tab-link current" data-tab="tab-1" id="first_tab"><img src="/user_icon_tab.png" id="first_image_tab" style="height: 30px;margin-top: 40px;"><br><label class="tab_sub_title">Sign Up</label><br><p class="tab_description"  id="first_tab_description">Sign up with your phone number or email address</p></li>
+    <ul class="tabs" >
+      <li class="tab-link current" data-tab="tab-1" id="first_tab">
+        <img src="/user_icon_tab.png" id="first_image_tab" style="height: 30px;margin-top: 40px;">
+        <br>
+        <label class="tab_sub_title">Sign Up</label>
+        <br>
+        <p class="tab_description"  id="first_tab_description">Sign up with your phone number or email address</p>
+      </li>
 
 
-        <li class="tab-link "  id="second_tab" data-tab="tab-2" style="margin-left: -10px"><img src="/car_tab_icon_blue.png"  id="second_image_tab" style="height: 30px;margin-top: 40px;"><br><label class="tab_sub_title"><%=t :two_tab_title %></label>
-            <br><p class="tab_description"  id="second_tab_description" style="color: #222;"><%=t :two_tab_desc %></p></li>
-    <li class="tab-link " data-tab="tab-3"  id="third_tab" style="margin-left: -10px"><img src="/recieve_icon_tab_blue.png"  id="third_image_tab" style="height: 30px;margin-top: 40px;"><br><label class="tab_sub_title"><%=t :three_tab_title %></label><br><p class="tab_description" id="third_tab_description" style="color: #222;"><%=t :three_tab_desc %></p></li>
-
+      <li class="tab-link "  id="second_tab" data-tab="tab-2" style="margin-left: -10px">
+        <img src="/car_tab_icon_blue.png"  id="second_image_tab" style="height: 30px;margin-top: 40px;">
+        <br>
+        <label class="tab_sub_title"><%=t :two_tab_title %></label>
+        <br>
+        <p class="tab_description"  id="second_tab_description" style="color: #222;"><%=t :two_tab_desc %></p>
+      </li>
+    <li class="tab-link " data-tab="tab-3"  id="third_tab" style="margin-left: -10px">
+    <img src="/recieve_icon_tab_blue.png"  id="third_image_tab" style="height: 30px;margin-top: 40px;">
+    <br>
+    <label class="tab_sub_title"><%=t :three_tab_title %></label>
+    <br>
+    <p class="tab_description" id="third_tab_description" style="color: #222;"><%=t :three_tab_desc %></p>
+    </li>
     </ul>
 
     <div id="tab-1" class="tab-content current"style="width: 1400px;margin-left: -100px;margin-top: 80px;">
@@ -595,11 +673,11 @@ margin-top: 15px;
             <div>
                 <h2 class="step_title"><%=t :one_tab_cont_title %></h2><br>
                 <h2 class="step_subtitle"><%=t :one_tab_cont_desc %></h2><br>
-                <a  href="#" class="sign-up-btn" data-toggle="modal" data-target="#modalLoginForm"><img src="/sign_up_button_steps.png" style="width: 90%;"></a>
+                <a  href="#" class="sign-up-btn" data-toggle="modal" data-target="#modalLoginForm"><img src="/sign_up_button_steps.png" class="sign_up_btn"></a>
             </div>
 
             <div class="col-6">
-                <img src="/imac.png" style="width:700px;margin-top: -90px;">
+                <img src="/imac.png" class="pc_2_img">
             </div>
         </div>
 
@@ -621,7 +699,7 @@ margin-top: 15px;
 
 
             <div class="col-6">
-                <img src="/car_new_tab.png" style="width: 800px;margin-top: -220px;margin-right: -290px">
+                <img src="/car_new_tab.png" class="car_img" >
             </div>
 
         </div>
@@ -644,7 +722,7 @@ margin-top: 15px;
 
 
             <div class="col-6">
-                <img src="/imac2.png" style="width:700px;margin-top: -90px;">
+                <img src="/imac2.png" class="pc_img" >
             </div>
 
         </div>
