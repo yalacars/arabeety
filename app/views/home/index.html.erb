@@ -441,8 +441,16 @@ margin-top: 15px;
   .sign_up_btn{
     width: 90%;
   }
+  section.quote-section2 {
+  height: 1000px; 
+  }
 /* when using mobile or tablet remove the tabs section  */
 @media (max-width: 1024px) {
+  section.quote-section2 {
+  background: #fff url("/background_section.png") center  no-repeat;
+  background-size: cover; 
+  height: 1000px; 
+  }
 .logo{
   width: 200px;
   margin-top:200px;
@@ -488,7 +496,13 @@ ul.tabs li.current {
     height:900px;
     width: 100%;
     }
-
+  .layer_2 {
+    display:block;
+    background-color: rgba(10,58,142,0.659);
+    position: absolute;
+    height:1000px;
+    width: 100%;
+    }
 .sign-up-btn{
     width: 80%;
     align: center;
@@ -630,9 +644,10 @@ ul.tabs li.current {
 </style>
 
 
-<section class="quote-section2" style="height: 880px; ">
+<section class="quote-section2">
 
 <div class="container">
+
 <div class="title-section">
   <h1 class="how_it_works_sec"><%=t :How_it_works %></h1>
   <img src="/divider_footer_blue.png">
@@ -693,7 +708,7 @@ ul.tabs li.current {
                  <a  href="#" onclick="myFunction2()"><img class="value-btn" src="/value_car_first_button.png"></a>
                 <% else %>
 
-             <a  href="#" class="" data-toggle="modal" data-target="#modalLoginForm"><img class="value-btn" src="/value_car_first_button.png" style="    width: 90%;"></a>
+             <a  href="#" class="" data-toggle="modal" data-target="#modalLoginForm"><img class="value-btn" src="/value_car_first_button.png"></a>
                 <% end %>
             </div>
 
@@ -716,7 +731,7 @@ ul.tabs li.current {
                  <a  href="#" class="" onclick="myFunction2()"><img class="value-btn" src="/value_car_first_button.png"></a>
                 <% else %>
               
-             <a  href="#" class="" data-toggle="modal" data-target="#modalLoginForm"><img class="value-btn" src="/value_car_first_button.png" style="    width: 90%;"></a>
+             <a  href="#" class="" data-toggle="modal" data-target="#modalLoginForm"><img class="value-btn" src="/value_car_first_button.png"></a>
                 <% end %>
             </div>
 
