@@ -1682,7 +1682,10 @@ section.statistic-section {
 /*------------------------------------------------- */
 section.about-section {
   padding: 100px 0;
-  position: relative; }
+  position: relative;
+  display: grid;
+  /* grid-template-columns: 0.5fr 3fr 1.5fr; */
+ }
   section.about-section .container {
     position: relative;
     width: 100%;
