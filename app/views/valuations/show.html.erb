@@ -834,7 +834,7 @@ User Report</h2>
  <div class="row">
 
 
-<% if @acc_j_count == 0 %>
+<% if @valuation.accident == false %>
 
 
 <div class="col-3">
@@ -858,7 +858,7 @@ User Report</h2>
 
 <%end%>
 
-<% if @acc_j_count == 1 %>
+<% if @acc_j_count == 1  && @valuation.accident == true %>
 
 <div class="col-3">
           <div class="first_div"  style="font-family: 'Open Sans';">None</div>
@@ -884,7 +884,7 @@ User Report</h2>
 <%end%>
 
 
-<% if @acc_j_count == 2 %>
+<% if @acc_j_count == 2  && @valuation.accident == true %>
 
 <div class="col-3">
           <div class="first_div"  style="font-family: 'Open Sans';">None</div>
@@ -908,7 +908,7 @@ User Report</h2>
 <%end%>
 
 
-<% if @acc_j_count > 2 %>
+<% if @acc_j_count > 2 && @valuation.accident == true %>
 
 <div class="col-3">
           <div class="first_div"  style="font-family: 'Open Sans';">None</div>
@@ -971,201 +971,201 @@ li .painted {
 
 
    <div align="center">
+<%if @valuation.accident == true%>
+  <% @val =  @valuation %>
+      <div class=""  style="" align="center" style="border:0px solid rgba(0,0,0,.2);;">
+        <br>
+  <div align="center" style="margin-top:20px;"><img src="/line_acc.png"></div>
+  <% if @val.accident_lights_left_front != "" ||  @val.accident_second_top != "" ||  @val.accident_lights_hood != "" %>
 
-<% @val =  @valuation %>
-    <div class=""  style="" align="center" style="border:0px solid rgba(0,0,0,.2);;">
-      <br>
-<div align="center" style="margin-top:20px;"><img src="/line_acc.png"></div>
 
-<% if @val.accident_lights_left_front != "" ||  @val.accident_second_top != "" ||  @val.accident_lights_hood != "" %>
-
-
-    <div>
-        <img src="/car_front.png" style=" z-index: 1;">
-      
-      </div>
-      
-      <div class="row">
-
+      <div>
+          <img src="/car_front.png" style=" z-index: 1;">
+        
+        </div>
+        
+        <div class="row">
 
 
 
 
 
 
-<% if @val.accident_lights_left_front != "" %>
 
- <div class="col-3"><img src="/selectable_circle.png" id="" style=" z-index: 2;vertical-align: center;margin-top: -360px;margin-left:340px"></div>
-<% else %>
- <div class="col-3"><img src="/selectable_blank.png" id="" style=" z-index: 2;vertical-align: center;margin-top: -360px;margin-left:340px"></div>
+  <% if @val.accident_lights_left_front != "" %>
 
-<% end %>
+  <div class="col-3"><img src="/selectable_circle.png" id="" style=" z-index: 2;vertical-align: center;margin-top: -360px;margin-left:340px"></div>
+  <% else %>
+  <div class="col-3"><img src="/selectable_blank.png" id="" style=" z-index: 2;vertical-align: center;margin-top: -360px;margin-left:340px"></div>
 
-
-<% if @val.accident_second_top != "" %>
-
-  <div class="col-3"><img src="/selectable_circle.png" id="" style=" z-index: 2;vertical-align: center;margin-top: -800px;margin-left:240px"></div>
-<% else %>
-  <div class="col-3"><img src="/selectable_blank.png" id="" style=" z-index: 2;vertical-align: center;margin-top: -800px;margin-left:240px"></div>
-<% end %>
+  <% end %>
 
 
-<% if @val.accident_lights_hood != "" %>
+  <% if @val.accident_second_top != "" %>
 
-   <div class="col-3"><img src="/selectable_circle.png"  id="" style=" z-index: 2;vertical-align: center;margin-top: -510px;margin-left: -300px;"></div>
-<% else %>
- <div class="col-3"><img src="/selectable_blank.png"  id="" style=" z-index: 2;vertical-align: center;margin-top: -510px;margin-left: -300px;"></div>
-<% end %>
-
-
-
-<% if @val.accident_lights_right_front != "" %>
-
-     <div class="col-3"><img src="/selectable_circle.png"  id="" style=" z-index: 2;vertical-align: center;margin-top: -364px;margin-left: -490px;"></div>
-<% else %>
-   <div class="col-3"><img src="/selectable_blank.png"  id="" style=" z-index: 2;vertical-align: center;margin-top: -364px;margin-left: -490px;"></div>
-<% end %>
+    <div class="col-3"><img src="/selectable_circle.png" id="" style=" z-index: 2;vertical-align: center;margin-top: -800px;margin-left:240px"></div>
+  <% else %>
+    <div class="col-3"><img src="/selectable_blank.png" id="" style=" z-index: 2;vertical-align: center;margin-top: -800px;margin-left:240px"></div>
+  <% end %>
 
 
-           
-      
-       
-     
+  <% if @val.accident_lights_hood != "" %>
+
+    <div class="col-3"><img src="/selectable_circle.png"  id="" style=" z-index: 2;vertical-align: center;margin-top: -510px;margin-left: -300px;"></div>
+  <% else %>
+  <div class="col-3"><img src="/selectable_blank.png"  id="" style=" z-index: 2;vertical-align: center;margin-top: -510px;margin-left: -300px;"></div>
+  <% end %>
 
 
-      </div>
-   <% end %>     
+
+  <% if @val.accident_lights_right_front != "" %>
+
+      <div class="col-3"><img src="/selectable_circle.png"  id="" style=" z-index: 2;vertical-align: center;margin-top: -364px;margin-left: -490px;"></div>
+  <% else %>
+    <div class="col-3"><img src="/selectable_blank.png"  id="" style=" z-index: 2;vertical-align: center;margin-top: -364px;margin-left: -490px;"></div>
+  <% end %>
+
+
+            
         
         
       
 
-<% if @val.accident_second_side != "" ||  @val.accident_third_side != "" %>
-         <div>
-        <h2 class="title_modal" style="z-index: 90;">Right side:</h2>
-        <img src="/car_side.png" style="margin-top: -10px;">
-      </div>
 
-        <div class="row"> 
+        </div>
+    <% end %>     
+          
+          
+        
 
+  <% if @val.accident_second_side != "" ||  @val.accident_third_side != "" %>
+          <div>
+          <h2 class="title_modal" style="z-index: 90;">Right side:</h2>
+          <img src="/car_side.png" style="margin-top: -10px;">
+        </div>
 
-<% @val =  @valuation %>
-
-<div class="col-3"><img src="/selectable_blank.png" id="" style=" z-index: 2;margin-top: -420px;margin-left:240px;"></div>
-
-<% if @val.accident_second_side != "" %>
-
-   <div class="col-3"><img src="/selectable_circle.png" id="" style=" z-index: 2;margin-top: -390px;margin-left:100px;"></div>
-<% else %>
-   <div class="col-3"><img src="/selectable_blank.png" id="" style=" z-index: 2;margin-top: -390px;margin-left:100px;"></div>
-<% end %>
+          <div class="row"> 
 
 
-<% if @val.accident_third_side != "" %>
+  <% @val =  @valuation %>
 
- <div class="col-3"><img src="/selectable_circle.png" id="" style=" z-index: 2;margin-top: -390px;margin-left:-40px;"></div>
-<% else %>
-    <div class="col-3"><img src="/selectable_blank.png" id="" style=" z-index: 2;margin-top: -390px;margin-left:-40px;"></div>
-<% end %>
+  <div class="col-3"><img src="/selectable_blank.png" id="" style=" z-index: 2;margin-top: -420px;margin-left:240px;"></div>
+
+  <% if @val.accident_second_side != "" %>
+
+    <div class="col-3"><img src="/selectable_circle.png" id="" style=" z-index: 2;margin-top: -390px;margin-left:100px;"></div>
+  <% else %>
+    <div class="col-3"><img src="/selectable_blank.png" id="" style=" z-index: 2;margin-top: -390px;margin-left:100px;"></div>
+  <% end %>
 
 
-         <div class="col-3"><img src="/selectable_blank.png" id="" style=" z-index: 2;margin-top: -440px;margin-left:-280px;"></div>
-   
+  <% if @val.accident_third_side != "" %>
+
+  <div class="col-3"><img src="/selectable_circle.png" id="" style=" z-index: 2;margin-top: -390px;margin-left:-40px;"></div>
+  <% else %>
+      <div class="col-3"><img src="/selectable_blank.png" id="" style=" z-index: 2;margin-top: -390px;margin-left:-40px;"></div>
+  <% end %>
 
 
+          <div class="col-3"><img src="/selectable_blank.png" id="" style=" z-index: 2;margin-top: -440px;margin-left:-280px;"></div>
     
 
-      </div>
 
-<% end %>
+      
+
+        </div>
+
+  <% end %>
 
 
 
 
-<% if @val.accident_second_left_side != "" ||  @val.accident_third_left_side != "" %>
-         <div>
-        <h2 class="title_modal">Left Side:</h2>
-      <img src="/car_side.png" style="margin-top: -10px;">
-      </div>
-      <div class="row">
+  <% if @val.accident_second_left_side != "" ||  @val.accident_third_left_side != "" %>
+          <div>
+          <h2 class="title_modal">Left Side:</h2>
+        <img src="/car_side.png" style="margin-top: -10px;">
+        </div>
+        <div class="row">
+
+
+          
+
+  <% @val =  Valuation.find(params[:id]) %>
+  <div class="col-3"><img src="/selectable_blank.png" id="" style=" z-index: 2;margin-top: -420px;margin-left:240px;"></div>
+  <% if @val.accident_second_left_side != "" %>
+
+          <div class="col-3"><img src="/selectable_circle.png" id="" style=" z-index: 2;margin-top: -390px;margin-left:100px;"></div>
+  <% else %>
+            <div class="col-3"><img src="/selectable_blank.png" id="" style=" z-index: 2;margin-top: -390px;margin-left:100px;"></div>
+  <% end %>
+
+
+
+  <% if @val.accident_third_left_side != "" %>
+
+          <div class="col-3"><img src="/selectable_circle.png" id="" style=" z-index: 2;margin-top: -390px;margin-left:-40px;"></div>
+  <% else %>
+              <div class="col-3"><img src="/selectable_blank.png" id="" style=" z-index: 2;margin-top: -390px;margin-left:-40px;"></div>
+  <% end %>
+
+  <div class="col-3"><img src="/selectable_blank.png" id="" style=" z-index: 2;margin-top: -440px;margin-left:-280px;"></div>
+
+
+
+        </div>
+
+
+        <% end %>
+
+
+
+  <% if @val.accident_left_back != "" ||  @val.accident_middle_back != "" || @val.accident_right_back != "" %>
+
+          <div>
+          <img src="/car_back.png">
+        </div>
+        <div class="row">
+
+
+  <% @val =  Valuation.find(params[:id]) %>
+
+
+  <% if @val.accident_left_back != "" %>
+
+      <div class="col-4"><img src="/selectable_circle.png" id="" style=" z-index: 2;margin-top: -300px;margin-left: 330px;"></div>
+  <% else %>
+            <div class="col-4"><img src="/selectable_blank.png" id="" style=" z-index: 2;margin-top: -300px;margin-left: 330px;"></div>
+  <% end %>
+
+
+
+  <% if @val.accident_middle_back != "" %>
+
+  <div class="col-4"><img src="/selectable_circle.png" id=""  style=" z-index: 2;margin-top: -470px;margin-left: -30px"></div>
+  <% else %>
+            <div class="col-4"><img src="/selectable_blank.png" id=""  style=" z-index: 2;margin-top: -470px;margin-left: -30px"></div>
+  <% end %>
+
+
+
+  <% if @val.accident_right_back != "" %>
+
+    <div class="col-4"><img src="/selectable_circle.png" id="" style=" z-index: 2;margin-top: -300px;;margin-left:-390px;"></div>
+
+  <% else %>
+              <div class="col-4"><img src="/selectable_blank.png" id="" style=" z-index: 2;margin-top: -300px;;margin-left:-390px;"></div>
+
+  <% end %>
+
+
+
+
 
 
         
+        </div>
 
-<% @val =  Valuation.find(params[:id]) %>
-<div class="col-3"><img src="/selectable_blank.png" id="" style=" z-index: 2;margin-top: -420px;margin-left:240px;"></div>
-<% if @val.accident_second_left_side != "" %>
-
-        <div class="col-3"><img src="/selectable_circle.png" id="" style=" z-index: 2;margin-top: -390px;margin-left:100px;"></div>
-<% else %>
-           <div class="col-3"><img src="/selectable_blank.png" id="" style=" z-index: 2;margin-top: -390px;margin-left:100px;"></div>
-<% end %>
-
-
-
-<% if @val.accident_third_left_side != "" %>
-
-        <div class="col-3"><img src="/selectable_circle.png" id="" style=" z-index: 2;margin-top: -390px;margin-left:-40px;"></div>
-<% else %>
-            <div class="col-3"><img src="/selectable_blank.png" id="" style=" z-index: 2;margin-top: -390px;margin-left:-40px;"></div>
-<% end %>
-
- <div class="col-3"><img src="/selectable_blank.png" id="" style=" z-index: 2;margin-top: -440px;margin-left:-280px;"></div>
-
-
-
-      </div>
-
-
-      <% end %>
-
-
-
-<% if @val.accident_left_back != "" ||  @val.accident_middle_back != "" || @val.accident_right_back != "" %>
-
-         <div>
-        <img src="/car_back.png">
-      </div>
-      <div class="row">
-
-
-<% @val =  Valuation.find(params[:id]) %>
-
-
-<% if @val.accident_left_back != "" %>
-
-    <div class="col-4"><img src="/selectable_circle.png" id="" style=" z-index: 2;margin-top: -300px;margin-left: 330px;"></div>
-<% else %>
-           <div class="col-4"><img src="/selectable_blank.png" id="" style=" z-index: 2;margin-top: -300px;margin-left: 330px;"></div>
-<% end %>
-
-
-
-<% if @val.accident_middle_back != "" %>
-
- <div class="col-4"><img src="/selectable_circle.png" id=""  style=" z-index: 2;margin-top: -470px;margin-left: -30px"></div>
-<% else %>
-          <div class="col-4"><img src="/selectable_blank.png" id=""  style=" z-index: 2;margin-top: -470px;margin-left: -30px"></div>
-<% end %>
-
-
-
-<% if @val.accident_right_back != "" %>
-
-   <div class="col-4"><img src="/selectable_circle.png" id="" style=" z-index: 2;margin-top: -300px;;margin-left:-390px;"></div>
-
-<% else %>
-            <div class="col-4"><img src="/selectable_blank.png" id="" style=" z-index: 2;margin-top: -300px;;margin-left:-390px;"></div>
-
-<% end %>
-
-
-
-
-
-
-      
-      </div>
-
+  <% end %>
 <% end %>
 
       <br><br>
