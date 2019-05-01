@@ -25,7 +25,7 @@ class CarsController < ApplicationController
   # POST /cars.json
   def create
     @car = Car.new(car_params)
-
+    @car.id = Car.last.id + 1  
     respond_to do |format|
       if @car.save
         format.html { redirect_to cars_url}

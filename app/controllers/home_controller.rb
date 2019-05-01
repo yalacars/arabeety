@@ -106,7 +106,7 @@ end
 
 
 
-		@models = CarModel.where("brand =?",params[:brand_id])
+		@models = CarModel.where("brand =?",params[:brand_id].to_s).order('name ASC')
 
 		@model_years = []
 
@@ -173,10 +173,10 @@ end
 	def delete_user
 
 		@user = User.find(params[:user_id])
-		@valuations = Valuation.where("user_id =?",@user.id)
-		@messages = Message.where("user_id =?",@user.id)
+		@valuations = Valuation.where("user_id =?",@user.id.to_s)
+		@messages = Message.where("user_id =?",@user.id.to_s)
 		@user_stat = UserStat.new
-
+    @user_stat.id = UserStat.last.id + 1 
 		@user_stat.state = "Deleted"
 		@user_stat.email = @user.email
 		@user_stat.save
@@ -196,7 +196,7 @@ end
 	def delete_tier
 
 		@tier = Tier.find(params[:tier])
-		@car_models = CarModel.where("tier =?",@tier.id)
+		@car_models = CarModel.where("tier =?",@tier.id.to_s)
 		@car_models.delete_all
 		@tier.destroy
 
@@ -210,9 +210,9 @@ end
 	def delete_year
 
 		@year = Year.find(params[:year])
-		Valuation.where("year_car =?",@year.id).delete_all
-		CarModel.where("years =?",@year.id).delete_all
-		CarModel.where("years_end =?",@year.id).delete_all
+		Valuation.where("year_car =?",@year.id.to_s).delete_all
+		CarModel.where("years =?",@year.id.to_s).delete_all
+		CarModel.where("years_end =?",@year.id.to_s).delete_all
 		@year.destroy
 		redirect_to years_url
 		
@@ -222,7 +222,7 @@ end
 
 		@owner = Owner.find(params[:owner])
 
-		Valuation.where("number_owners =?",@owner.id).delete_all
+		Valuation.where("number_owners =?",@owner.id.to_s).delete_all
 		@owner.destroy
 		redirect_to owners_url
 		
@@ -234,8 +234,8 @@ end
 
 
 
-		CarModel.where("brand =?",@brand.name).delete_all
-		Valuation.where("brand =?",@brand.id).delete_all
+		CarModel.where("brand =?",@brand.name.to_s).delete_all
+		Valuation.where("brand =?",@brand.id.to_s).delete_all
 
 
 		@brand.destroy
@@ -248,7 +248,7 @@ end
 	def delete_car_model
 
 		@carmodel = CarModel.find(params[:car_model])
-		Valuation.where("model_car =?",@carmodel.id).delete_all
+		Valuation.where("model_car =?",@carmodel.id.to_s).delete_all
 		@carmodel.destroy
 		redirect_to brands_url
 
@@ -257,7 +257,7 @@ end
 	def delete_trim
 
 		@trim = Trim.find(params[:trim])
-		Valuation.where("trim_select =?",@trim.id).delete_all
+		Valuation.where("trim_select =?",@trim.id.to_s).delete_all
 		@trim.destroy
 		redirect_to brands_url
 
@@ -266,7 +266,7 @@ end
 	def delete_millage
 
 		@millage = Millage.find(params[:millage])
-		Valuation.where("kilometers =?",@millage.id).delete_all
+		Valuation.where("kilometers =?",@millage.id.to_s).delete_all
 		@millage.destroy
 		redirect_to millages_url
 	end
@@ -276,6 +276,7 @@ end
 	def register_valuation
 
 		@valuation = Valuation.new(valuation_params)
+    @valuation.id = Valuation.last.id + 1 
 		@user = User.find(params[:valuation][:user_id])
     respond_to do |format|
       if @valuation.save
@@ -1192,7 +1193,7 @@ logger.info("Middle Back Bumper: " + @back_middle_bumper_accident_percentage.to_
 
 
 		@message = Message.new
-
+    @message.id = Message.last.id + 1 
 		if params[:admin_id]
 
 			@message.admin_id =  params[:admin_id]
@@ -1228,6 +1229,7 @@ logger.info("Middle Back Bumper: " + @back_middle_bumper_accident_percentage.to_
 		if @conversation
 
            @message = Message.new
+           @message.id = Message.last.id + 1 
            @message.user_id = params[:user_id]
            @message.user_id = params[:admin_id]
            @message.text = params[:text_to_send]
@@ -1236,11 +1238,13 @@ logger.info("Middle Back Bumper: " + @back_middle_bumper_accident_percentage.to_
 
 		else
 			@conversation = Conversation.new
+      @conversation.id = Conversation.last.id + 1 
 			@conversation.user_id = params[:user_id]
 			@conversation.admin_id = params[:admin_id]
 			@conversation.save
 
 			@message = Message.new
+      @message.id = Message.last.id + 1 
            @message.user_id = params[:user_id]
            @message.user_id = params[:admin_id]
            @message.text = params[:text_to_send]
@@ -1264,6 +1268,7 @@ logger.info("Middle Back Bumper: " + @back_middle_bumper_accident_percentage.to_
 		if @conversation
 
            @message = Message.new
+           @message.id = Message.last.id + 1 
            @message.user_id = params[:user_id]
            @message.user_id = params[:admin_id]
            @message.text = params[:text_to_send]
@@ -1272,11 +1277,13 @@ logger.info("Middle Back Bumper: " + @back_middle_bumper_accident_percentage.to_
 
 		else
 			@conversation = Conversation.new
+      @conversation.id = Conversation.last.id + 1 
 			@conversation.user_id = params[:user_id]
 			@conversation.admin_id = params[:admin_id]
 			@conversation.save
 
 			@message = Message.new
+      @message.id = Message.last.id + 1 
            @message.user_id = params[:user_id]
            @message.user_id = params[:admin_id]
            @message.text = params[:text_to_send]
@@ -1309,6 +1316,7 @@ logger.info("Middle Back Bumper: " + @back_middle_bumper_accident_percentage.to_
 		
 			      if params[:user][:password] == params[:user][:password_confirmation]
 			      	@user = User.new(user_params)
+              @user.id = User.last.id + 1 
 			      	@user.save
 
 			      	UserMailer.registration_confirmation(@user).deliver
@@ -1357,6 +1365,7 @@ logger.info("Middle Back Bumper: " + @back_middle_bumper_accident_percentage.to_
 		
 			      if params[:password] == params[:password_confirmation]
 			      	@user = User.new
+              @user.id = User.last.id + 1 
 			      	@user.email = params[:email]
 			      	@user.password = params[:password]
 			      	@user.password_confirmation = params[:password_confirmation]
@@ -1368,14 +1377,14 @@ logger.info("Middle Back Bumper: " + @back_middle_bumper_accident_percentage.to_
 					end
 
 			      	@daily = DailyVisitor.new
-
+              @daily.id = DailyVisitor.last.id + 1 
 				
 						@daily.user_email = @user.email
 						@daily.save
 
 
 						@user_stat = UserStat.new
-
+            @user_stat.id = UserStat.last.id + 1 
 						@user_stat.state = "Active"
 						@user_stat.email = @user.email
 						@user_stat.save
@@ -1443,7 +1452,7 @@ logger.info("Middle Back Bumper: " + @back_middle_bumper_accident_percentage.to_
 						@user.active_flag = true
 						@user.save
 						@user_stat = UserStat.new
-
+            @user_stat.id = UserStat.last.id + 1 
 						@user_stat.state = "Active"
 						@user_stat.email = @user.email
 						@user_stat.save
@@ -1456,7 +1465,7 @@ logger.info("Middle Back Bumper: " + @back_middle_bumper_accident_percentage.to_
 					end
 						@daily = DailyVisitor.new
 
-				
+				    @daily.id = DailyVisitor.last.id + 1 
 						@daily.user_email = @user.email
 						@daily.save
 
@@ -1482,7 +1491,7 @@ logger.info("Middle Back Bumper: " + @back_middle_bumper_accident_percentage.to_
 						@user.active_flag = true
 						@user.save
 						@user_stat = UserStat.new
-
+            @user_stat.id = UserStat.last.id + 1 
 						@user_stat.state = "Active"
 						@user_stat.email = @user.email
 						@user_stat.save
@@ -1631,7 +1640,7 @@ end
 
 
 						@user_stat = UserStat.new
-
+@user_stat.id = UserStat.last.id + 1 
 		@user_stat.state = "Inactive"
 		@user_stat.email = @user.email
 		@user_stat.save

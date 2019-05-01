@@ -57,7 +57,7 @@ class MessagesController < ApplicationController
   # POST /messages.json
   def create
     @message = Message.new(message_params)
-
+    @message.id = Message.last.id + 1 
     respond_to do |format|
       if @message.save
         format.html { redirect_to @message}

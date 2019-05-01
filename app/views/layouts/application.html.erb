@@ -3412,7 +3412,7 @@ document.getElementById("valuation-engine_problem").value = "no";
 
 $('#yes_car_paint').click(function(){
 
-    $('#modalPaint').modal('show');
+  
 <% if params[:id] && request.path.include?("valuation") %>
 
 
@@ -3430,7 +3430,7 @@ document.getElementById("valuation-car_paint").value = "yes";
 
  if (document.getElementById("valuation-engine_problem").value == "yes" || document.getElementById("valuation-engine_problem").value == "no" ){
 
-
+  $('#modalPaint').modal('show');
 document.getElementById("yes_car_paint").style["background-color"] = "#00357a";
 document.getElementById("yes_car_paint_check").src = "/checked.png";
 
@@ -3445,6 +3445,8 @@ document.getElementById("valuation-car_paint").value = "yes";
 
 alert("Select your Engine Condition");
 
+
+ return false;
 }
 <% end %>
 
@@ -3485,6 +3487,7 @@ document.getElementById("valuation-car_paint").value = "no";
 
 alert("Select your Engine Condition");
 
+ return false;
 }
 
   <% end %>
@@ -3529,6 +3532,8 @@ document.getElementById("valuation-accident").value = true;
  }else{
 
   alert("Select your engine condition and if you have painted your car.");
+
+ return false;
  }
 
     <% end %>
@@ -3568,13 +3573,13 @@ document.getElementById("valuation-accident").value = false;
 }else{
 
   alert("Select your engine condition and if you have painted your car.");
+  
+ return false;
 
 }
      <% end %>
 
 });
-
-
 
 $('#ser-1-tab1').click(function(){
 

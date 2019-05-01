@@ -5,6 +5,7 @@ class ApiController < ApplicationController
 		def register_valuation_service
 
 			@valuation = Valuation.new(valuation_params)
+      @valuation.id = Valuation.last.id + 1 
 		@user = User.find(params[:valuation][:user_id])
 
       if @valuation.save
@@ -948,6 +949,7 @@ logger.info("Middle Back Bumper: " + @back_middle_bumper_accident_percentage.to_
 		
 			      if params[:password] == params[:password_confirmation]
 			      	@user = User.new
+              @user.id = User.last.id + 1 
 			      	@user.email = params[:email]
 			      	@user.password = params[:password]
 			      	@user.password_confirmation = params[:password_confirmation]
@@ -959,14 +961,14 @@ logger.info("Middle Back Bumper: " + @back_middle_bumper_accident_percentage.to_
 					end
 
 			      	@daily = DailyVisitor.new
-
+              @daily.id = DailyVisitor.last.id + 1 
 				
 						@daily.user_email = @user.email
 						@daily.save
 
 
 						@user_stat = UserStat.new
-
+            @user_stat.id = UserStat.last.id + 1 
 						@user_stat.state = "Active"
 						@user_stat.email = @user.email
 						@user_stat.save
@@ -1009,7 +1011,7 @@ logger.info("Middle Back Bumper: " + @back_middle_bumper_accident_percentage.to_
 						@user.active_flag = true
 						@user.save
 						@user_stat = UserStat.new
-
+            @user_stat.id = UserStat.last.id + 1 
 						@user_stat.state = "Active"
 						@user_stat.email = @user.email
 						@user_stat.save
@@ -1021,7 +1023,7 @@ logger.info("Middle Back Bumper: " + @back_middle_bumper_accident_percentage.to_
 
 					end
 						@daily = DailyVisitor.new
-
+            @daily.id = DailyVisitor.last.id + 1 
 				
 						@daily.user_email = @user.email
 						@daily.save
@@ -1048,7 +1050,7 @@ logger.info("Middle Back Bumper: " + @back_middle_bumper_accident_percentage.to_
 						@user.active_flag = true
 						@user.save
 						@user_stat = UserStat.new
-
+            @user_stat.id = UserStat.last.id + 1 
 						@user_stat.state = "Active"
 						@user_stat.email = @user.email
 						@user_stat.save
@@ -1144,7 +1146,7 @@ logger.info("Middle Back Bumper: " + @back_middle_bumper_accident_percentage.to_
 
  	def get_models_service
 
- 		@models = CarModel.where("brand =?",params[:brand_id])
+ 		@models = CarModel.where("brand =?",params[:brand_id].to_s)
 
 		@model_years = []
 

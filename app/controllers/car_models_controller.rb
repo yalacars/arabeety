@@ -27,13 +27,16 @@ class CarModelsController < ApplicationController
     @car_model = CarModel.new(car_model_params)
 
     respond_to do |format|
-      if @car_model.save
-        format.html { redirect_to brands_url}
-        format.json { render :show, status: :created, location: @car_model }
-      else
-        format.html { render :new }
-        format.json { render json: @car_model.errors, status: :unprocessable_entity }
-      end
+    @car_model.id = CarModel.last.id + 1      
+    if @car_model.save
+     
+             @car_model.save!
+            format.html { redirect_to brands_url}
+            format.json { render :show, status: :created, location: @car_model }
+          else
+            format.html { render :new }
+            format.json { render json: @car_model.errors, status: :unprocessable_entity }
+          end
     end
   end
 

@@ -702,7 +702,7 @@ User Report</h2>
 
 
 
-<% if @paint_j_count == 0 %>
+<% if @paint_j_count == 0 || @valuation.car_paint == "no" %>
 
 
 <div class="col-3">
@@ -726,7 +726,7 @@ User Report</h2>
 
 <%end%>
 
-<% if @paint_j_count == 1 %>
+<% if @paint_j_count == 1  && @valuation.car_paint == "yes" %>
 
 <div class="col-3">
           <div class="first_div"  style="font-family: 'Open Sans';">None</div>
@@ -752,7 +752,7 @@ User Report</h2>
 <%end%>
 
 
-<% if @paint_j_count == 2 %>
+<% if @paint_j_count == 2  && @valuation.car_paint == "yes" %>
 
 <div class="col-3">
           <div class="first_div"  style="font-family: 'Open Sans';">None</div>
@@ -776,7 +776,7 @@ User Report</h2>
 <%end%>
 
 
-<% if @paint_j_count > 2 %>
+<% if @paint_j_count > 2  && @valuation.car_paint == "yes" %>
 
 <div class="col-3">
           <div class="first_div"  style="font-family: 'Open Sans';">None</div>

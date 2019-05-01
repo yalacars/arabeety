@@ -1,12 +1,12 @@
 class User < ApplicationRecord
 validates_uniqueness_of :email	
 has_secure_password
-
+self.primary_key = "id"
 before_create :confirmation_token
 attr_accessor :confirmation_token, :reset_token, :email_confirmed
 before_create { generate_token(:auth_token) }
 
-
+self.primary_key = "id"
 
 
 
