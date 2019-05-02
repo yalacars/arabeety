@@ -873,7 +873,7 @@ logger.info("Original PRICE - " + @price_model.to_s)
       end
 
 
-      if @valuation.accident == true
+      if @valuation.accident == "true"
 
         logger.info("CALCULATING ACCIDENT DISCOUNT")
         @condition_string = "risky"
