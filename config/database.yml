@@ -22,7 +22,7 @@ development:
   username: arabeetyapp
   password: s23nZhL4eX8JNyfG
   timeout: 5000
-  host: http://arabeetyapp.myvoga.mx
+  host: 69.25.136.10
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
   # domain sockets, so uncomment these lines.
@@ -61,7 +61,7 @@ test:
   username: arabeetyapp
   password: s23nZhL4eX8JNyfG
   timeout: 5000
-  host: http://arabeetyapp.myvoga.mx
+  host: 69.25.136.10
 
 production:
   adapter: postgresql
@@ -71,4 +71,4 @@ production:
   username: arabeetyapp
   password: s23nZhL4eX8JNyfG
   timeout: 5000
-  host: http://arabeetyapp.myvoga.mx
+  host: 69.25.136.10

@@ -1,5 +1,0 @@
-RackBaseURI /
-#RailsEnv development
-RailsEnv production
-PassengerAppRoot   /home/arabeetyapp/arabeety
-PassengerRuby /usr/local/rvm/wrappers/ruby-2.4.0/ruby
