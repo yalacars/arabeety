@@ -1,0 +1,105 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# The following keys must be escaped otherwise they will not be retrieved by
+# the default I18n backend:
+#
+# true, false, on, off, yes, no
+#
+# Instead, surround them with single quotes.
+#
+# en:
+#   'true': 'foo'
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+en:
+  Instant_Vehicle_Valuation: "Instant Vehicle Valuation"
+
+  sign_up: "Sign Up"
+  sign_in: "Sign In"
+
+  Value_your_car: "Value Your Car"
+
+  Why_3arabeety_?: "Why 3arabeety ?"
+  why_subtitle: "3arabeety is a platform tailored to make your next vehicle sale or purchase experience easy!"
+  why_1_point: "Accurate"
+  why_1_point_desc: "We use mathematical algorithms to determine the price for your car"
+  why_2_point: "Real Analysis"
+  why_2_point_desc: "Pricing is done based on real time pricing adjustments"
+  why_3_point: "User Friendly"
+  why_3_point_desc: "Our surveys are easy and straight to the point. You won't find a difficulty maneuvering through our platform."
+  why_4_point: "Detailed"
+  why_4_point_desc: "We use complex methodologies to understand your vehicles current condition"
+  why_5_point: "Experts"
+  why_5_point_desc: "We have a team of leading experts that ensure and monitor the auto industry"
+  why_6_point: "Modern tools"
+  why_6_point_desc: "We use the most advanced technological innovations to figure out the market dynamics"
+
+
+
+  How_it_works?: "How it works?"
+  how_subtitle: "Our process is extremely simple & fast"
+
+
+  one_tab_title: "Sign Up"
+  one_tab_desc: "Sign up with your phone number or email address"
+  one_tab_cont_title: "STEP NUMBER ONE"
+  one_tab_cont_desc: "Signup in our website its easy"
+
+  two_tab_title: "Fill out a questionare"
+  two_tab_desc: "Fill out a 3 Minute questionnaire"
+  two_tab_cont_title: "STEP NUMBER TWO"
+  two_tab_cont_desc: "Fill out information about your car"
+
+  three_tab_title: "Receive Result"
+  three_tab_desc: "Receive instant valuation for your vehicle"
+  three_tab_cont_title: "STEP NUMBER THREE"
+  three_tab_cont_desc: "Receive Your Car Report"
+
+
+
+
+
+  What_Our_Clients_Say_?: "What Our Clients Say ?"
+  title_ceo: "Adham Amr"
+  position_ceo: "CEO & FOUNDER"
+  desc_ceo: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vitae semper urna. Sed id cursus dolor, sit amet malesuada tellus. Pellentesque egestas diam et ultrices finibus. Maecenas fermentum"
+
+  Partners: "Partners"
+
+  Questions_Were_here_to_help: "Questions? We're here to help."
+
+
+
+  Dont_have_an_account: "Dont have an account?"
+  Forgot_Password: "Forgot Password?"
+  Remember_me: "Remember me"
+
+  email_phone: "Email or Phone Number"
+  password: "Password"
+  confirm_password: "Confirm Password"
+
+  Already_have_an_account: "Already have an account?"
+  verify_mobile: "Verificate Your Mobile Number"
+  enter_code: "Enter The Code"
+  confirm: "Confirm"
+  resend_code: "Resend Code"
+  did_not_recieve: "Didn't Receive Message?"
+  resent: "The code has been resent"

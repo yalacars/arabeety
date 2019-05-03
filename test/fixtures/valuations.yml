@@ -1,0 +1,33 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  engine_condition: MyString
+  notes_engine: MyString
+  car_paint: false
+  engine_problem: false
+  accident: false
+  ac: MyString
+  radio: MyString
+  type_Seller_buyer: MyString
+  brand: MyString
+  trim_select: MyString
+  year_car: MyString
+  model_car: MyString
+  kilometers: MyString
+
+two:
+  user_id: 1
+  engine_condition: MyString
+  notes_engine: MyString
+  car_paint: false
+  engine_problem: false
+  accident: false
+  ac: MyString
+  radio: MyString
+  type_Seller_buyer: MyString
+  brand: MyString
+  trim_select: MyString
+  year_car: MyString
+  model_car: MyString
+  kilometers: MyString

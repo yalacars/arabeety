@@ -1,0 +1,2 @@
+class DailyVisitor < ApplicationRecord
+end

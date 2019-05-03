@@ -1,0 +1,161 @@
+<% if session[:admin_id] %>
+
+<style type="text/css">
+.value_button{
+
+
+    max-width: 376px;
+    min-width: 280px;
+height: 75px;
+background-color: #ff8409;
+
+
+border: 1px solid #ffffff;
+color: #ffffff;
+font-family: "Helvetica Neue";
+font-size: 18px;
+font-weight: 600;
+
+letter-spacing: 4.57px;
+line-height: 8px;
+text-transform: uppercase;
+/* Text style for "VALUE YOUR" */
+
+font-weight: 400;
+
+}
+    .email-tel-user{
+
+
+
+color: #4a4a4a;
+font-family: "Helvetica Neue";
+font-size: 19px;
+font-weight: 300;
+letter-spacing: 2.62px;
+line-height: 11px;
+/* Text style for "ehabfcih94" */
+margin-top: 20px;
+font-weight: 300;
+    }
+
+    .name_user{
+        color: #4a4a4a;
+font-family: "Helvetica Neue";
+font-size: 22px;
+font-weight: 700;
+letter-spacing: 3.04px;
+line-height: 11px;
+/* Text style for "Ehab Moham" */
+font-family: "Segoe UI";
+font-weight: 700;
+
+
+    }
+
+.titles_first_blocks{
+  color: #777777;
+  margin-top: 30%;
+  margin-left: 15%;
+font-family: Arial;
+font-size: 15px;
+font-weight: 700;
+line-height: 22px;
+}
+
+.numbers_admin_starters{
+
+  color: #ff8409;
+font-family: Arial;
+font-size: 20px;
+font-weight: 700;
+line-height: 39px;
+  margin-left: 23%;
+}
+</style>
+
+<style type="text/css">
+  
+  .col_first_car_month{
+    color: #b2b5b8;
+    text-align: left;
+font-family: Arial;
+font-size: 14px;
+font-weight: 400;
+line-height: 37px;
+  }
+
+  .col_second_car_month{
+    color: #404447;
+    text-align: left;
+font-family: Arial;
+font-size: 15px;
+font-weight: 400;
+line-height: 37px;
+  }
+
+
+  .recent_evaluations{
+
+color: #404447;
+font-family: Arial;
+font-size: 16px;
+font-weight: 400;
+letter-spacing: 1.2px;
+line-height: 40px;
+
+  }
+</style>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.js"></script>
+
+<section class="tabs-section">
+     <%= render 'layouts/header_profile_admin' %>
+
+
+    
+  <br><br>
+
+
+      <div class="container" >
+                 <div class="tab-content" id="myTabContent" style="background-color: #f3f3f3" >
+                        <div class="tab-pane fade active show" id="ser-1" role="tabpanel" aria-labelledby="ser-1-tab">
+                        
+                           
+
+
+
+
+                        	<div class="row">
+    						 <h4 class="card-title" style="margin-left: 50px;">Edit Car</h4>
+                   
+                              <%= render 'form', car: @car %>
+
+                        	</div>
+
+
+
+
+
+
+
+                        </div>
+               
+
+                
+
+
+
+                         
+                    </div>
+
+</div>
+
+
+
+        </section>
+
+        <% else %>
+        <div align="center" style="margin-top: -700px;">
+ <button class="value_button" data-toggle="modal" data-target="#modalLoginForm" style="margin-top: 35%;">PLEASE SIGN IN</button>
+</div><br><br><br>
+        <% end %>
