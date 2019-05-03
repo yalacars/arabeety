@@ -37,7 +37,7 @@ helper_method :round_up
  
   def update
     respond_to do |format|
-       if @valuation.save
+   if @valuation.update(valuation_params)
         @valuation.save
          @model = CarModel.find(@valuation.model_car)
         @tier = Tier.find(@model.tier)
@@ -631,7 +631,7 @@ logger.info("Original PRICE - " + @price_model.to_s)
       end
 
 
-      if @valuation.accident == true
+      if @valuation.accident == "true"
 
         logger.info("CALCULATING ACCIDENT DISCOUNT")
         @condition_string = "risky"

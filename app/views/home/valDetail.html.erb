@@ -1,7 +1,7 @@
 
 <br>
 
-<button onclick="goHome()" style="width: 254px;height: 65px;background-color: #0f5dc3;border-radius: 4px;margin-left: 382px"><div style="width: 128px;height: 31px;color: #ffffff;font-family: 'Helvetica Neue';font-size: 17px;font-weight: 700;letter-spacing: 0.85px;line-height: 31px;font-family: Arial;font-weight: 700; margin-left:40px;">Go Back</div></button><br><br>
+<button onclick="goHome()" class="col-12 back_btn">Go Back</button><br><br>
 
 
 
@@ -30,8 +30,15 @@ body {
   min-width: 300px;
 }
 
+.back_btn{
+  width: 254px;height: 65px;
+  background-color: #0f5dc3;
+  border-radius: 4px;margin-left: 250px;
 
-
+  font-family: 'Helvetica Neue';font-size: 17px;
+  font-family: Arial;font-weight: 700;
+  font-weight: 700;letter-spacing: 0.85px
+}
 input {
   padding: 10px;
   width: 100%;
@@ -162,7 +169,11 @@ font-weight: 400;
 
 }
 
-
+.price_bar{
+  margin-left: 100px;
+  margin-top: 30px;
+  width: 80%;
+}
 </style>
 <% @valuation = Valuation.find(params[:id]) %>
  
@@ -179,7 +190,7 @@ User Report</h2>
 
 <h2 style="width: 58px;height: 28px;color: #ffffff;font-family: 'Helvetica Neue';font-size: 24px;font-weight: 700;letter-spacing: 2.21px;line-height: 10px;text-transform: uppercase;font-family: Arial;font-weight: 700;">EGP</h2>
 
-<div style="width: 994px;height: 1px;border: 4px solid #ffffff;"></div>
+<div class="white_line"></div>
                             </div>
 
 
@@ -309,11 +320,11 @@ User Report</h2>
         </div>
 
    
-   <div class="col-1">  
-<div  style="margin-top: 50px">Condition</div>
-</div>
-<div class="col-1">  
-<img src="/vertical_line.png" style="margin-top: 30px;margin-left: 0px;">
+<div class="col-1 condition">  
+  <div  style="margin-top: 50px">Condition</div>
+  </div>
+  <div class="col-1 ">  
+  <img class= "condition"src="/vertical_line.png" style="margin-top: 30px;margin-left: 0px;">
 </div>
 
        <div class="col-6">  
@@ -396,39 +407,20 @@ User Report</h2>
 
         </div>
 </div>
-
-
-
     </div>
-
-
-
-
-
-<div align="center" style="margin-top:80px;"><img src="/line_acc.png"></div>
-
+<div class="blue_line"></div>
 <br><br>
-
-
     <label for="option1" class="form_label" style="margin-top: 20px;margin-left: 2px" align="left">
 
-                  <div class="row">
-      
-    
+        <div class="row">
         <div class="col-6" style="font-family: 'Open Sans';width: 320px">
-             
         Engine Condition
         </div>
-
-
         <div class="col-6">
-             
            <div style="width: 39px;height: 1px;border: 1px solid #00357a;margin-left: 10px;margin-top:15px;"></div>
         </div>
-
-
       </div>
-             </label>
+    </label>
 <br><br>
 
  <div class="row">
@@ -707,7 +699,7 @@ User Report</h2>
 
 
 
-<% if @paint_j_count == 0 || @valuation.car_paint == "no" %>
+<% if @paint_j_count == 0 %>
 
 
 <div class="col-3">
@@ -967,7 +959,34 @@ li .painted {
   padding: 16px;
   text-decoration: none;
 }
-
+.white_line{
+  width: 994px;height: 1px;border: 4px solid #ffffff;
+}
+.blue_line{
+  width: auto;height: 1px;border: 4px solid #00357a;margin-top:80px;align:center;
+}
+@media (max-width: 1024px){
+  .condition{
+    display:none;
+  }
+  .white_line{
+  width: auto;
+}
+.back_btn{
+  width: 254px;height: 65px;
+  background-color: #0f5dc3;
+  border-radius: 4px;margin-left: 20px;
+  font-family: 'Helvetica Neue';font-size: 17px;
+  font-family: Arial;font-weight: 700;
+  font-weight: 700;letter-spacing: 0.85px
+}
+.price_bar{
+  margin-left:20px;
+  margin-top: 30px;
+  align:center;
+  width: 80%;
+}
+}
 
 </style>
 
@@ -980,7 +999,7 @@ li .painted {
 <% @val =  @valuation %>
     <div class=""  style="" align="center" style="border:0px solid rgba(0,0,0,.2);;">
       <br>
-<div align="center" style="margin-top:20px;"><img src="/line_acc.png"></div>
+<div class="blue_line" ></div>
 
 <% if @val.accident_lights_left_front != "" ||  @val.accident_second_top != "" ||  @val.accident_lights_hood != "" %>
 
@@ -1182,14 +1201,11 @@ li .painted {
 
         <div style="margin-top:20px;width: 192px;height: 51px;color: #ffffff;font-family: 'Helvetica Neue';font-size: 45px;font-weight: 700;letter-spacing: 4.14px;line-height: 19px;font-family: Arial;font-weight: 700;margin-left: 20px"><%= number_with_precision((@valuation.final_price.to_i  + 50) / 1000 * 1000, :precision => 0, :delimiter => ',') %></div>
 
-        <div style="margin-top:10px;width: 36px;height: 18px;color: #ffffff;font-family: 'Helvetica Neue';font-size: 15px;font-weight: 700;letter-spacing: 1.38px;line-height: 6px;
+<div style="margin-top:10px;width: 36px;height: 18px;color: #ffffff;font-family: 'Helvetica Neue';font-size: 15px;font-weight: 700;letter-spacing: 1.38px;line-height: 6px;
 text-transform: uppercase;font-family: Arial;font-weight: 700;margin-left: 20px">EGP</div>
-<img src="/result_triangle.png" style="margin-top: -30px;margin-left: 250px;">
-
-
-
-      </div>
-<img src="/progress_limits.png" style="margin-left: 100px;margin-top: 30px;width: 80%">
+  <img src="/result_triangle.png" style="margin-top: -30px;margin-left: 250px;">
+</div>
+<img src="/progress_limits.png" class="price_bar ">
 
 <div class="row" style="width: 100%">
 

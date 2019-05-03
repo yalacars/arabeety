@@ -12,260 +12,345 @@
 
 ActiveRecord::Schema.define(version: 20190402215856) do
 
-  create_table "admins", force: :cascade do |t|
-    t.string "name"
-    t.string "email"
-    t.string "password_digest"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "level"
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+  enable_extension "hstore"
+  enable_extension "uuid-ossp"
+
+  create_table "admins", id: false, force: :cascade do |t|
+    t.bigint "id"
+    t.text "name"
+    t.text "email"
+    t.text "password_digest"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.text "level"
   end
 
-  create_table "brands", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "picture_file_name"
-    t.string "picture_content_type"
-    t.integer "picture_file_size", limit: 8
+  create_table "brands", id: false, force: :cascade do |t|
+    t.bigint "id"
+    t.text "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.text "picture_file_name"
+    t.text "picture_content_type"
+    t.bigint "picture_file_size"
     t.datetime "picture_updated_at"
   end
 
-  create_table "car_models", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "brand"
-    t.string "price"
-    t.string "years"
-    t.integer "tier"
-    t.integer "years_end"
-    t.integer "order_c"
+  create_table "car_models", id: false, force: :cascade do |t|
+    t.bigint "id"
+    t.text "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.bigint "brand"
+    t.text "price"
+    t.text "years"
+    t.bigint "tier"
+    t.bigint "years_end"
+    t.bigint "order_c"
   end
 
-  create_table "cars", force: :cascade do |t|
-    t.string "model"
-    t.string "year"
-    t.string "mileage"
-    t.string "condition"
-    t.string "damages"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "brand"
+  create_table "cars", id: false, force: :cascade do |t|
+    t.bigint "id"
+    t.text "model"
+    t.text "year"
+    t.text "mileage"
+    t.text "condition"
+    t.text "damages"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.text "brand"
   end
 
-  create_table "conversations", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "admin_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table "conversations", id: false, force: :cascade do |t|
+    t.bigint "id"
+    t.bigint "user_id"
+    t.bigint "admin_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
-  create_table "daily_visitors", force: :cascade do |t|
-    t.string "user_email"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table "daily_visitors", id: false, force: :cascade do |t|
+    t.bigint "id"
+    t.text "user_email"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
-  create_table "messages", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "admin_id"
-    t.string "text"
-    t.integer "conversation_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "subject"
-    t.boolean "read"
-    t.boolean "seen_admin"
+  create_table "messages", id: false, force: :cascade do |t|
+    t.bigint "id"
+    t.bigint "user_id"
+    t.bigint "admin_id"
+    t.text "text"
+    t.bigint "conversation_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.text "subject"
+    t.text "read"
+    t.text "seen_admin"
   end
 
-  create_table "millages", force: :cascade do |t|
-    t.string "range"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table "millages", id: false, force: :cascade do |t|
+    t.bigint "id"
+    t.text "range"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
-  create_table "owners", force: :cascade do |t|
-    t.string "number"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table "owners", id: false, force: :cascade do |t|
+    t.bigint "id"
+    t.text "number"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
-  create_table "partners", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "logo_file_name"
-    t.string "logo_content_type"
-    t.bigint "logo_file_size"
+  create_table "partners", id: false, force: :cascade do |t|
+    t.bigint "id"
+    t.text "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.text "logo_file_name"
+    t.text "logo_content_type"
+    t.text "logo_file_size"
     t.datetime "logo_updated_at"
   end
 
-  create_table "tiers", force: :cascade do |t|
-    t.string "tier_name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.float "total_kilometer_percentage"
-    t.float "one_kilometer"
-    t.float "two_kilometer"
-    t.float "three_kilometer"
-    t.float "four_kilometer"
-    t.float "five_kilometer"
-    t.float "six_kilometer"
-    t.float "seven_kilometer"
-    t.float "eight_kilometer"
-    t.float "nine_kilometer"
-    t.float "ten_kilometer"
-    t.float "eleven_kilometer"
-    t.float "twelve_kilometer"
-    t.float "thirteen_kilometer"
-    t.float "fourteen_kilometer"
-    t.float "fifthteen_kilometer"
-    t.float "sixthteen_kilometer"
-    t.float "total_year_percentage"
-    t.float "one_year"
-    t.float "two_year"
-    t.float "three_year"
-    t.float "four_year"
-    t.float "five_year"
-    t.float "six_year"
-    t.float "seven_year"
-    t.float "eight_year"
-    t.float "nine_year"
-    t.float "ten_year"
-    t.float "total_condition_percentage"
-    t.float "ac_percentage"
-    t.float "brakes_percentage"
-    t.float "electrical_percentage"
-    t.float "rims_percentage"
-    t.float "seats_percentage"
-    t.float "radio_percentage"
-    t.float "steering_percentage"
-    t.float "suspension_percentage"
-    t.float "transmission_percentage"
-    t.float "tyres_percentage"
-    t.float "chasis_percentage"
-    t.float "ac_bad_percentage"
-    t.float "ac_good_percentage"
-    t.float "ac_verygood_percentage"
-    t.float "brakes_bad_percentage"
-    t.float "brakes_good_percentage"
-    t.float "brakes_verygood_percentage"
-    t.float "electrical_bad_percentage"
-    t.float "electrical_good_percentage"
-    t.float "electrical_verygood_percentage"
-    t.float "rims_bad_percentage"
-    t.float "rims_good_percentage"
-    t.float "rims_verygood_percentage"
-    t.float "seats_bad_percentage"
-    t.float "seats_good_percentage"
-    t.float "seats_verygood_percentage"
-    t.float "radio_bad_percentage"
-    t.float "radio_good_percentage"
-    t.float "radio_verygood_percentage"
-    t.float "steering_bad_percentage"
-    t.float "steering_good_percentage"
-    t.float "steering_verygood_percentage"
-    t.float "transmission_bad_percentage"
-    t.float "transmission_good_percentage"
-    t.float "transmission_verygood_percentage"
-    t.float "tyres_bad_percentage"
-    t.float "tyres_good_percentage"
-    t.float "tyres_verygood_percentage"
-    t.float "chasis_bad_percentage"
-    t.float "chasis_good_percentage"
-    t.float "chasis_verygood_percentage"
-    t.float "suspension_bad_percentage"
-    t.float "suspension_good_percentage"
-    t.float "suspension_verygood_percentage"
-    t.float "engine_damaged"
-    t.float "engine_repaired"
-    t.float "roof_painted"
-    t.float "front_middle_bumper_painted"
-    t.float "left_front_bumper_painted"
-    t.float "right_front_bumper_painted"
-    t.float "right_front_door_painted"
-    t.float "right_back_door_painted"
-    t.float "left_front_door_painted"
-    t.float "left_back_door_painted"
-    t.float "middle_back_bumper_painted"
-    t.float "left_back_bumper_painted"
-    t.float "right_back_bumper_painted"
-    t.float "roof_damaged"
-    t.float "roof_damaged_repaired"
-    t.float "roof_damaged_changed"
-    t.float "front_middle_bumper_damaged"
-    t.float "front_middle_bumper_repaired"
-    t.float "front_middle_bumper_changed"
-    t.float "left_front_bumper_damaged"
-    t.float "left_front_bumper_repaired"
-    t.float "left_front_bumper_changed"
-    t.float "right_front_bumper_damaged"
-    t.float "right_front_bumper_repaired"
-    t.float "right_front_bumper_changed"
-    t.float "right_front_door_damaged"
-    t.float "right_front_door_repaired"
-    t.float "right_front_door_changed"
-    t.float "right_back_door_damaged"
-    t.float "right_back_door_repaired"
-    t.float "right_back_door_changed"
-    t.float "left_front_door_damaged"
-    t.float "left_front_door_repaired"
-    t.float "left_front_door_changed"
-    t.float "left_back_door_damaged"
-    t.float "left_back_door_repaired"
-    t.float "left_back_door_changed"
-    t.float "middle_back_bumper_damaged"
-    t.float "middle_back_bumper_repaired"
-    t.float "middle_back_bumper_changed"
-    t.float "left_back_bumper_damaged"
-    t.float "left_back_bumper_repaired"
-    t.float "left_back_bumper_changed"
-    t.float "right_back_bumper_damaged"
-    t.float "right_back_bumper_repaired"
-    t.float "right_back_bumper_changed"
-    t.string "engine_changed"
+  create_table "sqlite_sequence", id: false, force: :cascade do |t|
+    t.binary "name"
+    t.binary "seq"
   end
 
-  create_table "trims", force: :cascade do |t|
-    t.string "trim"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table "tiers", id: false, force: :cascade do |t|
+    t.bigint "id"
+    t.text "tier_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.decimal "total_kilometer_percentage", precision: 10
+    t.decimal "one_kilometer", precision: 10
+    t.decimal "two_kilometer", precision: 10
+    t.decimal "three_kilometer", precision: 10
+    t.decimal "four_kilometer", precision: 10
+    t.decimal "five_kilometer", precision: 10
+    t.decimal "six_kilometer", precision: 10
+    t.decimal "seven_kilometer", precision: 10
+    t.decimal "eight_kilometer", precision: 10
+    t.decimal "nine_kilometer", precision: 10
+    t.decimal "ten_kilometer", precision: 10
+    t.decimal "eleven_kilometer", precision: 10
+    t.decimal "twelve_kilometer", precision: 10
+    t.decimal "thirteen_kilometer", precision: 10
+    t.decimal "fourteen_kilometer", precision: 10
+    t.decimal "fifthteen_kilometer", precision: 10
+    t.decimal "sixthteen_kilometer", precision: 10
+    t.decimal "total_year_percentage", precision: 10
+    t.decimal "one_year", precision: 10
+    t.decimal "two_year", precision: 10
+    t.decimal "three_year", precision: 10
+    t.decimal "four_year", precision: 10
+    t.decimal "five_year", precision: 10
+    t.decimal "six_year", precision: 10
+    t.decimal "seven_year", precision: 10
+    t.decimal "eight_year", precision: 10
+    t.decimal "nine_year", precision: 10
+    t.decimal "ten_year", precision: 10
+    t.decimal "total_condition_percentage", precision: 10
+    t.decimal "ac_percentage", precision: 10
+    t.decimal "brakes_percentage", precision: 10
+    t.decimal "electrical_percentage", precision: 10
+    t.decimal "rims_percentage", precision: 10
+    t.decimal "seats_percentage", precision: 10
+    t.decimal "radio_percentage", precision: 10
+    t.decimal "steering_percentage", precision: 10
+    t.decimal "suspension_percentage", precision: 10
+    t.decimal "transmission_percentage", precision: 10
+    t.decimal "tyres_percentage", precision: 10
+    t.decimal "chasis_percentage", precision: 10
+    t.decimal "ac_bad_percentage", precision: 10
+    t.decimal "ac_good_percentage", precision: 10
+    t.decimal "ac_verygood_percentage", precision: 10
+    t.decimal "brakes_bad_percentage", precision: 10
+    t.decimal "brakes_good_percentage", precision: 10
+    t.decimal "brakes_verygood_percentage", precision: 10
+    t.decimal "electrical_bad_percentage", precision: 10
+    t.decimal "electrical_good_percentage", precision: 10
+    t.decimal "electrical_verygood_percentage", precision: 10
+    t.decimal "rims_bad_percentage", precision: 10
+    t.decimal "rims_good_percentage", precision: 10
+    t.decimal "rims_verygood_percentage", precision: 10
+    t.decimal "seats_bad_percentage", precision: 10
+    t.decimal "seats_good_percentage", precision: 10
+    t.decimal "seats_verygood_percentage", precision: 10
+    t.decimal "radio_bad_percentage", precision: 10
+    t.decimal "radio_good_percentage", precision: 10
+    t.decimal "radio_verygood_percentage", precision: 10
+    t.decimal "steering_bad_percentage", precision: 10
+    t.decimal "steering_good_percentage", precision: 10
+    t.decimal "steering_verygood_percentage", precision: 10
+    t.decimal "transmission_bad_percentage", precision: 10
+    t.decimal "transmission_good_percentage", precision: 10
+    t.decimal "transmission_verygood_percentage", precision: 10
+    t.decimal "tyres_bad_percentage", precision: 10
+    t.decimal "tyres_good_percentage", precision: 10
+    t.decimal "tyres_verygood_percentage", precision: 10
+    t.decimal "chasis_bad_percentage", precision: 10
+    t.decimal "chasis_good_percentage", precision: 10
+    t.decimal "chasis_verygood_percentage", precision: 10
+    t.decimal "suspension_bad_percentage", precision: 10
+    t.decimal "suspension_good_percentage", precision: 10
+    t.decimal "suspension_verygood_percentage", precision: 10
+    t.decimal "engine_damaged", precision: 10
+    t.decimal "engine_repaired", precision: 10
+    t.decimal "roof_painted", precision: 10
+    t.decimal "front_middle_bumper_painted", precision: 10
+    t.decimal "left_front_bumper_painted", precision: 10
+    t.decimal "right_front_bumper_painted", precision: 10
+    t.decimal "right_front_door_painted", precision: 10
+    t.decimal "right_back_door_painted", precision: 10
+    t.decimal "left_front_door_painted", precision: 10
+    t.decimal "left_back_door_painted", precision: 10
+    t.decimal "middle_back_bumper_painted", precision: 10
+    t.decimal "left_back_bumper_painted", precision: 10
+    t.decimal "right_back_bumper_painted", precision: 10
+    t.decimal "roof_damaged", precision: 10
+    t.decimal "roof_damaged_repaired", precision: 10
+    t.decimal "roof_damaged_changed", precision: 10
+    t.decimal "front_middle_bumper_damaged", precision: 10
+    t.decimal "front_middle_bumper_repaired", precision: 10
+    t.decimal "front_middle_bumper_changed", precision: 10
+    t.decimal "left_front_bumper_damaged", precision: 10
+    t.decimal "left_front_bumper_repaired", precision: 10
+    t.decimal "left_front_bumper_changed", precision: 10
+    t.decimal "right_front_bumper_damaged", precision: 10
+    t.decimal "right_front_bumper_repaired", precision: 10
+    t.decimal "right_front_bumper_changed", precision: 10
+    t.decimal "right_front_door_damaged", precision: 10
+    t.decimal "right_front_door_repaired", precision: 10
+    t.decimal "right_front_door_changed", precision: 10
+    t.decimal "right_back_door_damaged", precision: 10
+    t.decimal "right_back_door_repaired", precision: 10
+    t.decimal "right_back_door_changed", precision: 10
+    t.decimal "left_front_door_damaged", precision: 10
+    t.decimal "left_front_door_repaired", precision: 10
+    t.decimal "left_front_door_changed", precision: 10
+    t.decimal "left_back_door_damaged", precision: 10
+    t.decimal "left_back_door_repaired", precision: 10
+    t.decimal "left_back_door_changed", precision: 10
+    t.decimal "middle_back_bumper_damaged", precision: 10
+    t.decimal "middle_back_bumper_repaired", precision: 10
+    t.decimal "middle_back_bumper_changed", precision: 10
+    t.decimal "left_back_bumper_damaged", precision: 10
+    t.decimal "left_back_bumper_repaired", precision: 10
+    t.decimal "left_back_bumper_changed", precision: 10
+    t.decimal "right_back_bumper_damaged", precision: 10
+    t.decimal "right_back_bumper_repaired", precision: 10
+    t.decimal "right_back_bumper_changed", precision: 10
+    t.text "engine_changed"
   end
 
-  create_table "user_stats", force: :cascade do |t|
-    t.string "state"
-    t.string "email"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table "trims", id: false, force: :cascade do |t|
+    t.bigint "id"
+    t.text "trim"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string "name"
-    t.string "email"
-    t.string "password_digest"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "phone"
-    t.boolean "email_confirmed", default: false
-    t.string "confirm_token"
-    t.string "reset_digest"
+  create_table "user_stats", id: false, force: :cascade do |t|
+    t.bigint "id"
+    t.text "state"
+    t.text "email"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "users", id: false, force: :cascade do |t|
+    t.bigint "id"
+    t.text "name"
+    t.text "email"
+    t.text "password_digest"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.text "phone"
+    t.text "email_confirmed"
+    t.text "confirm_token"
+    t.text "reset_digest"
     t.datetime "reset_sent_at"
-    t.string "reset_password_token"
+    t.text "reset_password_token"
     t.datetime "reset_password_sent_at"
-    t.string "auth_token"
-    t.string "password_reset_token"
+    t.text "auth_token"
+    t.text "password_reset_token"
     t.datetime "password_reset_sent_at"
-    t.boolean "active_flag"
+    t.text "active_flag"
   end
 
-# Could not dump table "valuations" because of following StandardError
-#   Unknown type '' for column 'seats'
+  create_table "valuations", id: false, force: :cascade do |t|
+    t.bigint "id"
+    t.bigint "user_id"
+    t.text "engine_condition"
+    t.text "notes_engine"
+    t.text "car_paint"
+    t.text "engine_problem"
+    t.text "accident"
+    t.text "ac"
+    t.text "radio"
+    t.text "brand"
+    t.text "trim_select"
+    t.text "year_car"
+    t.text "model_car"
+    t.text "kilometers"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.text "valuation_type"
+    t.text "number_owners"
+    t.text "brakes"
+    t.text "electrical"
+    t.text "rims"
+    t.binary "seats"
+    t.text "steering"
+    t.text "suspension"
+    t.text "transmission"
+    t.text "tyres"
+    t.text "paint_lights_left_front"
+    t.text "paint_lights_hood"
+    t.text "paint_lights_right_front"
+    t.text "paint_first_side"
+    t.text "paint_second_side"
+    t.text "paint_third_side"
+    t.text "paint_fourth_side"
+    t.text "paint_first_top"
+    t.text "paint_second_top"
+    t.text "paint_third_top"
+    t.text "paint_left_back"
+    t.text "paint_middle_back"
+    t.text "paint_right_back"
+    t.text "accident_lights_left_front"
+    t.text "accident_lights_hood"
+    t.text "accident_lights_right_front"
+    t.text "accident_first_side"
+    t.text "accident_second_side"
+    t.text "accident_third_side"
+    t.text "accident_fourth_side"
+    t.text "accident_first_top"
+    t.text "accident_second_top"
+    t.text "accident_third_top"
+    t.text "accident_left_back"
+    t.text "accident_middle_back"
+    t.text "accident_right_back"
+    t.text "chasis"
+    t.bigint "year_car_end"
+    t.text "paint_second_left_side"
+    t.text "paint_third_left_side"
+    t.text "accident_second_left_side"
+    t.text "accident_third_left_side"
+    t.decimal "final_price", precision: 10
+    t.text "final_condition"
+  end
 
-  create_table "years", force: :cascade do |t|
-    t.string "date"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table "years", id: false, force: :cascade do |t|
+    t.bigint "id"
+    t.text "date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end
