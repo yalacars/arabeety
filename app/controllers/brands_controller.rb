@@ -25,7 +25,7 @@ class BrandsController < ApplicationController
   # POST /brands.json
   def create
     @brand = Brand.new(brand_params)
-
+    @brand.id = Brand.last.id + 1    
     respond_to do |format|
       if @brand.save
         format.html { redirect_to brands_url }

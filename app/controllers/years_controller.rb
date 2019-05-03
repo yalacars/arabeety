@@ -25,7 +25,7 @@ class YearsController < ApplicationController
   # POST /years.json
   def create
     @year = Year.new(year_params)
-
+    @year.id = Year.last.id + 1 
     respond_to do |format|
       if @year.save
         format.html { redirect_to years_url}

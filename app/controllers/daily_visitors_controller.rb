@@ -25,7 +25,7 @@ class DailyVisitorsController < ApplicationController
   # POST /daily_visitors.json
   def create
     @daily_visitor = DailyVisitor.new(daily_visitor_params)
-
+    @daily_visitor.id = DailyVisitor.last.id + 1 
     respond_to do |format|
       if @daily_visitor.save
         format.html { redirect_to @daily_visitor, notice: 'Daily visitor was successfully created.' }

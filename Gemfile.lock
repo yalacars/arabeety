@@ -102,6 +102,7 @@ GEM
       mime-types
       mimemagic (~> 0.3.0)
       terrapin (~> 0.6.0)
+    pg (1.1.4)
     public_suffix (3.0.3)
     puma (3.12.0)
     rack (2.0.6)
@@ -199,8 +200,9 @@ DEPENDENCIES
   capybara (~> 2.13)
   coffee-rails (~> 4.2)
   jbuilder (~> 2.5)
-  listen (>= 3.0.5, < 3.2)
+  listen
   paperclip
+  pg
   puma (~> 3.7)
   rails (~> 5.1.4)
   sass-rails (~> 5.0)
@@ -215,4 +217,4 @@ DEPENDENCIES
   web-console (>= 3.3.0)
 
 BUNDLED WITH
-   1.16.6
+   1.17.3
