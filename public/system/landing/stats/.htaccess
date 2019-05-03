@@ -1,7 +1,0 @@
-AuthName "palsay.fireshare.me statistics"
-AuthType Basic
-AuthUserFile /home/palsay_web/.stats-htpasswd
-require valid-user
-<Files .stats-htpasswd>
-deny from all
-</Files>
