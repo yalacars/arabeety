@@ -1,0 +1,62 @@
+
+
+<body class="skin-default card-no-border">
+    <section id="wrapper">
+      <div class="login-register" style="background-image:url(/admin_template/assets/images/background/login-register.jpg);">
+            <div class="login-box card">
+
+
+                <div class="card-body">
+                              <form action="/goAdmin" method="get" class="form-horizontal form-material" id="loginform">
+                        <h3 class="text-center m-b-20">Admin Access</h3>
+                        <div class="form-group ">
+                            <div class="col-xs-12">
+                                <input class="form-control" type="text" name="email" placeholder="Email" required> </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-12">
+                                <input class="form-control" type="password" name="password" placeholder="Password" required> </div>
+                        </div>
+                    
+                        <div class="form-group text-center">
+                            <div class="col-xs-12 p-b-20">
+                                <button class="btn btn-block btn-lg btn-info btn-rounded" type="submit">Log in</button>
+                            </div>
+                        </div>
+                   
+                    
+                    </form>
+            
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
+    <script src="/admin_template/assets/node_modules/jquery/jquery-3.2.1.min.js"></script>
+    <!-- Bootstrap tether Core JavaScript -->
+    <script src="/admin_template/assets/node_modules/popper/popper.min.js"></script>
+    <script src="/admin_template/assets/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!--Custom JavaScript -->
+    <script type="text/javascript">
+        $(function() {
+            $(".preloader").fadeOut();
+        });
+        $(function() {
+            $('[data-toggle="tooltip"]').tooltip()
+        });
+        // ============================================================== 
+        // Login and Recover Password 
+        // ============================================================== 
+        $('#to-recover').on("click", function() {
+            $("#loginform").slideUp();
+            $("#recoverform").fadeIn();
+        });
+    </script>
+    
+

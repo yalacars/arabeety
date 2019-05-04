@@ -1,0 +1,3418 @@
+  <%= form_with(model: tier, local: true, :html => {:id => 'regForm'}, :style => 'margin-top:-90px;') do |form| %>
+<input type="hidden" name="valuation[user_id]" class="form-control" value="<%= session[:user_id] %>">
+  <!-- One "tab" for each step in the form: -->
+  <div class="tab">
+<div class="inputGroup">
+
+<div class="row">
+        <div class="col-6">
+            <label for="option1" class="form_label">
+
+              <div class="row">
+      
+    
+        <div class="col-4" >
+                          <div style="width: 200px;
+height: 31px;
+opacity: 0.74;
+color: #b5b5b5;
+font-family: 'Helvetica Neue';
+font-size: 17px;
+font-weight: 700;
+letter-spacing: 0.85px;
+line-height: 31px;
+
+font-family: Arial;
+font-weight: 700;">
+          Tier Name 
+        </div>
+        </div>
+
+
+        <div class="col-8">
+             
+           <div style="width: 39px;height: 1px;border: 1px solid #ff8409;margin-left:30px;margin-top:15px;"></div>
+        </div>
+
+
+      </div>
+
+
+            </label>
+            <input type="text"  name="tier[tier_name]" id="tier_name" placeholder="Name" value="<%= @tier.tier_name %>" class="form-control" style="width: 439px;
+height: 74px;border-radius: 8px;background-color: #f6f6f6;color: #4a4a4a;font-family: 'Helvetica Neue';font-size: 14px;font-weight: 700;letter-spacing: 0.7px;line-height: 26px;font-family: Arial;font-weight: 700;" >
+
+
+        </div>
+      
+      
+    </div>
+
+<br><br>
+
+    <div class="row">
+        <div class="col-12">
+            <label for="option1" class="form_label">
+
+              <div class="row">
+      
+    
+        <div class="col-4" >
+                          <div style="width: 200px;
+height: 31px;
+opacity: 0.74;
+color: #b5b5b5;
+font-family: 'Helvetica Neue';
+font-size: 17px;
+font-weight: 700;
+letter-spacing: 0.85px;
+line-height: 31px;
+
+font-family: Arial;
+font-weight: 700;">
+         Kilometers
+        </div>
+        </div>
+
+
+        <div class="col-8">
+             
+           <div style="width: 39px;height: 1px;border: 1px solid #ff8409;margin-left:30px;margin-top:15px;"></div>
+        </div>
+
+
+      </div>
+
+            </label>
+
+
+
+        </div>
+      
+           
+    </div>
+
+
+
+  <br><br>
+ <div class="row">
+        <div class="col-6">
+            <label for="option1" class="form_label">
+
+              <div class="row">
+      
+   
+  <div style="width: 200px;
+height: 31px;
+opacity: 0.74;
+color: #b5b5b5;
+font-family: 'Helvetica Neue';
+font-size: 17px;
+font-weight: 700;
+letter-spacing: 0.85px;
+line-height: 31px;
+margin-left: 200px;
+margin-top: 20px;
+font-family: Arial;
+font-weight: 700;">
+        0 - 900 KM
+        </div>
+
+                 </div>
+
+            </label>
+
+
+
+        </div>
+
+
+
+
+              <div class="col-6">
+            <label for="option1" class="form_label">
+
+              <div class="row">
+      
+  
+  <input type="number"  name="tier[one_kilometer]" id="one_kilometer" placeholder="%" value="<%= @tier.one_kilometer %>" class="form-control" style="width: 439px;
+height: 74px;border-radius: 8px;background-color: #f6f6f6;color: #4a4a4a;font-family: 'Helvetica Neue';font-size: 14px;font-weight: 700;letter-spacing: 0.7px;line-height: 26px;font-family: Arial;font-weight: 700;margin-left: 15px;text-align: center;" >
+
+              </div>
+      
+      
+    </div>
+
+  </div>
+
+
+  <br><br>
+
+
+
+ <div class="row">
+        <div class="col-6">
+            <label for="option1" class="form_label">
+
+              <div class="row">
+      
+   
+  <div style="width: 200px;
+height: 31px;
+opacity: 0.74;
+color: #b5b5b5;
+font-family: 'Helvetica Neue';
+font-size: 17px;
+font-weight: 700;
+letter-spacing: 0.85px;
+line-height: 31px;
+margin-left: 200px;
+margin-top: 20px;
+font-family: Arial;
+font-weight: 700;">
+        1,000-4,999 KM
+        </div>
+
+                 </div>
+
+            </label>
+
+
+
+        </div>
+
+
+
+
+              <div class="col-6">
+            <label for="option1" class="form_label">
+
+              <div class="row">
+      
+  
+  <input type="number"  name="tier[two_kilometer]" id="two_kilometer" placeholder="%" value="<%= @tier.two_kilometer %>" class="form-control" style="width: 439px;
+height: 74px;border-radius: 8px;background-color: #f6f6f6;color: #4a4a4a;font-family: 'Helvetica Neue';font-size: 14px;font-weight: 700;letter-spacing: 0.7px;line-height: 26px;font-family: Arial;font-weight: 700;margin-left: 15px;text-align: center;" >
+
+              </div>
+      
+      
+    </div>
+
+  </div>
+
+
+
+  <br><br>
+
+
+
+ <div class="row">
+        <div class="col-6">
+            <label for="option1" class="form_label">
+
+              <div class="row">
+      
+   
+  <div style="width: 200px;
+height: 31px;
+opacity: 0.74;
+color: #b5b5b5;
+font-family: 'Helvetica Neue';
+font-size: 17px;
+font-weight: 700;
+letter-spacing: 0.85px;
+line-height: 31px;
+margin-left: 200px;
+margin-top: 20px;
+font-family: Arial;
+font-weight: 700;">
+        5,000-9,999 km
+        </div>
+
+                 </div>
+
+            </label>
+
+
+
+        </div>
+
+
+
+
+              <div class="col-6">
+            <label for="option1" class="form_label">
+
+              <div class="row">
+      
+  
+  <input type="number"  name="tier[three_kilometer]" id="three_kilometer" placeholder="%" value="<%= @tier.three_kilometer %>" class="form-control" style="width: 439px;
+height: 74px;border-radius: 8px;background-color: #f6f6f6;color: #4a4a4a;font-family: 'Helvetica Neue';font-size: 14px;font-weight: 700;letter-spacing: 0.7px;line-height: 26px;font-family: Arial;font-weight: 700;margin-left: 15px;text-align: center;" >
+
+              </div>
+      
+      
+    </div>
+
+  </div>
+
+
+
+  <br><br>
+
+
+
+ <div class="row">
+        <div class="col-6">
+            <label for="option1" class="form_label">
+
+              <div class="row">
+      
+   
+  <div style="width: 200px;
+height: 31px;
+opacity: 0.74;
+color: #b5b5b5;
+font-family: 'Helvetica Neue';
+font-size: 17px;
+font-weight: 700;
+letter-spacing: 0.85px;
+line-height: 31px;
+margin-left: 200px;
+margin-top: 20px;
+font-family: Arial;
+font-weight: 700;">
+        10,000 - 19,999 km
+        </div>
+
+                 </div>
+
+            </label>
+
+
+
+        </div>
+
+
+
+
+              <div class="col-6">
+            <label for="option1" class="form_label">
+
+              <div class="row">
+      
+  
+  <input type="number"  name="tier[four_kilometer]" id="four_kilometer" placeholder="%" value="<%= @tier.four_kilometer %>" class="form-control" style="width: 439px;
+height: 74px;border-radius: 8px;background-color: #f6f6f6;color: #4a4a4a;font-family: 'Helvetica Neue';font-size: 14px;font-weight: 700;letter-spacing: 0.7px;line-height: 26px;font-family: Arial;font-weight: 700;margin-left: 15px;text-align: center;" >
+
+              </div>
+      
+      
+    </div>
+
+  </div>
+
+
+
+  <br><br>
+
+
+
+ <div class="row">
+        <div class="col-6">
+            <label for="option1" class="form_label">
+
+              <div class="row">
+      
+   
+  <div style="width: 200px;
+height: 31px;
+opacity: 0.74;
+color: #b5b5b5;
+font-family: 'Helvetica Neue';
+font-size: 17px;
+font-weight: 700;
+letter-spacing: 0.85px;
+line-height: 31px;
+margin-left: 200px;
+margin-top: 20px;
+font-family: Arial;
+font-weight: 700;">
+        20,000 29,999 KM
+        </div>
+
+                 </div>
+
+            </label>
+
+
+
+        </div>
+
+
+
+
+              <div class="col-6">
+            <label for="option1" class="form_label">
+
+              <div class="row">
+      
+  
+  <input type="number"  name="tier[five_kilometer]" id="five_kilometer" placeholder="%" value="<%= @tier.five_kilometer %>" class="form-control" style="width: 439px;
+height: 74px;border-radius: 8px;background-color: #f6f6f6;color: #4a4a4a;font-family: 'Helvetica Neue';font-size: 14px;font-weight: 700;letter-spacing: 0.7px;line-height: 26px;font-family: Arial;font-weight: 700;margin-left: 15px;text-align: center;" >
+
+              </div>
+      
+      
+    </div>
+
+  </div>
+
+
+
+  <br><br>
+
+
+
+ <div class="row">
+        <div class="col-6">
+            <label for="option1" class="form_label">
+
+              <div class="row">
+      
+   
+  <div style="width: 200px;
+height: 31px;
+opacity: 0.74;
+color: #b5b5b5;
+font-family: 'Helvetica Neue';
+font-size: 17px;
+font-weight: 700;
+letter-spacing: 0.85px;
+line-height: 31px;
+margin-left: 200px;
+margin-top: 20px;
+font-family: Arial;
+font-weight: 700;">
+        30,000 - 39,999 KM
+        </div>
+
+                 </div>
+
+            </label>
+
+
+
+        </div>
+
+
+
+
+              <div class="col-6">
+            <label for="option1" class="form_label">
+
+              <div class="row">
+      
+  
+  <input type="number"  name="tier[six_kilometer]" id="six_kilometer" placeholder="%" value="<%= @tier.six_kilometer %>" class="form-control" style="width: 439px;
+height: 74px;border-radius: 8px;background-color: #f6f6f6;color: #4a4a4a;font-family: 'Helvetica Neue';font-size: 14px;font-weight: 700;letter-spacing: 0.7px;line-height: 26px;font-family: Arial;font-weight: 700;margin-left: 15px;text-align: center;" >
+
+              </div>
+      
+      
+    </div>
+
+  </div>
+
+
+  <br><br>
+
+
+
+ <div class="row">
+        <div class="col-6">
+            <label for="option1" class="form_label">
+
+              <div class="row">
+      
+   
+  <div style="width: 200px;
+height: 31px;
+opacity: 0.74;
+color: #b5b5b5;
+font-family: 'Helvetica Neue';
+font-size: 17px;
+font-weight: 700;
+letter-spacing: 0.85px;
+line-height: 31px;
+margin-left: 200px;
+margin-top: 20px;
+font-family: Arial;
+font-weight: 700;">
+        40,000 - 49,999 KM
+        </div>
+
+                 </div>
+
+            </label>
+
+
+
+        </div>
+
+
+
+
+              <div class="col-6">
+            <label for="option1" class="form_label">
+
+              <div class="row">
+      
+  
+  <input type="number"  name="tier[seven_kilometer]" id="seven_kilometer" placeholder="%" value="<%= @tier.seven_kilometer %>" class="form-control" style="width: 439px;
+height: 74px;border-radius: 8px;background-color: #f6f6f6;color: #4a4a4a;font-family: 'Helvetica Neue';font-size: 14px;font-weight: 700;letter-spacing: 0.7px;line-height: 26px;font-family: Arial;font-weight: 700;margin-left: 15px;text-align: center;" >
+
+              </div>
+      
+      
+    </div>
+
+  </div>
+
+  <br><br>
+
+
+
+ <div class="row">
+        <div class="col-6">
+            <label for="option1" class="form_label">
+
+              <div class="row">
+      
+   
+  <div style="width: 200px;
+height: 31px;
+opacity: 0.74;
+color: #b5b5b5;
+font-family: 'Helvetica Neue';
+font-size: 17px;
+font-weight: 700;
+letter-spacing: 0.85px;
+line-height: 31px;
+margin-left: 200px;
+margin-top: 20px;
+font-family: Arial;
+font-weight: 700;">
+        50,000 - 59,999 KM
+        </div>
+
+                 </div>
+
+            </label>
+
+
+
+        </div>
+
+
+
+
+              <div class="col-6">
+            <label for="option1" class="form_label">
+
+              <div class="row">
+      
+  
+  <input type="number"  name="tier[eight_kilometer]" id="eight_kilometer" placeholder="%" value="<%= @tier.eight_kilometer %>" class="form-control" style="width: 439px;
+height: 74px;border-radius: 8px;background-color: #f6f6f6;color: #4a4a4a;font-family: 'Helvetica Neue';font-size: 14px;font-weight: 700;letter-spacing: 0.7px;line-height: 26px;font-family: Arial;font-weight: 700;margin-left: 15px;text-align: center;" >
+
+              </div>
+      
+      
+    </div>
+
+  </div>
+
+
+  <br><br>
+
+
+
+ <div class="row">
+        <div class="col-6">
+            <label for="option1" class="form_label">
+
+              <div class="row">
+      
+   
+  <div style="width: 200px;
+height: 31px;
+opacity: 0.74;
+color: #b5b5b5;
+font-family: 'Helvetica Neue';
+font-size: 17px;
+font-weight: 700;
+letter-spacing: 0.85px;
+line-height: 31px;
+margin-left: 200px;
+margin-top: 20px;
+font-family: Arial;
+font-weight: 700;">
+        60,000 - 79,999 KM
+        </div>
+
+                 </div>
+
+            </label>
+
+
+
+        </div>
+
+
+
+
+              <div class="col-6">
+            <label for="option1" class="form_label">
+
+              <div class="row">
+      
+  
+  <input type="number"  name="tier[nine_kilometer]" id="nine_kilometer" placeholder="%" value="<%= @tier.nine_kilometer %>" class="form-control" style="width: 439px;
+height: 74px;border-radius: 8px;background-color: #f6f6f6;color: #4a4a4a;font-family: 'Helvetica Neue';font-size: 14px;font-weight: 700;letter-spacing: 0.7px;line-height: 26px;font-family: Arial;font-weight: 700;margin-left: 15px;text-align: center;" >
+
+              </div>
+      
+      
+    </div>
+
+  </div>
+
+
+  <br><br>
+
+
+
+ <div class="row">
+        <div class="col-6">
+            <label for="option1" class="form_label">
+
+              <div class="row">
+      
+   
+  <div style="width: 200px;
+height: 31px;
+opacity: 0.74;
+color: #b5b5b5;
+font-family: 'Helvetica Neue';
+font-size: 17px;
+font-weight: 700;
+letter-spacing: 0.85px;
+line-height: 31px;
+margin-left: 200px;
+margin-top: 20px;
+font-family: Arial;
+font-weight: 700;">
+        80,000 - 99,999 KM
+        </div>
+
+                 </div>
+
+            </label>
+
+
+
+        </div>
+
+
+
+
+              <div class="col-6">
+            <label for="option1" class="form_label">
+
+              <div class="row">
+      
+  
+  <input type="number"  name="tier[ten_kilometer]" id="ten_kilometer" placeholder="%" value="<%= @tier.ten_kilometer %>" class="form-control" style="width: 439px;
+height: 74px;border-radius: 8px;background-color: #f6f6f6;color: #4a4a4a;font-family: 'Helvetica Neue';font-size: 14px;font-weight: 700;letter-spacing: 0.7px;line-height: 26px;font-family: Arial;font-weight: 700;margin-left: 15px;text-align: center;" >
+
+              </div>
+      
+      
+    </div>
+
+  </div>
+
+
+  <br><br>
+
+
+
+ <div class="row">
+        <div class="col-6">
+            <label for="option1" class="form_label">
+
+              <div class="row">
+      
+   
+  <div style="width: 200px;
+height: 31px;
+opacity: 0.74;
+color: #b5b5b5;
+font-family: 'Helvetica Neue';
+font-size: 17px;
+font-weight: 700;
+letter-spacing: 0.85px;
+line-height: 31px;
+margin-left: 200px;
+margin-top: 20px;
+font-family: Arial;
+font-weight: 700;">
+        100,000 - 119,999 KM
+        </div>
+
+                 </div>
+
+            </label>
+
+
+
+        </div>
+
+
+
+
+              <div class="col-6">
+            <label for="option1" class="form_label">
+
+              <div class="row">
+      
+  
+  <input type="number"  name="tier[eleven_kilometer]" id="eleven_kilometer" placeholder="%" value="<%= @tier.eleven_kilometer %>" class="form-control" style="width: 439px;
+height: 74px;border-radius: 8px;background-color: #f6f6f6;color: #4a4a4a;font-family: 'Helvetica Neue';font-size: 14px;font-weight: 700;letter-spacing: 0.7px;line-height: 26px;font-family: Arial;font-weight: 700;margin-left: 15px;text-align: center;" >
+
+              </div>
+      
+      
+    </div>
+
+  </div>
+
+
+  <br><br>
+
+
+
+ <div class="row">
+        <div class="col-6">
+            <label for="option1" class="form_label">
+
+              <div class="row">
+      
+   
+  <div style="width: 200px;
+height: 31px;
+opacity: 0.74;
+color: #b5b5b5;
+font-family: 'Helvetica Neue';
+font-size: 17px;
+font-weight: 700;
+letter-spacing: 0.85px;
+line-height: 31px;
+margin-left: 200px;
+margin-top: 20px;
+font-family: Arial;
+font-weight: 700;">
+        120,000 - 139,999 KM
+        </div>
+
+                 </div>
+
+            </label>
+
+
+
+        </div>
+
+
+
+
+              <div class="col-6">
+            <label for="option1" class="form_label">
+
+              <div class="row">
+      
+  
+  <input type="number"  name="tier[twelve_kilometer]" id="twelve_kilometer" placeholder="%" value="<%= @tier.twelve_kilometer %>" class="form-control" style="width: 439px;
+height: 74px;border-radius: 8px;background-color: #f6f6f6;color: #4a4a4a;font-family: 'Helvetica Neue';font-size: 14px;font-weight: 700;letter-spacing: 0.7px;line-height: 26px;font-family: Arial;font-weight: 700;margin-left: 15px;text-align: center;" >
+
+              </div>
+      
+      
+    </div>
+
+  </div>
+
+
+  <br><br>
+
+
+
+ <div class="row">
+        <div class="col-6">
+            <label for="option1" class="form_label">
+
+              <div class="row">
+      
+   
+  <div style="width: 200px;
+height: 31px;
+opacity: 0.74;
+color: #b5b5b5;
+font-family: 'Helvetica Neue';
+font-size: 17px;
+font-weight: 700;
+letter-spacing: 0.85px;
+line-height: 31px;
+margin-left: 200px;
+margin-top: 20px;
+font-family: Arial;
+font-weight: 700;">
+        140,000 - 159,999 KM
+        </div>
+
+                 </div>
+
+            </label>
+
+
+
+        </div>
+
+
+
+
+              <div class="col-6">
+            <label for="option1" class="form_label">
+
+              <div class="row">
+      
+  
+  <input type="number"  name="tier[thirteen_kilometer]" id="thirteen_kilometer" placeholder="%" value="<%= @tier.thirteen_kilometer %>" class="form-control" style="width: 439px;
+height: 74px;border-radius: 8px;background-color: #f6f6f6;color: #4a4a4a;font-family: 'Helvetica Neue';font-size: 14px;font-weight: 700;letter-spacing: 0.7px;line-height: 26px;font-family: Arial;font-weight: 700;margin-left: 15px;text-align: center;" >
+
+              </div>
+      
+      
+    </div>
+
+  </div>
+
+
+  <br><br>
+
+
+
+ <div class="row">
+        <div class="col-6">
+            <label for="option1" class="form_label">
+
+              <div class="row">
+      
+   
+  <div style="width: 200px;
+height: 31px;
+opacity: 0.74;
+color: #b5b5b5;
+font-family: 'Helvetica Neue';
+font-size: 17px;
+font-weight: 700;
+letter-spacing: 0.85px;
+line-height: 31px;
+margin-left: 200px;
+margin-top: 20px;
+font-family: Arial;
+font-weight: 700;">
+       160,000 - 179,999 KM
+        </div>
+
+                 </div>
+
+            </label>
+
+
+
+        </div>
+
+
+
+
+              <div class="col-6">
+            <label for="option1" class="form_label">
+
+              <div class="row">
+      
+  
+  <input type="number"  name="tier[fourteen_kilometer]" id="fourteen_kilometer" placeholder="%" value="<%= @tier.fourteen_kilometer %>" class="form-control" style="width: 439px;
+height: 74px;border-radius: 8px;background-color: #f6f6f6;color: #4a4a4a;font-family: 'Helvetica Neue';font-size: 14px;font-weight: 700;letter-spacing: 0.7px;line-height: 26px;font-family: Arial;font-weight: 700;margin-left: 15px;text-align: center;" >
+
+              </div>
+      
+      
+    </div>
+
+  </div>
+
+
+  <br><br>
+
+
+
+ <div class="row">
+        <div class="col-6">
+            <label for="option1" class="form_label">
+
+              <div class="row">
+      
+   
+  <div style="width: 200px;
+height: 31px;
+opacity: 0.74;
+color: #b5b5b5;
+font-family: 'Helvetica Neue';
+font-size: 17px;
+font-weight: 700;
+letter-spacing: 0.85px;
+line-height: 31px;
+margin-left: 200px;
+margin-top: 20px;
+font-family: Arial;
+font-weight: 700;">
+        180,000 - 199,999 KM
+        </div>
+
+                 </div>
+
+            </label>
+
+
+
+        </div>
+
+
+
+
+              <div class="col-6">
+            <label for="option1" class="form_label">
+
+              <div class="row">
+      
+  
+  <input type="number"  name="tier[fifthteen_kilometer]" id="fifthteen_kilometer" placeholder="%" value="<%= @tier.fifthteen_kilometer %>" class="form-control" style="width: 439px;
+height: 74px;border-radius: 8px;background-color: #f6f6f6;color: #4a4a4a;font-family: 'Helvetica Neue';font-size: 14px;font-weight: 700;letter-spacing: 0.7px;line-height: 26px;font-family: Arial;font-weight: 700;margin-left: 15px;text-align: center;" >
+
+              </div>
+      
+      
+    </div>
+
+  </div>
+
+
+  <br><br>
+
+
+
+ <div class="row">
+        <div class="col-6">
+            <label for="option1" class="form_label">
+
+              <div class="row">
+      
+   
+  <div style="width: 200px;
+height: 31px;
+opacity: 0.74;
+color: #b5b5b5;
+font-family: 'Helvetica Neue';
+font-size: 17px;
+font-weight: 700;
+letter-spacing: 0.85px;
+line-height: 31px;
+margin-left: 200px;
+margin-top: 20px;
+font-family: Arial;
+font-weight: 700;">
+        200,000+ KM
+        </div>
+
+                 </div>
+
+            </label>
+
+
+
+        </div>
+
+
+
+
+              <div class="col-6">
+            <label for="option1" class="form_label">
+
+              <div class="row">
+      
+  
+  <input type="number"  name="tier[sixthteen_kilometer]" id="sixthteen_kilometer" placeholder="%" value="<%= @tier.sixthteen_kilometer %>" class="form-control" style="width: 439px;
+height: 74px;border-radius: 8px;background-color: #f6f6f6;color: #4a4a4a;font-family: 'Helvetica Neue';font-size: 14px;font-weight: 700;letter-spacing: 0.7px;line-height: 26px;font-family: Arial;font-weight: 700;margin-left: 15px;text-align: center;" >
+
+              </div>
+      
+      
+    </div>
+
+  </div>
+
+  </div>
+ </div>
+
+
+ <div class="tab">
+
+<div class="inputGroup">
+
+
+
+    <div class="row">
+        <div class="col-12">
+            <label for="option1" class="form_label">
+
+              <div class="row">
+      
+    
+        <div class="col-4" >
+                          <div style="width: 200px;
+height: 31px;
+opacity: 0.74;
+color: #b5b5b5;
+font-family: 'Helvetica Neue';
+font-size: 17px;
+font-weight: 700;
+letter-spacing: 0.85px;
+line-height: 31px;
+
+font-family: Arial;
+font-weight: 700;">
+         Years
+        </div>
+        </div>
+
+
+        <div class="col-8">
+             
+           <div style="width: 39px;height: 1px;border: 1px solid #ff8409;margin-left:30px;margin-top:15px;"></div>
+        </div>
+
+
+      </div>
+
+            </label>
+
+
+
+        </div>
+      
+         
+    </div>
+
+<br><br>
+
+
+
+ <div class="row">
+        <div class="col-6">
+            <label for="option1" class="form_label">
+
+              <div class="row">
+      
+   
+  <div style="width: 200px;
+height: 31px;
+opacity: 0.74;
+color: #b5b5b5;
+font-family: 'Helvetica Neue';
+font-size: 17px;
+font-weight: 700;
+letter-spacing: 0.85px;
+line-height: 31px;
+margin-left: 200px;
+margin-top: 20px;
+font-family: Arial;
+font-weight: 700;">
+       2010
+        </div>
+
+                 </div>
+
+            </label>
+
+
+
+        </div>
+
+
+
+
+              <div class="col-6">
+            <label for="option1" class="form_label">
+
+              <div class="row">
+      
+  
+  <input type="text"  name="tier[one_year]" id="one_year" placeholder="%" value="<%= @tier.one_year %>" class="form-control" style="width: 439px;
+height: 74px;border-radius: 8px;background-color: #f6f6f6;color: #4a4a4a;font-family: 'Helvetica Neue';font-size: 14px;font-weight: 700;letter-spacing: 0.7px;line-height: 26px;font-family: Arial;font-weight: 700;margin-left: 15px;text-align: center;" >
+
+              </div>
+      
+      
+    </div>
+
+  </div>
+
+
+  <br><br>
+
+
+
+ <div class="row">
+        <div class="col-6">
+            <label for="option1" class="form_label">
+
+              <div class="row">
+      
+   
+  <div style="width: 200px;
+height: 31px;
+opacity: 0.74;
+color: #b5b5b5;
+font-family: 'Helvetica Neue';
+font-size: 17px;
+font-weight: 700;
+letter-spacing: 0.85px;
+line-height: 31px;
+margin-left: 200px;
+margin-top: 20px;
+font-family: Arial;
+font-weight: 700;">
+        2011
+        </div>
+
+                 </div>
+
+            </label>
+
+
+
+        </div>
+
+
+
+
+              <div class="col-6">
+            <label for="option1" class="form_label">
+
+              <div class="row">
+      
+  
+  <input type="number"  name="tier[two_year]" id="two_year" placeholder="%" value="<%= @tier.two_year %>" class="form-control" style="width: 439px;
+height: 74px;border-radius: 8px;background-color: #f6f6f6;color: #4a4a4a;font-family: 'Helvetica Neue';font-size: 14px;font-weight: 700;letter-spacing: 0.7px;line-height: 26px;font-family: Arial;font-weight: 700;margin-left: 15px;text-align: center;" >
+
+              </div>
+      
+      
+    </div>
+
+  </div>
+
+
+
+  <br><br>
+
+
+
+ <div class="row">
+        <div class="col-6">
+            <label for="option1" class="form_label">
+
+              <div class="row">
+      
+   
+  <div style="width: 200px;
+height: 31px;
+opacity: 0.74;
+color: #b5b5b5;
+font-family: 'Helvetica Neue';
+font-size: 17px;
+font-weight: 700;
+letter-spacing: 0.85px;
+line-height: 31px;
+margin-left: 200px;
+margin-top: 20px;
+font-family: Arial;
+font-weight: 700;">
+        2012
+        </div>
+
+                 </div>
+
+            </label>
+
+
+
+        </div>
+
+
+
+
+              <div class="col-6">
+            <label for="option1" class="form_label">
+
+              <div class="row">
+      
+  
+  <input type="number"  name="tier[three_year]" id="three_year" placeholder="%" value="<%= @tier.three_year %>" class="form-control" style="width: 439px;
+height: 74px;border-radius: 8px;background-color: #f6f6f6;color: #4a4a4a;font-family: 'Helvetica Neue';font-size: 14px;font-weight: 700;letter-spacing: 0.7px;line-height: 26px;font-family: Arial;font-weight: 700;margin-left: 15px;text-align: center;" >
+
+              </div>
+      
+      
+    </div>
+
+  </div>
+
+
+
+  <br><br>
+
+
+
+ <div class="row">
+        <div class="col-6">
+            <label for="option1" class="form_label">
+
+              <div class="row">
+      
+   
+  <div style="width: 200px;
+height: 31px;
+opacity: 0.74;
+color: #b5b5b5;
+font-family: 'Helvetica Neue';
+font-size: 17px;
+font-weight: 700;
+letter-spacing: 0.85px;
+line-height: 31px;
+margin-left: 200px;
+margin-top: 20px;
+font-family: Arial;
+font-weight: 700;">
+        2013
+        </div>
+
+                 </div>
+
+            </label>
+
+
+
+        </div>
+
+
+
+
+              <div class="col-6">
+            <label for="option1" class="form_label">
+
+              <div class="row">
+      
+  
+  <input type="number"  name="tier[four_year]" id="four_year" placeholder="%" value="<%= @tier.four_year %>" class="form-control" style="width: 439px;
+height: 74px;border-radius: 8px;background-color: #f6f6f6;color: #4a4a4a;font-family: 'Helvetica Neue';font-size: 14px;font-weight: 700;letter-spacing: 0.7px;line-height: 26px;font-family: Arial;font-weight: 700;margin-left: 15px;text-align: center;" >
+
+              </div>
+      
+      
+    </div>
+
+  </div>
+
+
+
+  <br><br>
+
+
+
+ <div class="row">
+        <div class="col-6">
+            <label for="option1" class="form_label">
+
+              <div class="row">
+      
+   
+  <div style="width: 200px;
+height: 31px;
+opacity: 0.74;
+color: #b5b5b5;
+font-family: 'Helvetica Neue';
+font-size: 17px;
+font-weight: 700;
+letter-spacing: 0.85px;
+line-height: 31px;
+margin-left: 200px;
+margin-top: 20px;
+font-family: Arial;
+font-weight: 700;">
+        2014
+        </div>
+
+                 </div>
+
+            </label>
+
+
+
+        </div>
+
+
+
+
+              <div class="col-6">
+            <label for="option1" class="form_label">
+
+              <div class="row">
+      
+  
+  <input type="number"  name="tier[five_year]" id="five_year" placeholder="%" value="<%= @tier.five_year %>" class="form-control" style="width: 439px;
+height: 74px;border-radius: 8px;background-color: #f6f6f6;color: #4a4a4a;font-family: 'Helvetica Neue';font-size: 14px;font-weight: 700;letter-spacing: 0.7px;line-height: 26px;font-family: Arial;font-weight: 700;margin-left: 15px;text-align: center;" >
+
+              </div>
+      
+      
+    </div>
+
+  </div>
+
+
+
+  <br><br>
+
+
+
+ <div class="row">
+        <div class="col-6">
+            <label for="option1" class="form_label">
+
+              <div class="row">
+      
+   
+  <div style="width: 200px;
+height: 31px;
+opacity: 0.74;
+color: #b5b5b5;
+font-family: 'Helvetica Neue';
+font-size: 17px;
+font-weight: 700;
+letter-spacing: 0.85px;
+line-height: 31px;
+margin-left: 200px;
+margin-top: 20px;
+font-family: Arial;
+font-weight: 700;">
+        2015
+        </div>
+
+                 </div>
+
+            </label>
+
+
+
+        </div>
+
+
+
+
+              <div class="col-6">
+            <label for="option1" class="form_label">
+
+              <div class="row">
+      
+  
+  <input type="number"  name="tier[six_year]" id="six_year" placeholder="%" value="<%= @tier.six_year %>" class="form-control" style="width: 439px;
+height: 74px;border-radius: 8px;background-color: #f6f6f6;color: #4a4a4a;font-family: 'Helvetica Neue';font-size: 14px;font-weight: 700;letter-spacing: 0.7px;line-height: 26px;font-family: Arial;font-weight: 700;margin-left: 15px;text-align: center;" >
+
+              </div>
+      
+      
+    </div>
+
+  </div>
+
+
+  <br><br>
+
+
+
+ <div class="row">
+        <div class="col-6">
+            <label for="option1" class="form_label">
+
+              <div class="row">
+      
+   
+  <div style="width: 200px;
+height: 31px;
+opacity: 0.74;
+color: #b5b5b5;
+font-family: 'Helvetica Neue';
+font-size: 17px;
+font-weight: 700;
+letter-spacing: 0.85px;
+line-height: 31px;
+margin-left: 200px;
+margin-top: 20px;
+font-family: Arial;
+font-weight: 700;">
+      2016
+        </div>
+
+                 </div>
+
+            </label>
+
+
+
+        </div>
+
+
+
+
+              <div class="col-6">
+            <label for="option1" class="form_label">
+
+              <div class="row">
+      
+  
+  <input type="number"  name="tier[seven_year]" id="seven_year" placeholder="%" value="<%= @tier.seven_year %>" class="form-control" style="width: 439px;
+height: 74px;border-radius: 8px;background-color: #f6f6f6;color: #4a4a4a;font-family: 'Helvetica Neue';font-size: 14px;font-weight: 700;letter-spacing: 0.7px;line-height: 26px;font-family: Arial;font-weight: 700;margin-left: 15px;text-align: center;" >
+
+              </div>
+      
+      
+    </div>
+
+  </div>
+
+  <br><br>
+
+
+
+ <div class="row">
+        <div class="col-6">
+            <label for="option1" class="form_label">
+
+              <div class="row">
+      
+   
+  <div style="width: 200px;
+height: 31px;
+opacity: 0.74;
+color: #b5b5b5;
+font-family: 'Helvetica Neue';
+font-size: 17px;
+font-weight: 700;
+letter-spacing: 0.85px;
+line-height: 31px;
+margin-left: 200px;
+margin-top: 20px;
+font-family: Arial;
+font-weight: 700;">
+       2017
+        </div>
+
+                 </div>
+
+            </label>
+
+
+
+        </div>
+
+
+
+
+              <div class="col-6">
+            <label for="option1" class="form_label">
+
+              <div class="row">
+      
+  
+  <input type="number"  name="tier[eight_year]" id="eight_year" placeholder="%" value="<%= @tier.eight_year %>" class="form-control" style="width: 439px;
+height: 74px;border-radius: 8px;background-color: #f6f6f6;color: #4a4a4a;font-family: 'Helvetica Neue';font-size: 14px;font-weight: 700;letter-spacing: 0.7px;line-height: 26px;font-family: Arial;font-weight: 700;margin-left: 15px;text-align: center;" >
+
+              </div>
+      
+      
+    </div>
+
+  </div>
+
+
+  <br><br>
+
+
+
+ <div class="row">
+        <div class="col-6">
+            <label for="option1" class="form_label">
+
+              <div class="row">
+      
+   
+  <div style="width: 200px;
+height: 31px;
+opacity: 0.74;
+color: #b5b5b5;
+font-family: 'Helvetica Neue';
+font-size: 17px;
+font-weight: 700;
+letter-spacing: 0.85px;
+line-height: 31px;
+margin-left: 200px;
+margin-top: 20px;
+font-family: Arial;
+font-weight: 700;">
+        2018
+        </div>
+
+                 </div>
+
+            </label>
+
+
+
+        </div>
+
+
+
+
+              <div class="col-6">
+            <label for="option1" class="form_label">
+
+              <div class="row">
+      
+  
+  <input type="number"  name="tier[nine_year]" id="nine_year" placeholder="%" value="<%= @tier.nine_year %>" class="form-control" style="width: 439px;
+height: 74px;border-radius: 8px;background-color: #f6f6f6;color: #4a4a4a;font-family: 'Helvetica Neue';font-size: 14px;font-weight: 700;letter-spacing: 0.7px;line-height: 26px;font-family: Arial;font-weight: 700;margin-left: 15px;text-align: center;" >
+
+              </div>
+      
+      
+    </div>
+
+  </div>
+
+
+  <br><br>
+
+
+
+ <div class="row">
+        <div class="col-6">
+            <label for="option1" class="form_label">
+
+              <div class="row">
+      
+   
+  <div style="width: 200px;
+height: 31px;
+opacity: 0.74;
+color: #b5b5b5;
+font-family: 'Helvetica Neue';
+font-size: 17px;
+font-weight: 700;
+letter-spacing: 0.85px;
+line-height: 31px;
+margin-left: 200px;
+margin-top: 20px;
+font-family: Arial;
+font-weight: 700;">
+       2019
+        </div>
+
+                 </div>
+
+            </label>
+
+
+
+        </div>
+
+
+
+
+              <div class="col-6">
+            <label for="option1" class="form_label">
+
+              <div class="row">
+      
+  
+  <input type="number"  name="tier[ten_year]" id="ten_year" placeholder="%" value="<%= @tier.ten_year %>" class="form-control" style="width: 439px;
+height: 74px;border-radius: 8px;background-color: #f6f6f6;color: #4a4a4a;font-family: 'Helvetica Neue';font-size: 14px;font-weight: 700;letter-spacing: 0.7px;line-height: 26px;font-family: Arial;font-weight: 700;margin-left: 15px;text-align: center;" >
+
+              </div>
+      
+      
+    </div>
+
+  </div>
+
+
+ 
+
+  </div>
+ </div>
+
+
+
+  <div class="tab">
+
+<div class="inputGroup">
+
+
+
+    <div class="row">
+        <div class="col-12">
+            <label for="option1" class="form_label">
+
+              <div class="row">
+      
+    
+        <div class="col-4" >
+                          <div style="width: 200px;
+height: 31px;
+opacity: 0.74;
+color: #b5b5b5;
+font-family: 'Helvetica Neue';
+font-size: 17px;
+font-weight: 700;
+letter-spacing: 0.85px;
+line-height: 31px;
+
+font-family: Arial;
+font-weight: 700;">
+         Conditions
+        </div>
+        </div>
+
+
+        <div class="col-8">
+             
+           <div style="width: 39px;height: 1px;border: 1px solid #ff8409;margin-left:30px;margin-top:15px;"></div>
+        </div>
+
+
+      </div>
+
+            </label>
+
+
+
+        </div>
+      
+           
+    </div>
+
+<br><br>
+
+
+
+
+<div style="width: 200px;
+height: 31px;
+opacity: 0.74;
+color: #b5b5b5;
+font-family: 'Helvetica Neue';
+font-size: 17px;
+font-weight: 700;
+letter-spacing: 0.85px;
+line-height: 31px;
+
+font-family: Arial;
+font-weight: 700;">
+         AC
+        </div><br>
+ <div class="row">
+
+
+
+
+
+              <div class="col-4">
+            <input type="number"  name="tier[ac_bad_percentage]" id="ac_bad_percentage" placeholder="AC Bad %" value="<%= @tier.ac_bad_percentage %>" class="form-control" style="
+height: 74px;border-radius: 8px;background-color: #f6f6f6;color: #4a4a4a;font-family: 'Helvetica Neue';font-size: 14px;font-weight: 700;letter-spacing: 0.7px;line-height: 26px;font-family: Arial;font-weight: 700;margin-left: 15px;text-align: center;" >
+
+      
+      
+             </div>
+
+
+         <div class="col-4">
+              <input type="number"  name="tier[ac_good_percentage]" id="ac_good_percentage" placeholder="AC Good %" value="<%= @tier.ac_good_percentage %>" class="form-control" style="
+height: 74px;border-radius: 8px;background-color: #f6f6f6;color: #4a4a4a;font-family: 'Helvetica Neue';font-size: 14px;font-weight: 700;letter-spacing: 0.7px;line-height: 26px;font-family: Arial;font-weight: 700;margin-left: 15px;text-align: center;" >
+      
+      
+          </div>
+
+
+         <div class="col-4">
+             <input type="number"  name="tier[ac_verygood_percentage]" id="ac_verygood_percentage" placeholder="AC Very Good %" value="<%= @tier.ac_verygood_percentage %>" class="form-control" style="height: 74px;border-radius: 8px;background-color: #f6f6f6;color: #4a4a4a;font-family: 'Helvetica Neue';font-size: 14px;font-weight: 700;letter-spacing: 0.7px;line-height: 26px;font-family: Arial;font-weight: 700;margin-left: 15px;text-align: center;" >
+      
+        </div>
+
+  </div>
+
+
+  <br><br>
+
+
+
+<div style="width: 200px;
+height: 31px;
+opacity: 0.74;
+color: #b5b5b5;
+font-family: 'Helvetica Neue';
+font-size: 17px;
+font-weight: 700;
+letter-spacing: 0.85px;
+line-height: 31px;
+
+font-family: Arial;
+font-weight: 700;">
+         Brakes
+        </div><br>
+ <div class="row">
+
+     
+
+
+              <div class="col-4">
+            <input type="number"  name="tier[brakes_bad_percentage]" id="brakes_bad_percentage" placeholder="Brakes Bad %" value="<%= @tier.brakes_bad_percentage %>" class="form-control" style="
+height: 74px;border-radius: 8px;background-color: #f6f6f6;color: #4a4a4a;font-family: 'Helvetica Neue';font-size: 14px;font-weight: 700;letter-spacing: 0.7px;line-height: 26px;font-family: Arial;font-weight: 700;margin-left: 15px;text-align: center;" >
+
+      
+      
+             </div>
+
+
+         <div class="col-4">
+              <input type="number"  name="tier[brakes_good_percentage]" id="brakes_good_percentage" placeholder="Brakes Good %" value="<%= @tier.brakes_good_percentage %>" class="form-control" style="
+height: 74px;border-radius: 8px;background-color: #f6f6f6;color: #4a4a4a;font-family: 'Helvetica Neue';font-size: 14px;font-weight: 700;letter-spacing: 0.7px;line-height: 26px;font-family: Arial;font-weight: 700;margin-left: 15px;text-align: center;" >
+      
+      
+          </div>
+
+
+         <div class="col-4">
+             <input type="number"  name="tier[brakes_verygood_percentage]" id="brakes_verygood_percentage" placeholder="Brakes Very Good %" value="<%= @tier.brakes_verygood_percentage %>" class="form-control" style="height: 74px;border-radius: 8px;background-color: #f6f6f6;color: #4a4a4a;font-family: 'Helvetica Neue';font-size: 14px;font-weight: 700;letter-spacing: 0.7px;line-height: 26px;font-family: Arial;font-weight: 700;margin-left: 15px;text-align: center;" >
+      
+        </div>
+
+  </div>
+
+
+
+  <br><br>
+
+ <div style="width: 200px;
+height: 31px;
+opacity: 0.74;
+color: #b5b5b5;
+font-family: 'Helvetica Neue';
+font-size: 17px;
+font-weight: 700;
+letter-spacing: 0.85px;
+line-height: 31px;
+
+font-family: Arial;
+font-weight: 700;">
+         Rims
+        </div><br>
+ <div class="row">
+
+
+
+
+
+              <div class="col-4">
+            <input type="number"  name="tier[rims_bad_percentage]" id="rims_bad_percentage" placeholder="Rims Bad %" value="<%= @tier.rims_bad_percentage %>" class="form-control" style="
+height: 74px;border-radius: 8px;background-color: #f6f6f6;color: #4a4a4a;font-family: 'Helvetica Neue';font-size: 14px;font-weight: 700;letter-spacing: 0.7px;line-height: 26px;font-family: Arial;font-weight: 700;margin-left: 15px;text-align: center;" >
+
+      
+      
+             </div>
+
+
+         <div class="col-4">
+              <input type="number"  name="tier[rims_good_percentage]" id="rims_good_percentage" placeholder="Rims Good %" value="<%= @tier.rims_good_percentage %>" class="form-control" style="
+height: 74px;border-radius: 8px;background-color: #f6f6f6;color: #4a4a4a;font-family: 'Helvetica Neue';font-size: 14px;font-weight: 700;letter-spacing: 0.7px;line-height: 26px;font-family: Arial;font-weight: 700;margin-left: 15px;text-align: center;" >
+      
+      
+          </div>
+
+
+         <div class="col-4">
+             <input type="number"  name="tier[rims_verygood_percentage]" id="rims_verygood_percentage" placeholder="Rims Very Good %" value="<%= @tier.rims_verygood_percentage %>" class="form-control" style="height: 74px;border-radius: 8px;background-color: #f6f6f6;color: #4a4a4a;font-family: 'Helvetica Neue';font-size: 14px;font-weight: 700;letter-spacing: 0.7px;line-height: 26px;font-family: Arial;font-weight: 700;margin-left: 15px;text-align: center;" >
+      
+        </div>
+
+  </div>
+   <br><br>
+ <div style="width: 200px;
+height: 31px;
+opacity: 0.74;
+color: #b5b5b5;
+font-family: 'Helvetica Neue';
+font-size: 17px;
+font-weight: 700;
+letter-spacing: 0.85px;
+line-height: 31px;
+
+font-family: Arial;
+font-weight: 700;">
+         Seats
+        </div><br>
+ <div class="row">
+
+   
+
+
+              <div class="col-4">
+            <input type="number"  name="tier[seats_bad_percentage]" id="seats_bad_percentage" placeholder="Seats Bad %" value="<%= @tier.seats_bad_percentage %>" class="form-control" style="
+height: 74px;border-radius: 8px;background-color: #f6f6f6;color: #4a4a4a;font-family: 'Helvetica Neue';font-size: 14px;font-weight: 700;letter-spacing: 0.7px;line-height: 26px;font-family: Arial;font-weight: 700;margin-left: 15px;text-align: center;" >
+
+      
+      
+             </div>
+
+
+         <div class="col-4">
+              <input type="number"  name="tier[seats_good_percentage]" id="seats_good_percentage" placeholder="Seats Good %" value="<%= @tier.seats_good_percentage %>" class="form-control" style="
+height: 74px;border-radius: 8px;background-color: #f6f6f6;color: #4a4a4a;font-family: 'Helvetica Neue';font-size: 14px;font-weight: 700;letter-spacing: 0.7px;line-height: 26px;font-family: Arial;font-weight: 700;margin-left: 15px;text-align: center;" >
+      
+      
+          </div>
+
+
+         <div class="col-4">
+             <input type="number"  name="tier[seats_verygood_percentage]" id="seats_verygood_percentage" placeholder="Seats Very Good %" value="<%= @tier.seats_verygood_percentage %>" class="form-control" style="height: 74px;border-radius: 8px;background-color: #f6f6f6;color: #4a4a4a;font-family: 'Helvetica Neue';font-size: 14px;font-weight: 700;letter-spacing: 0.7px;line-height: 26px;font-family: Arial;font-weight: 700;margin-left: 15px;text-align: center;" >
+      
+        </div>
+
+  </div>
+
+  <br><br>
+ <div style="width: 200px;
+height: 31px;
+opacity: 0.74;
+color: #b5b5b5;
+font-family: 'Helvetica Neue';
+font-size: 17px;
+font-weight: 700;
+letter-spacing: 0.85px;
+line-height: 31px;
+
+font-family: Arial;
+font-weight: 700;">
+         Radio
+        </div><br>
+ <div class="row">
+
+
+
+
+
+              <div class="col-4">
+            <input type="number"  name="tier[radio_bad_percentage]" id="radio_bad_percentage" placeholder="Radio Bad %" value="<%= @tier.radio_bad_percentage %>" class="form-control" style="
+height: 74px;border-radius: 8px;background-color: #f6f6f6;color: #4a4a4a;font-family: 'Helvetica Neue';font-size: 14px;font-weight: 700;letter-spacing: 0.7px;line-height: 26px;font-family: Arial;font-weight: 700;margin-left: 15px;text-align: center;" >
+
+      
+      
+             </div>
+
+
+         <div class="col-4">
+              <input type="number"  name="tier[radio_good_percentage]" id="radio_good_percentage" placeholder="Radio Good %" value="<%= @tier.radio_good_percentage %>" class="form-control" style="
+height: 74px;border-radius: 8px;background-color: #f6f6f6;color: #4a4a4a;font-family: 'Helvetica Neue';font-size: 14px;font-weight: 700;letter-spacing: 0.7px;line-height: 26px;font-family: Arial;font-weight: 700;margin-left: 15px;text-align: center;" >
+      
+      
+          </div>
+
+
+         <div class="col-4">
+             <input type="number"  name="tier[radio_verygood_percentage]" id="radio_verygood_percentage" placeholder="Radio Very Good %" value="<%= @tier.radio_verygood_percentage %>" class="form-control" style="height: 74px;border-radius: 8px;background-color: #f6f6f6;color: #4a4a4a;font-family: 'Helvetica Neue';font-size: 14px;font-weight: 700;letter-spacing: 0.7px;line-height: 26px;font-family: Arial;font-weight: 700;margin-left: 15px;text-align: center;" >
+      
+        </div>
+
+  </div>
+
+    <br><br>
+
+ <div style="width: 200px;
+height: 31px;
+opacity: 0.74;
+color: #b5b5b5;
+font-family: 'Helvetica Neue';
+font-size: 17px;
+font-weight: 700;
+letter-spacing: 0.85px;
+line-height: 31px;
+
+font-family: Arial;
+font-weight: 700;">
+         Suspension
+        </div><br>
+ <div class="row">
+
+    
+
+
+
+              <div class="col-4">
+            <input type="number"  name="tier[suspension_bad_percentage]" id="suspension_bad_percentage" placeholder="Suspension Bad %" value="<%= @tier.suspension_bad_percentage %>" class="form-control" style="
+height: 74px;border-radius: 8px;background-color: #f6f6f6;color: #4a4a4a;font-family: 'Helvetica Neue';font-size: 14px;font-weight: 700;letter-spacing: 0.7px;line-height: 26px;font-family: Arial;font-weight: 700;margin-left: 15px;text-align: center;" >
+
+      
+      
+             </div>
+
+
+         <div class="col-4">
+              <input type="number"  name="tier[suspension_good_percentage]" id="suspension_good_percentage" placeholder="Suspension Good %" value="<%= @tier.suspension_good_percentage %>" class="form-control" style="
+height: 74px;border-radius: 8px;background-color: #f6f6f6;color: #4a4a4a;font-family: 'Helvetica Neue';font-size: 14px;font-weight: 700;letter-spacing: 0.7px;line-height: 26px;font-family: Arial;font-weight: 700;margin-left: 15px;text-align: center;" >
+      
+      
+          </div>
+
+
+         <div class="col-4">
+             <input type="number"  name="tier[suspension_verygood_percentage]" id="suspension_verygood_percentage" placeholder="Suspension Very Good %" value="<%= @tier.suspension_verygood_percentage %>" class="form-control" style="height: 74px;border-radius: 8px;background-color: #f6f6f6;color: #4a4a4a;font-family: 'Helvetica Neue';font-size: 14px;font-weight: 700;letter-spacing: 0.7px;line-height: 26px;font-family: Arial;font-weight: 700;margin-left: 15px;text-align: center;" >
+      
+        </div>
+
+  </div>
+
+    <br><br>
+   <div style="width: 200px;
+height: 31px;
+opacity: 0.74;
+color: #b5b5b5;
+font-family: 'Helvetica Neue';
+font-size: 17px;
+font-weight: 700;
+letter-spacing: 0.85px;
+line-height: 31px;
+
+font-family: Arial;
+font-weight: 700;">
+         Transmission
+        </div><br>
+ <div class="row">
+
+    
+
+
+              <div class="col-4">
+            <input type="number"  name="tier[transmission_bad_percentage]" id="transmission_bad_percentage" placeholder="Transmission Bad %" value="<%= @tier.transmission_bad_percentage %>" class="form-control" style="
+height: 74px;border-radius: 8px;background-color: #f6f6f6;color: #4a4a4a;font-family: 'Helvetica Neue';font-size: 14px;font-weight: 700;letter-spacing: 0.7px;line-height: 26px;font-family: Arial;font-weight: 700;margin-left: 15px;text-align: center;" >
+
+      
+      
+             </div>
+
+
+         <div class="col-4">
+              <input type="number"  name="tier[transmission_good_percentage]" id="transmission_good_percentage" placeholder="Transmission Good %" value="<%= @tier.transmission_good_percentage %>" class="form-control" style="
+height: 74px;border-radius: 8px;background-color: #f6f6f6;color: #4a4a4a;font-family: 'Helvetica Neue';font-size: 14px;font-weight: 700;letter-spacing: 0.7px;line-height: 26px;font-family: Arial;font-weight: 700;margin-left: 15px;text-align: center;" >
+      
+      
+          </div>
+
+
+         <div class="col-4">
+             <input type="number"  name="tier[transmission_verygood_percentage]" id="transmission_verygood_percentage" placeholder="Transmission Very Good %" value="<%= @tier.transmission_verygood_percentage %>" class="form-control" style="height: 74px;border-radius: 8px;background-color: #f6f6f6;color: #4a4a4a;font-family: 'Helvetica Neue';font-size: 14px;font-weight: 700;letter-spacing: 0.7px;line-height: 26px;font-family: Arial;font-weight: 700;margin-left: 15px;text-align: center;" >
+      
+        </div>
+
+  </div>
+  <br><br>
+  <div style="width: 200px;
+height: 31px;
+opacity: 0.74;
+color: #b5b5b5;
+font-family: 'Helvetica Neue';
+font-size: 17px;
+font-weight: 700;
+letter-spacing: 0.85px;
+line-height: 31px;
+
+font-family: Arial;
+font-weight: 700;">
+         Tyres
+        </div><br>
+ <div class="row">
+
+  
+
+
+              <div class="col-4">
+            <input type="number"  name="tier[tyres_bad_percentage]" id="tyres_bad_percentage" placeholder="Tyres Good %" value="<%= @tier.tyres_bad_percentage %>" class="form-control" style="
+height: 74px;border-radius: 8px;background-color: #f6f6f6;color: #4a4a4a;font-family: 'Helvetica Neue';font-size: 14px;font-weight: 700;letter-spacing: 0.7px;line-height: 26px;font-family: Arial;font-weight: 700;margin-left: 15px;text-align: center;" >
+
+      
+      
+             </div>
+
+
+         <div class="col-4">
+              <input type="number"  name="tier[tyres_good_percentage]" id="tyres_good_percentage" placeholder="Tyres Good %" value="<%= @tier.tyres_good_percentage %>" class="form-control" style="
+height: 74px;border-radius: 8px;background-color: #f6f6f6;color: #4a4a4a;font-family: 'Helvetica Neue';font-size: 14px;font-weight: 700;letter-spacing: 0.7px;line-height: 26px;font-family: Arial;font-weight: 700;margin-left: 15px;text-align: center;" >
+      
+      
+          </div>
+
+
+         <div class="col-4">
+             <input type="number"  name="tier[tyres_verygood_percentage]" id="tyres_verygood_percentage" placeholder="Tyres Very Good %" value="<%= @tier.tyres_verygood_percentage %>" class="form-control" style="height: 74px;border-radius: 8px;background-color: #f6f6f6;color: #4a4a4a;font-family: 'Helvetica Neue';font-size: 14px;font-weight: 700;letter-spacing: 0.7px;line-height: 26px;font-family: Arial;font-weight: 700;margin-left: 15px;text-align: center;" >
+      
+        </div>
+
+  </div>
+  <br><br>
+
+ 
+  </div>
+ </div>
+
+
+
+
+
+ <div class="tab">
+
+<div class="inputGroup">
+
+
+
+    <div class="row">
+        <div class="col-6">
+            <label for="option1" class="form_label">
+
+              <div class="row">
+      
+    
+        <div class="col-4" >
+                          <div style="width: 260px;
+height: 31px;
+opacity: 0.74;
+color: #b5b5b5;
+font-family: 'Helvetica Neue';
+font-size: 17px;
+font-weight: 700;
+letter-spacing: 0.85px;
+line-height: 31px;
+
+font-family: Arial;
+font-weight: 700;">
+         Engine &amp; Painted Parts
+        </div>
+        </div>
+
+
+        <div class="col-8">
+             
+           <div style="width: 39px;height: 1px;border: 1px solid #ff8409;margin-left:85px;margin-top:15px;"></div>
+        </div>
+
+
+      </div>
+
+            </label>
+
+
+
+        </div>
+      
+            <div class="col-6">
+    
+
+
+        </div>
+    </div>
+
+<br><br>
+
+
+
+
+<div style="width: 200px;
+height: 31px;
+opacity: 0.74;
+color: #b5b5b5;
+font-family: 'Helvetica Neue';
+font-size: 17px;
+font-weight: 700;
+letter-spacing: 0.85px;
+line-height: 31px;
+
+font-family: Arial;
+font-weight: 700;">
+         Engine
+        </div><br>
+ <div class="row">
+
+        <div class="col-4">
+             <input type="number"  name="tier[engine_damaged]" id="engine_damaged" placeholder="Engine Damaged %" value="<%= @tier.engine_damaged %>" class="form-control" style="
+height: 74px;border-radius: 8px;background-color: #f6f6f6;color: #4a4a4a;font-family: 'Helvetica Neue';font-size: 14px;font-weight: 700;letter-spacing: 0.7px;line-height: 26px;font-family: Arial;font-weight: 700;margin-left: 15px;text-align: center;" >
+
+
+        </div>
+
+
+
+
+              <div class="col-4">
+            <input type="number"  name="tier[engine_repaired]" id="engine_repaired" placeholder="Engine Repaired %" value="<%= @tier.engine_repaired %>" class="form-control" style="
+height: 74px;border-radius: 8px;background-color: #f6f6f6;color: #4a4a4a;font-family: 'Helvetica Neue';font-size: 14px;font-weight: 700;letter-spacing: 0.7px;line-height: 26px;font-family: Arial;font-weight: 700;margin-left: 15px;text-align: center;" >
+
+      
+      
+             </div>
+
+
+         <div class="col-4">
+              <input type="number"  name="tier[engine_changed]" id="engine_changed" placeholder="Engine Changed %" value="<%= @tier.engine_changed %>" class="form-control" style="
+height: 74px;border-radius: 8px;background-color: #f6f6f6;color: #4a4a4a;font-family: 'Helvetica Neue';font-size: 14px;font-weight: 700;letter-spacing: 0.7px;line-height: 26px;font-family: Arial;font-weight: 700;margin-left: 15px;text-align: center;" >
+      
+      
+          </div>
+
+
+    
+  </div>
+
+
+
+
+
+
+
+
+ <br><br>
+
+
+
+ <div class="row">
+        <div class="col-6">
+            <label for="option1" class="form_label">
+
+              <div class="row">
+      
+   
+  <div style="width: 200px;
+height: 31px;
+opacity: 0.74;
+color: #b5b5b5;
+font-family: 'Helvetica Neue';
+font-size: 17px;
+font-weight: 700;
+letter-spacing: 0.85px;
+line-height: 31px;
+margin-left: 200px;
+margin-top: 20px;
+font-family: Arial;
+font-weight: 700;">
+        Roof Painted
+        </div>
+
+                 </div>
+
+            </label>
+
+
+
+        </div>
+
+
+
+
+              <div class="col-6">
+            <label for="option1" class="form_label">
+
+              <div class="row">
+      
+  
+  <input type="number"  name="tier[roof_painted]" id="roof_painted" placeholder="Roof Painted %" value="<%= @tier.roof_painted %>" class="form-control" style="width: 439px;
+height: 74px;border-radius: 8px;background-color: #f6f6f6;color: #4a4a4a;font-family: 'Helvetica Neue';font-size: 14px;font-weight: 700;letter-spacing: 0.7px;line-height: 26px;font-family: Arial;font-weight: 700;margin-left: 15px;text-align: center;" >
+
+              </div>
+      
+      
+    </div>
+
+  </div>
+
+
+
+
+
+
+
+
+
+<br><br>
+
+
+
+ <div class="row">
+        <div class="col-6">
+            <label for="option1" class="form_label">
+
+              <div class="row">
+      
+   
+  <div style="width: 290px;
+height: 31px;
+opacity: 0.74;
+color: #b5b5b5;
+font-family: 'Helvetica Neue';
+font-size: 17px;
+font-weight: 700;
+letter-spacing: 0.85px;
+line-height: 31px;
+margin-left: 200px;
+margin-top: 20px;
+font-family: Arial;
+font-weight: 700;">
+       Front Middle Bumper Painted
+        </div>
+
+                 </div>
+
+            </label>
+
+
+
+        </div>
+
+
+
+
+              <div class="col-6">
+            <label for="option1" class="form_label">
+
+              <div class="row">
+      
+  
+  <input type="number"  name="tier[front_middle_bumper_painted]" id="front_middle_bumper_painted" placeholder="Front Middle Bumper Painted %" value="<%= @tier.front_middle_bumper_painted %>" class="form-control" style="width: 439px;
+height: 74px;border-radius: 8px;background-color: #f6f6f6;color: #4a4a4a;font-family: 'Helvetica Neue';font-size: 14px;font-weight: 700;letter-spacing: 0.7px;line-height: 26px;font-family: Arial;font-weight: 700;margin-left: 15px;text-align: center;" >
+
+              </div>
+      
+      
+    </div>
+
+  </div>
+
+
+
+
+
+
+<br><br>
+
+
+
+ <div class="row">
+        <div class="col-6">
+            <label for="option1" class="form_label">
+
+              <div class="row">
+      
+   
+  <div style="width: 290px;
+height: 31px;
+opacity: 0.74;
+color: #b5b5b5;
+font-family: 'Helvetica Neue';
+font-size: 17px;
+font-weight: 700;
+letter-spacing: 0.85px;
+line-height: 31px;
+margin-left: 200px;
+margin-top: 20px;
+font-family: Arial;
+font-weight: 700;">
+       Front Left Bumper Painted
+        </div>
+
+                 </div>
+
+            </label>
+
+
+
+        </div>
+
+
+
+
+              <div class="col-6">
+            <label for="option1" class="form_label">
+
+              <div class="row">
+      
+  
+  <input type="number"  name="tier[left_front_bumper_painted]" id="left_front_bumper_painted" placeholder="Front Left Bumper Painted %" value="<%= @tier.left_front_bumper_painted %>" class="form-control" style="width: 439px;
+height: 74px;border-radius: 8px;background-color: #f6f6f6;color: #4a4a4a;font-family: 'Helvetica Neue';font-size: 14px;font-weight: 700;letter-spacing: 0.7px;line-height: 26px;font-family: Arial;font-weight: 700;margin-left: 15px;text-align: center;" >
+
+              </div>
+      
+      
+    </div>
+
+  </div>
+
+
+
+
+  <br><br>
+
+
+
+ <div class="row">
+        <div class="col-6">
+            <label for="option1" class="form_label">
+
+              <div class="row">
+      
+   
+  <div style="width: 290px;
+height: 31px;
+opacity: 0.74;
+color: #b5b5b5;
+font-family: 'Helvetica Neue';
+font-size: 17px;
+font-weight: 700;
+letter-spacing: 0.85px;
+line-height: 31px;
+margin-left: 200px;
+margin-top: 20px;
+font-family: Arial;
+font-weight: 700;">
+       Front Right Bumper Painted
+        </div>
+
+                 </div>
+
+            </label>
+
+
+
+        </div>
+
+
+
+
+              <div class="col-6">
+            <label for="option1" class="form_label">
+
+              <div class="row">
+      
+  
+  <input type="number"  name="tier[right_front_bumper_painted]" id="right_front_bumper_painted" placeholder="Front Right Bumper Painted %" value="<%= @tier.right_front_bumper_painted %>" class="form-control" style="width: 439px;
+height: 74px;border-radius: 8px;background-color: #f6f6f6;color: #4a4a4a;font-family: 'Helvetica Neue';font-size: 14px;font-weight: 700;letter-spacing: 0.7px;line-height: 26px;font-family: Arial;font-weight: 700;margin-left: 15px;text-align: center;" >
+
+              </div>
+      
+      
+    </div>
+
+  </div>
+
+
+
+
+
+
+
+  <br><br>
+
+
+
+ <div class="row">
+        <div class="col-6">
+            <label for="option1" class="form_label">
+
+              <div class="row">
+      
+   
+  <div style="width: 290px;
+height: 31px;
+opacity: 0.74;
+color: #b5b5b5;
+font-family: 'Helvetica Neue';
+font-size: 17px;
+font-weight: 700;
+letter-spacing: 0.85px;
+line-height: 31px;
+margin-left: 200px;
+margin-top: 20px;
+font-family: Arial;
+font-weight: 700;">
+       Front Right Door Painted
+        </div>
+
+                 </div>
+
+            </label>
+
+
+
+        </div>
+
+
+
+
+              <div class="col-6">
+            <label for="option1" class="form_label">
+
+              <div class="row">
+      
+  
+  <input type="number"  name="tier[right_front_door_painted]" id="right_front_door_painted" placeholder="Front Right Door Painted %" value="<%= @tier.right_front_door_painted %>" class="form-control" style="width: 439px;
+height: 74px;border-radius: 8px;background-color: #f6f6f6;color: #4a4a4a;font-family: 'Helvetica Neue';font-size: 14px;font-weight: 700;letter-spacing: 0.7px;line-height: 26px;font-family: Arial;font-weight: 700;margin-left: 15px;text-align: center;" >
+
+              </div>
+      
+      
+    </div>
+
+  </div>
+
+
+
+
+
+
+   <br><br>
+
+
+
+ <div class="row">
+        <div class="col-6">
+            <label for="option1" class="form_label">
+
+              <div class="row">
+      
+   
+  <div style="width: 290px;
+height: 31px;
+opacity: 0.74;
+color: #b5b5b5;
+font-family: 'Helvetica Neue';
+font-size: 17px;
+font-weight: 700;
+letter-spacing: 0.85px;
+line-height: 31px;
+margin-left: 200px;
+margin-top: 20px;
+font-family: Arial;
+font-weight: 700;">
+       Back Right Door Painted
+        </div>
+
+                 </div>
+
+            </label>
+
+
+
+        </div>
+
+
+
+
+              <div class="col-6">
+            <label for="option1" class="form_label">
+
+              <div class="row">
+      
+  
+  <input type="number"  name="tier[right_back_door_painted]" id="right_back_door_painted" placeholder="Back Right Door Painted %" value="<%= @tier.right_back_door_painted %>" class="form-control" style="width: 439px;
+height: 74px;border-radius: 8px;background-color: #f6f6f6;color: #4a4a4a;font-family: 'Helvetica Neue';font-size: 14px;font-weight: 700;letter-spacing: 0.7px;line-height: 26px;font-family: Arial;font-weight: 700;margin-left: 15px;text-align: center;" >
+
+              </div>
+      
+      
+    </div>
+
+  </div>
+
+
+
+
+
+  <br><br>
+
+
+
+ <div class="row">
+        <div class="col-6">
+            <label for="option1" class="form_label">
+
+              <div class="row">
+      
+   
+  <div style="width: 290px;
+height: 31px;
+opacity: 0.74;
+color: #b5b5b5;
+font-family: 'Helvetica Neue';
+font-size: 17px;
+font-weight: 700;
+letter-spacing: 0.85px;
+line-height: 31px;
+margin-left: 200px;
+margin-top: 20px;
+font-family: Arial;
+font-weight: 700;">
+       Front Left Door Painted
+        </div>
+
+                 </div>
+
+            </label>
+
+
+
+        </div>
+
+
+
+
+              <div class="col-6">
+            <label for="option1" class="form_label">
+
+              <div class="row">
+      
+  
+  <input type="number"  name="tier[left_front_door_painted]" id="left_front_door_painted" placeholder="Front Left Door Painted %" value="<%= @tier.left_front_door_painted %>" class="form-control" style="width: 439px;
+height: 74px;border-radius: 8px;background-color: #f6f6f6;color: #4a4a4a;font-family: 'Helvetica Neue';font-size: 14px;font-weight: 700;letter-spacing: 0.7px;line-height: 26px;font-family: Arial;font-weight: 700;margin-left: 15px;text-align: center;" >
+
+              </div>
+      
+      
+    </div>
+
+  </div>
+
+
+
+
+
+
+
+
+<br><br>
+
+
+
+ <div class="row">
+        <div class="col-6">
+            <label for="option1" class="form_label">
+
+              <div class="row">
+      
+   
+  <div style="width: 290px;
+height: 31px;
+opacity: 0.74;
+color: #b5b5b5;
+font-family: 'Helvetica Neue';
+font-size: 17px;
+font-weight: 700;
+letter-spacing: 0.85px;
+line-height: 31px;
+margin-left: 200px;
+margin-top: 20px;
+font-family: Arial;
+font-weight: 700;">
+       Back Left Door Painted
+        </div>
+
+                 </div>
+
+            </label>
+
+
+
+        </div>
+
+
+
+
+              <div class="col-6">
+            <label for="option1" class="form_label">
+
+              <div class="row">
+      
+  
+  <input type="number"  name="tier[left_back_door_painted]" id="left_back_door_painted" placeholder="Back Left Door Painted %" value="<%= @tier.left_back_door_painted %>" class="form-control" style="width: 439px;
+height: 74px;border-radius: 8px;background-color: #f6f6f6;color: #4a4a4a;font-family: 'Helvetica Neue';font-size: 14px;font-weight: 700;letter-spacing: 0.7px;line-height: 26px;font-family: Arial;font-weight: 700;margin-left: 15px;text-align: center;" >
+
+              </div>
+      
+      
+    </div>
+
+  </div>
+
+
+
+
+<br><br>
+
+
+
+ <div class="row">
+        <div class="col-6">
+            <label for="option1" class="form_label">
+
+              <div class="row">
+      
+   
+  <div style="width: 290px;
+height: 31px;
+opacity: 0.74;
+color: #b5b5b5;
+font-family: 'Helvetica Neue';
+font-size: 17px;
+font-weight: 700;
+letter-spacing: 0.85px;
+line-height: 31px;
+margin-left: 200px;
+margin-top: 20px;
+font-family: Arial;
+font-weight: 700;">
+       Back Middle Bumper Painted
+        </div>
+
+                 </div>
+
+            </label>
+
+
+
+        </div>
+
+
+
+
+              <div class="col-6">
+            <label for="option1" class="form_label">
+
+              <div class="row">
+      
+  
+  <input type="number"  name="tier[middle_back_bumper_painted]" id="middle_back_bumper_painted" placeholder="Back Middle Bumper Painted %" value="<%= @tier.middle_back_bumper_painted %>" class="form-control" style="width: 439px;
+height: 74px;border-radius: 8px;background-color: #f6f6f6;color: #4a4a4a;font-family: 'Helvetica Neue';font-size: 14px;font-weight: 700;letter-spacing: 0.7px;line-height: 26px;font-family: Arial;font-weight: 700;margin-left: 15px;text-align: center;" >
+
+              </div>
+      
+      
+    </div>
+
+  </div>
+
+
+
+
+
+
+  <br><br>
+
+
+
+ <div class="row">
+        <div class="col-6">
+            <label for="option1" class="form_label">
+
+              <div class="row">
+      
+   
+  <div style="width: 290px;
+height: 31px;
+opacity: 0.74;
+color: #b5b5b5;
+font-family: 'Helvetica Neue';
+font-size: 17px;
+font-weight: 700;
+letter-spacing: 0.85px;
+line-height: 31px;
+margin-left: 200px;
+margin-top: 20px;
+font-family: Arial;
+font-weight: 700;">
+       Back Left Bumper Painted
+        </div>
+
+                 </div>
+
+            </label>
+
+
+
+        </div>
+
+
+
+
+              <div class="col-6">
+            <label for="option1" class="form_label">
+
+              <div class="row">
+      
+  
+  <input type="number"  name="tier[left_back_bumper_painted]" id="left_back_bumper_painted" placeholder="Back Left Bumper Painted %" value="<%= @tier.left_back_bumper_painted %>" class="form-control" style="width: 439px;
+height: 74px;border-radius: 8px;background-color: #f6f6f6;color: #4a4a4a;font-family: 'Helvetica Neue';font-size: 14px;font-weight: 700;letter-spacing: 0.7px;line-height: 26px;font-family: Arial;font-weight: 700;margin-left: 15px;text-align: center;" >
+
+              </div>
+      
+      
+    </div>
+
+  </div>
+
+
+
+
+    <br><br>
+
+
+
+ <div class="row">
+        <div class="col-6">
+            <label for="option1" class="form_label">
+
+              <div class="row">
+      
+   
+  <div style="width: 290px;
+height: 31px;
+opacity: 0.74;
+color: #b5b5b5;
+font-family: 'Helvetica Neue';
+font-size: 17px;
+font-weight: 700;
+letter-spacing: 0.85px;
+line-height: 31px;
+margin-left: 200px;
+margin-top: 20px;
+font-family: Arial;
+font-weight: 700;">
+       Back Right Bumper Painted
+        </div>
+
+                 </div>
+
+            </label>
+
+
+
+        </div>
+
+
+
+
+              <div class="col-6">
+            <label for="option1" class="form_label">
+
+              <div class="row">
+      
+  
+  <input type="number"  name="tier[right_back_bumper_painted]" id="right_back_bumper_painted" placeholder="Back Right Bumper Painted %" value="<%= @tier.right_back_bumper_painted %>" class="form-control" style="width: 439px;
+height: 74px;border-radius: 8px;background-color: #f6f6f6;color: #4a4a4a;font-family: 'Helvetica Neue';font-size: 14px;font-weight: 700;letter-spacing: 0.7px;line-height: 26px;font-family: Arial;font-weight: 700;margin-left: 15px;text-align: center;" >
+
+              </div>
+      
+      
+    </div>
+
+  </div>
+
+
+
+
+
+
+
+
+
+  </div>
+ </div>
+
+
+  <div class="tab">
+
+<div class="inputGroup">
+
+
+
+    <div class="row">
+        <div class="col-12">
+            <label for="option1" class="form_label">
+
+              <div class="row">
+      
+    
+        <div class="col-4" >
+                          <div style="width: 290px;
+height: 31px;
+opacity: 0.74;
+color: #b5b5b5;
+font-family: 'Helvetica Neue';
+font-size: 17px;
+font-weight: 700;
+letter-spacing: 0.85px;
+line-height: 31px;
+
+font-family: Arial;
+font-weight: 700;">
+         Damaged Parts
+        </div>
+        </div>
+
+
+        <div class="col-8">
+             
+           <div style="width: 39px;height: 1px;border: 1px solid #ff8409;margin-left:30px;margin-top:15px;"></div>
+        </div>
+
+
+      </div>
+
+            </label>
+
+
+
+        </div>
+      
+      
+    </div>
+
+<br><br>
+
+
+
+
+<div style="width: 290px;
+height: 31px;
+opacity: 0.74;
+color: #b5b5b5;
+font-family: 'Helvetica Neue';
+font-size: 17px;
+font-weight: 700;
+letter-spacing: 0.85px;
+line-height: 31px;
+
+font-family: Arial;
+font-weight: 700;">
+         Roof
+        </div><br>
+ <div class="row">
+
+  
+
+
+
+              <div class="col-4">
+            <input type="number"  name="tier[roof_damaged]" id="roof_damaged" placeholder="Roof Damaged %" value="<%= @tier.roof_damaged %>" class="form-control" style="
+height: 74px;border-radius: 8px;background-color: #f6f6f6;color: #4a4a4a;font-family: 'Helvetica Neue';font-size: 14px;font-weight: 700;letter-spacing: 0.7px;line-height: 26px;font-family: Arial;font-weight: 700;margin-left: 15px;text-align: center;" >
+
+      
+      
+             </div>
+
+
+         <div class="col-4">
+              <input type="number"  name="tier[roof_damaged_repaired]" id="roof_damaged_repaired" placeholder="Roof Repaired %" value="<%= @tier.roof_damaged_repaired %>" class="form-control" style="
+height: 74px;border-radius: 8px;background-color: #f6f6f6;color: #4a4a4a;font-family: 'Helvetica Neue';font-size: 14px;font-weight: 700;letter-spacing: 0.7px;line-height: 26px;font-family: Arial;font-weight: 700;margin-left: 15px;text-align: center;" >
+      
+      
+          </div>
+
+
+         <div class="col-4">
+             <input type="number"  name="tier[roof_damaged_changed]" id="roof_damaged_changed" placeholder="Roof Changed %" value="<%= @tier.roof_damaged_changed %>" class="form-control" style="height: 74px;border-radius: 8px;background-color: #f6f6f6;color: #4a4a4a;font-family: 'Helvetica Neue';font-size: 14px;font-weight: 700;letter-spacing: 0.7px;line-height: 26px;font-family: Arial;font-weight: 700;margin-left: 15px;text-align: center;" >
+      
+        </div>
+
+  </div>
+
+
+  <br><br>
+
+
+
+
+
+
+<div style="width: 290px;
+height: 31px;
+opacity: 0.74;
+color: #b5b5b5;
+font-family: 'Helvetica Neue';
+font-size: 17px;
+font-weight: 700;
+letter-spacing: 0.85px;
+line-height: 31px;
+
+font-family: Arial;
+font-weight: 700;">
+         Front Middle Bumper
+        </div><br>
+ <div class="row">
+
+  
+
+
+
+              <div class="col-4">
+            <input type="number"  name="tier[front_middle_bumper_damaged]" id="front_middle_bumper_damaged" placeholder="Front Middle Bumper Damaged %" value="<%= @tier.front_middle_bumper_damaged %>" class="form-control" style="
+height: 74px;border-radius: 8px;background-color: #f6f6f6;color: #4a4a4a;font-family: 'Helvetica Neue';font-size: 14px;font-weight: 700;letter-spacing: 0.7px;line-height: 26px;font-family: Arial;font-weight: 700;margin-left: 15px;text-align: center;" >
+
+      
+      
+             </div>
+
+
+         <div class="col-4">
+              <input type="number"  name="tier[front_middle_bumper_repaired]" id="front_middle_bumper_repaired" placeholder="Front Middle Bumper Repaired %" value="<%= @tier.front_middle_bumper_repaired %>" class="form-control" style="
+height: 74px;border-radius: 8px;background-color: #f6f6f6;color: #4a4a4a;font-family: 'Helvetica Neue';font-size: 14px;font-weight: 700;letter-spacing: 0.7px;line-height: 26px;font-family: Arial;font-weight: 700;margin-left: 15px;text-align: center;" >
+      
+      
+          </div>
+
+
+         <div class="col-4">
+             <input type="number"  name="tier[front_middle_bumper_changed]" id="front_middle_bumper_changed" placeholder="Front Middle Bumper Changed %" value="<%= @tier.front_middle_bumper_changed %>" class="form-control" style="height: 74px;border-radius: 8px;background-color: #f6f6f6;color: #4a4a4a;font-family: 'Helvetica Neue';font-size: 14px;font-weight: 700;letter-spacing: 0.7px;line-height: 26px;font-family: Arial;font-weight: 700;margin-left: 15px;text-align: center;" >
+      
+        </div>
+
+  </div>
+
+
+  <br><br>
+
+
+
+
+
+
+
+
+<div style="width: 290px;
+height: 31px;
+opacity: 0.74;
+color: #b5b5b5;
+font-family: 'Helvetica Neue';
+font-size: 17px;
+font-weight: 700;
+letter-spacing: 0.85px;
+line-height: 31px;
+
+font-family: Arial;
+font-weight: 700;">
+         Front Left Bumper
+        </div><br>
+ <div class="row">
+
+  
+
+
+
+              <div class="col-4">
+            <input type="number"  name="tier[left_front_bumper_damaged]" id="left_front_bumper_damaged" placeholder="Front Left Bumper Damaged %" value="<%= @tier.left_front_bumper_damaged %>" class="form-control" style="
+height: 74px;border-radius: 8px;background-color: #f6f6f6;color: #4a4a4a;font-family: 'Helvetica Neue';font-size: 14px;font-weight: 700;letter-spacing: 0.7px;line-height: 26px;font-family: Arial;font-weight: 700;margin-left: 15px;text-align: center;" >
+
+      
+      
+             </div>
+
+
+         <div class="col-4">
+              <input type="number"  name="tier[left_front_bumper_repaired]" id="left_front_bumper_repaired" placeholder="Front Left Bumper Repaired %" value="<%= @tier.left_front_bumper_repaired %>" class="form-control" style="
+height: 74px;border-radius: 8px;background-color: #f6f6f6;color: #4a4a4a;font-family: 'Helvetica Neue';font-size: 14px;font-weight: 700;letter-spacing: 0.7px;line-height: 26px;font-family: Arial;font-weight: 700;margin-left: 15px;text-align: center;" >
+      
+      
+          </div>
+
+
+         <div class="col-4">
+             <input type="number"  name="tier[left_front_bumper_changed]" id="left_front_bumper_changed" placeholder="Front Left Bumper Changed %" value="<%= @tier.left_front_bumper_changed %>" class="form-control" style="height: 74px;border-radius: 8px;background-color: #f6f6f6;color: #4a4a4a;font-family: 'Helvetica Neue';font-size: 14px;font-weight: 700;letter-spacing: 0.7px;line-height: 26px;font-family: Arial;font-weight: 700;margin-left: 15px;text-align: center;" >
+      
+        </div>
+
+  </div>
+
+
+  <br><br>
+
+
+
+
+
+
+  <div style="width: 290px;
+height: 31px;
+opacity: 0.74;
+color: #b5b5b5;
+font-family: 'Helvetica Neue';
+font-size: 17px;
+font-weight: 700;
+letter-spacing: 0.85px;
+line-height: 31px;
+
+font-family: Arial;
+font-weight: 700;">
+         Front Right Bumper
+        </div><br>
+ <div class="row">
+
+  
+
+
+
+              <div class="col-4">
+            <input type="number"  name="tier[right_front_bumper_damaged]" id="right_front_bumper_damaged" placeholder="Front Right Bumper Damaged %" value="<%= @tier.right_front_bumper_damaged %>" class="form-control" style="
+height: 74px;border-radius: 8px;background-color: #f6f6f6;color: #4a4a4a;font-family: 'Helvetica Neue';font-size: 14px;font-weight: 700;letter-spacing: 0.7px;line-height: 26px;font-family: Arial;font-weight: 700;margin-left: 15px;text-align: center;" >
+
+      
+      
+             </div>
+
+
+         <div class="col-4">
+              <input type="number"  name="tier[right_front_bumper_repaired]" id="right_front_bumper_repaired" placeholder="Front Right Bumper Repaired %" value="<%= @tier.right_front_bumper_repaired %>" class="form-control" style="
+height: 74px;border-radius: 8px;background-color: #f6f6f6;color: #4a4a4a;font-family: 'Helvetica Neue';font-size: 14px;font-weight: 700;letter-spacing: 0.7px;line-height: 26px;font-family: Arial;font-weight: 700;margin-left: 15px;text-align: center;" >
+      
+      
+          </div>
+
+
+         <div class="col-4">
+             <input type="number"  name="tier[right_front_bumper_changed]" id="right_front_bumper_changed" placeholder="Front Right Bumper Changed %" value="<%= @tier.right_front_bumper_changed %>" class="form-control" style="height: 74px;border-radius: 8px;background-color: #f6f6f6;color: #4a4a4a;font-family: 'Helvetica Neue';font-size: 14px;font-weight: 700;letter-spacing: 0.7px;line-height: 26px;font-family: Arial;font-weight: 700;margin-left: 15px;text-align: center;" >
+      
+        </div>
+
+  </div>
+
+
+  <br><br>
+
+
+
+
+
+
+
+  <div style="width: 290px;
+height: 31px;
+opacity: 0.74;
+color: #b5b5b5;
+font-family: 'Helvetica Neue';
+font-size: 17px;
+font-weight: 700;
+letter-spacing: 0.85px;
+line-height: 31px;
+
+font-family: Arial;
+font-weight: 700;">
+         Front Right Door
+        </div><br>
+ <div class="row">
+
+  
+
+
+
+              <div class="col-4">
+            <input type="number"  name="tier[right_front_door_damaged]" id="right_front_door_damaged" placeholder="Front Right Door Damaged %" value="<%= @tier.right_front_door_damaged %>" class="form-control" style="
+height: 74px;border-radius: 8px;background-color: #f6f6f6;color: #4a4a4a;font-family: 'Helvetica Neue';font-size: 14px;font-weight: 700;letter-spacing: 0.7px;line-height: 26px;font-family: Arial;font-weight: 700;margin-left: 15px;text-align: center;" >
+
+      
+      
+             </div>
+
+
+         <div class="col-4">
+              <input type="number"  name="tier[right_front_door_repaired]" id="right_front_door_repaired" placeholder="Front Right Door Repaired %" value="<%= @tier.right_front_door_repaired %>" class="form-control" style="
+height: 74px;border-radius: 8px;background-color: #f6f6f6;color: #4a4a4a;font-family: 'Helvetica Neue';font-size: 14px;font-weight: 700;letter-spacing: 0.7px;line-height: 26px;font-family: Arial;font-weight: 700;margin-left: 15px;text-align: center;" >
+      
+      
+          </div>
+
+
+         <div class="col-4">
+             <input type="number"  name="tier[right_front_door_changed]" id="right_front_door_changed" placeholder="Front Right Door Changed %" value="<%= @tier.right_front_door_changed %>" class="form-control" style="height: 74px;border-radius: 8px;background-color: #f6f6f6;color: #4a4a4a;font-family: 'Helvetica Neue';font-size: 14px;font-weight: 700;letter-spacing: 0.7px;line-height: 26px;font-family: Arial;font-weight: 700;margin-left: 15px;text-align: center;" >
+      
+        </div>
+
+  </div>
+
+
+  <br><br>
+
+
+
+
+
+
+  <div style="width: 290px;
+height: 31px;
+opacity: 0.74;
+color: #b5b5b5;
+font-family: 'Helvetica Neue';
+font-size: 17px;
+font-weight: 700;
+letter-spacing: 0.85px;
+line-height: 31px;
+
+font-family: Arial;
+font-weight: 700;">
+         Back Right Door
+        </div><br>
+ <div class="row">
+
+  
+
+
+
+              <div class="col-4">
+            <input type="number"  name="tier[right_back_door_damaged]" id="right_back_door_damaged" placeholder="Back Right Door Damaged %" value="<%= @tier.right_back_door_damaged %>" class="form-control" style="
+height: 74px;border-radius: 8px;background-color: #f6f6f6;color: #4a4a4a;font-family: 'Helvetica Neue';font-size: 14px;font-weight: 700;letter-spacing: 0.7px;line-height: 26px;font-family: Arial;font-weight: 700;margin-left: 15px;text-align: center;" >
+
+      
+      
+             </div>
+
+
+         <div class="col-4">
+              <input type="number"  name="tier[right_back_door_repaired]" id="right_back_door_repaired" placeholder="Back Right Door Repaired %" value="<%= @tier.right_back_door_repaired %>" class="form-control" style="
+height: 74px;border-radius: 8px;background-color: #f6f6f6;color: #4a4a4a;font-family: 'Helvetica Neue';font-size: 14px;font-weight: 700;letter-spacing: 0.7px;line-height: 26px;font-family: Arial;font-weight: 700;margin-left: 15px;text-align: center;" >
+      
+      
+          </div>
+
+
+         <div class="col-4">
+             <input type="number"  name="tier[right_back_door_changed]" id="right_back_door_changed" placeholder="Back Right Door Changed %" value="<%= @tier.right_back_door_changed %>" class="form-control" style="height: 74px;border-radius: 8px;background-color: #f6f6f6;color: #4a4a4a;font-family: 'Helvetica Neue';font-size: 14px;font-weight: 700;letter-spacing: 0.7px;line-height: 26px;font-family: Arial;font-weight: 700;margin-left: 15px;text-align: center;" >
+      
+        </div>
+
+  </div>
+
+
+  <br><br>
+
+
+
+  <div style="width: 290px;
+height: 31px;
+opacity: 0.74;
+color: #b5b5b5;
+font-family: 'Helvetica Neue';
+font-size: 17px;
+font-weight: 700;
+letter-spacing: 0.85px;
+line-height: 31px;
+
+font-family: Arial;
+font-weight: 700;">
+         Front Left Door
+        </div><br>
+ <div class="row">
+
+  
+
+
+
+              <div class="col-4">
+            <input type="number"  name="tier[left_front_door_damaged]" id="left_front_door_damaged" placeholder="Front Left Door Damaged %" value="<%= @tier.left_front_door_damaged %>" class="form-control" style="
+height: 74px;border-radius: 8px;background-color: #f6f6f6;color: #4a4a4a;font-family: 'Helvetica Neue';font-size: 14px;font-weight: 700;letter-spacing: 0.7px;line-height: 26px;font-family: Arial;font-weight: 700;margin-left: 15px;text-align: center;" >
+
+      
+      
+             </div>
+
+
+         <div class="col-4">
+              <input type="number"  name="tier[left_front_door_repaired]" id="left_front_door_repaired" placeholder="Front Left Door Repaired %" value="<%= @tier.left_front_door_repaired %>" class="form-control" style="
+height: 74px;border-radius: 8px;background-color: #f6f6f6;color: #4a4a4a;font-family: 'Helvetica Neue';font-size: 14px;font-weight: 700;letter-spacing: 0.7px;line-height: 26px;font-family: Arial;font-weight: 700;margin-left: 15px;text-align: center;" >
+      
+      
+          </div>
+
+
+         <div class="col-4">
+             <input type="number"  name="tier[left_front_door_changed]" id="left_front_door_changed" placeholder="Front Left Door Changed %" value="<%= @tier.left_front_door_changed %>" class="form-control" style="height: 74px;border-radius: 8px;background-color: #f6f6f6;color: #4a4a4a;font-family: 'Helvetica Neue';font-size: 14px;font-weight: 700;letter-spacing: 0.7px;line-height: 26px;font-family: Arial;font-weight: 700;margin-left: 15px;text-align: center;" >
+      
+        </div>
+
+  </div>
+
+
+  <br><br>
+
+
+
+<div style="width: 290px;
+height: 31px;
+opacity: 0.74;
+color: #b5b5b5;
+font-family: 'Helvetica Neue';
+font-size: 17px;
+font-weight: 700;
+letter-spacing: 0.85px;
+line-height: 31px;
+
+font-family: Arial;
+font-weight: 700;">
+         Back Left Door
+        </div><br>
+ <div class="row">
+
+  
+
+
+
+              <div class="col-4">
+            <input type="number"  name="tier[left_back_door_damaged]" id="left_back_door_damaged" placeholder="Back Left Door Damaged %" value="<%= @tier.left_back_door_damaged %>" class="form-control" style="
+height: 74px;border-radius: 8px;background-color: #f6f6f6;color: #4a4a4a;font-family: 'Helvetica Neue';font-size: 14px;font-weight: 700;letter-spacing: 0.7px;line-height: 26px;font-family: Arial;font-weight: 700;margin-left: 15px;text-align: center;" >
+
+      
+      
+             </div>
+
+
+         <div class="col-4">
+              <input type="number"  name="tier[left_back_door_repaired]" id="left_back_door_repaired" placeholder="Back Left Door Repaired %" value="<%= @tier.left_back_door_repaired %>" class="form-control" style="
+height: 74px;border-radius: 8px;background-color: #f6f6f6;color: #4a4a4a;font-family: 'Helvetica Neue';font-size: 14px;font-weight: 700;letter-spacing: 0.7px;line-height: 26px;font-family: Arial;font-weight: 700;margin-left: 15px;text-align: center;" >
+      
+      
+          </div>
+
+
+         <div class="col-4">
+             <input type="number"  name="tier[left_back_door_changed]" id="left_back_door_changed" placeholder="Back Left Door Changed %" value="<%= @tier.left_back_door_changed %>" class="form-control" style="height: 74px;border-radius: 8px;background-color: #f6f6f6;color: #4a4a4a;font-family: 'Helvetica Neue';font-size: 14px;font-weight: 700;letter-spacing: 0.7px;line-height: 26px;font-family: Arial;font-weight: 700;margin-left: 15px;text-align: center;" >
+      
+        </div>
+
+  </div>
+
+
+  <br><br>
+
+
+
+
+
+
+
+  <div style="width: 290px;
+height: 31px;
+opacity: 0.74;
+color: #b5b5b5;
+font-family: 'Helvetica Neue';
+font-size: 17px;
+font-weight: 700;
+letter-spacing: 0.85px;
+line-height: 31px;
+
+font-family: Arial;
+font-weight: 700;">
+         Middle Back Bumper
+        </div><br>
+ <div class="row">
+
+  
+
+
+
+              <div class="col-4">
+            <input type="number"  name="tier[middle_back_bumper_damaged]" id="middle_back_bumper_damaged" placeholder="Middle Back Bumper Damaged %" value="<%= @tier.middle_back_bumper_damaged %>" class="form-control" style="
+height: 74px;border-radius: 8px;background-color: #f6f6f6;color: #4a4a4a;font-family: 'Helvetica Neue';font-size: 14px;font-weight: 700;letter-spacing: 0.7px;line-height: 26px;font-family: Arial;font-weight: 700;margin-left: 15px;text-align: center;" >
+
+      
+      
+             </div>
+
+
+         <div class="col-4">
+              <input type="number"  name="tier[middle_back_bumper_repaired]" id="middle_back_bumper_repaired" placeholder="Middle Back Bumper Repaired %" value="<%= @tier.middle_back_bumper_repaired %>" class="form-control" style="
+height: 74px;border-radius: 8px;background-color: #f6f6f6;color: #4a4a4a;font-family: 'Helvetica Neue';font-size: 14px;font-weight: 700;letter-spacing: 0.7px;line-height: 26px;font-family: Arial;font-weight: 700;margin-left: 15px;text-align: center;" >
+      
+      
+          </div>
+
+
+         <div class="col-4">
+             <input type="number"  name="tier[middle_back_bumper_changed]" id="middle_back_bumper_changed" placeholder="Middle Back Bumper Changed %" value="<%= @tier.middle_back_bumper_changed %>" class="form-control" style="height: 74px;border-radius: 8px;background-color: #f6f6f6;color: #4a4a4a;font-family: 'Helvetica Neue';font-size: 14px;font-weight: 700;letter-spacing: 0.7px;line-height: 26px;font-family: Arial;font-weight: 700;margin-left: 15px;text-align: center;" >
+      
+        </div>
+
+  </div>
+
+
+  <br><br>
+
+
+
+
+
+
+
+ <div style="width: 290px;
+height: 31px;
+opacity: 0.74;
+color: #b5b5b5;
+font-family: 'Helvetica Neue';
+font-size: 17px;
+font-weight: 700;
+letter-spacing: 0.85px;
+line-height: 31px;
+
+font-family: Arial;
+font-weight: 700;">
+         Left Back Bumper
+        </div><br>
+ <div class="row">
+
+  
+
+
+
+              <div class="col-4">
+            <input type="number"  name="tier[left_back_bumper_damaged]" id="left_back_bumper_damaged" placeholder="Left Back Bumper Damaged %" value="<%= @tier.left_back_bumper_damaged %>" class="form-control" style="
+height: 74px;border-radius: 8px;background-color: #f6f6f6;color: #4a4a4a;font-family: 'Helvetica Neue';font-size: 14px;font-weight: 700;letter-spacing: 0.7px;line-height: 26px;font-family: Arial;font-weight: 700;margin-left: 15px;text-align: center;" >
+
+      
+      
+             </div>
+
+
+         <div class="col-4">
+              <input type="number"  name="tier[left_back_bumper_repaired]" id="left_back_bumper_repaired" placeholder="Left Back Bumper Repaired %" value="<%= @tier.left_back_bumper_repaired %>" class="form-control" style="
+height: 74px;border-radius: 8px;background-color: #f6f6f6;color: #4a4a4a;font-family: 'Helvetica Neue';font-size: 14px;font-weight: 700;letter-spacing: 0.7px;line-height: 26px;font-family: Arial;font-weight: 700;margin-left: 15px;text-align: center;" >
+      
+      
+          </div>
+
+
+         <div class="col-4">
+             <input type="number"  name="tier[left_back_bumper_changed]" id="left_back_bumper_changed" placeholder="Left Back Bumper Changed %" value="<%= @tier.left_back_bumper_changed %>" class="form-control" style="height: 74px;border-radius: 8px;background-color: #f6f6f6;color: #4a4a4a;font-family: 'Helvetica Neue';font-size: 14px;font-weight: 700;letter-spacing: 0.7px;line-height: 26px;font-family: Arial;font-weight: 700;margin-left: 15px;text-align: center;" >
+      
+        </div>
+
+  </div>
+
+
+  <br><br>
+
+
+
+
+
+
+
+ <div style="width: 290px;
+height: 31px;
+opacity: 0.74;
+color: #b5b5b5;
+font-family: 'Helvetica Neue';
+font-size: 17px;
+font-weight: 700;
+letter-spacing: 0.85px;
+line-height: 31px;
+
+font-family: Arial;
+font-weight: 700;">
+         Right Back Bumper
+        </div><br>
+ <div class="row">
+
+  
+
+
+
+              <div class="col-4">
+            <input type="number"  name="tier[right_back_bumper_damaged]" id="right_back_bumper_damaged" placeholder="Right Back Bumper Damaged %" value="<%= @tier.right_back_bumper_damaged %>" class="form-control" style="
+height: 74px;border-radius: 8px;background-color: #f6f6f6;color: #4a4a4a;font-family: 'Helvetica Neue';font-size: 14px;font-weight: 700;letter-spacing: 0.7px;line-height: 26px;font-family: Arial;font-weight: 700;margin-left: 15px;text-align: center;" >
+
+      
+      
+             </div>
+
+
+         <div class="col-4">
+              <input type="number"  name="tier[right_back_bumper_repaired]" id="right_back_bumper_repaired" placeholder="Right Back Bumper Repaired %" value="<%= @tier.right_back_bumper_repaired %>" class="form-control" style="
+height: 74px;border-radius: 8px;background-color: #f6f6f6;color: #4a4a4a;font-family: 'Helvetica Neue';font-size: 14px;font-weight: 700;letter-spacing: 0.7px;line-height: 26px;font-family: Arial;font-weight: 700;margin-left: 15px;text-align: center;" >
+      
+      
+          </div>
+
+
+         <div class="col-4">
+             <input type="number"  name="tier[right_back_bumper_changed]" id="right_back_bumper_changed" placeholder="Right Back Bumper Changed %" value="<%= @tier.right_back_bumper_changed %>" class="form-control" style="height: 74px;border-radius: 8px;background-color: #f6f6f6;color: #4a4a4a;font-family: 'Helvetica Neue';font-size: 14px;font-weight: 700;letter-spacing: 0.7px;line-height: 26px;font-family: Arial;font-weight: 700;margin-left: 15px;text-align: center;" >
+      
+        </div>
+
+  </div>
+
+
+  <br><br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+ </div>
+
+
+
+<% end %>
+
+

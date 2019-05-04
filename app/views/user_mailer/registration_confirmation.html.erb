@@ -1,0 +1,5 @@
+Hi <%= @user.name %>,<br><br>
+
+Thanks for registering! To confirm your registration click the URL below.<br><br>
+
+<%= confirm_email_url(@user.confirm_token, host: "https://arabeetyapp.myvoga.mx")%><br><br>

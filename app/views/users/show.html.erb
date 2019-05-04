@@ -1,0 +1,819 @@
+                        <style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f1f1f1;
+}
+
+#regForm {
+  background-color: #ffffff;
+  margin: 100px auto;
+  font-family: Raleway;
+  padding: 40px;
+  width: 100%;
+  min-width: 300px;
+}
+
+
+
+input {
+  padding: 10px;
+  width: 100%;
+  font-size: 17px;
+  font-family: Raleway;
+  border: 1px solid #aaaaaa;
+}
+
+/* Mark input boxes that gets an error on validation: */
+input.invalid {
+  background-color: #ffdddd;
+}
+
+/* Hide all steps by default: */
+.tab {
+  display: none;
+}
+
+button {
+  background-color: #00357a;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 17px;
+  font-family: Raleway;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+#prevBtn {
+  background-color: #00357a;
+}
+
+/* Make circles that indicate the steps of the form: */
+.step {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #00357a;
+  border: none;  
+  border-radius: 50%;
+  display: inline-block;
+  opacity: 0.5;
+}
+
+.step.active {
+  opacity: 1;
+}
+
+/* Mark the steps that are finished and valid: */
+.step.finish {
+  background-color: #00357a;
+}
+.inputGroup {
+
+  }
+
+
+.first_div{
+
+  color: #ffffff;
+font-family: "Helvetica Neue";
+font-size: 17px;
+font-weight: 700;
+letter-spacing: 0.85px;
+line-height: 31px;
+/* Text style for "Damaged" */
+text-align: center;
+vertical-align: middle;
+line-height: 74px;
+font-weight: 700;
+  background-color: #ff8409;
+  border-radius: 4px;
+  height: 74px;
+}
+.form_label{
+  color: #4a4a4a;
+font-family: "Helvetica Neue";
+font-size: 17px;
+font-weight: 700;
+letter-spacing: 0.85px;
+line-height: 31px;
+/* Text style for "Engine Con" */
+font-weight: 700;
+}
+
+
+.special_selec{
+    color: #ffffff;
+font-family: "Helvetica Neue";
+font-size: 17px;
+font-weight: 700;
+letter-spacing: 0.85px;
+line-height: 31px;
+/* Text style for "Damaged" */
+text-align: center;
+vertical-align: middle;
+line-height: 74px;
+font-weight: 700;
+  background-color: #ff8409;
+  border-radius: 4px;
+  height: 74px;
+}
+
+
+
+</style>
+<style type="text/css">
+  .value_button{
+
+
+    max-width: 376px;
+    min-width: 280px;
+height: 75px;
+background-color: #ff8409;
+
+
+border: 1px solid #ffffff;
+color: #ffffff;
+font-family: "Helvetica Neue";
+font-size: 18px;
+font-weight: 600;
+
+letter-spacing: 4.57px;
+line-height: 8px;
+text-transform: uppercase;
+/* Text style for "VALUE YOUR" */
+
+font-weight: 400;
+
+}
+</style>
+<% if session[:admin_id] %>
+
+<style type="text/css">
+.value_button{
+
+
+    max-width: 376px;
+    min-width: 280px;
+height: 75px;
+background-color: #ff8409;
+
+
+border: 1px solid #ffffff;
+color: #ffffff;
+font-family: "Helvetica Neue";
+font-size: 18px;
+font-weight: 600;
+
+letter-spacing: 4.57px;
+line-height: 8px;
+text-transform: uppercase;
+/* Text style for "VALUE YOUR" */
+
+font-weight: 400;
+
+}
+    .email-tel-user{
+
+
+
+color: #4a4a4a;
+font-family: "Helvetica Neue";
+font-size: 19px;
+font-weight: 300;
+letter-spacing: 2.62px;
+line-height: 11px;
+/* Text style for "ehabfcih94" */
+margin-top: 20px;
+font-weight: 300;
+    }
+
+    .name_user{
+        color: #4a4a4a;
+font-family: "Helvetica Neue";
+font-size: 22px;
+font-weight: 700;
+letter-spacing: 3.04px;
+line-height: 11px;
+/* Text style for "Ehab Moham" */
+font-family: "Segoe UI";
+font-weight: 700;
+
+
+    }
+
+.titles_first_blocks{
+  color: #777777;
+  margin-top: 30%;
+  margin-left: 15%;
+font-family: Arial;
+font-size: 15px;
+font-weight: 700;
+line-height: 22px;
+}
+
+.numbers_admin_starters{
+
+  color: #ff8409;
+font-family: Arial;
+font-size: 20px;
+font-weight: 700;
+line-height: 39px;
+  margin-left: 23%;
+}
+</style>
+
+<style type="text/css">
+  
+  .col_first_car_month{
+    color: #b2b5b8;
+    text-align: left;
+font-family: Arial;
+font-size: 14px;
+font-weight: 400;
+line-height: 37px;
+  }
+
+  .col_second_car_month{
+    color: #404447;
+    text-align: left;
+font-family: Arial;
+font-size: 15px;
+font-weight: 400;
+line-height: 37px;
+  }
+
+
+  .recent_evaluations{
+
+color: #404447;
+font-family: Arial;
+font-size: 16px;
+font-weight: 400;
+letter-spacing: 1.2px;
+line-height: 40px;
+
+  }
+</style>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.js"></script>
+
+<section class="tabs-section"style="margin-top: -80px">
+     <%= render 'layouts/header_profile_admin' %>
+
+
+ 
+      <br><br><br><br> 
+
+<link href="https://www.cssscript.com/demo/date-range-picker-lightpick/css/lightpick.css" rel="stylesheet" type="text/css">
+
+      <div class="container" >
+                 <div class="tab-content" id="myTabContent" style="background-color: #f3f3f3" >
+                        <div class="tab-pane fade active show" id="ser-1" role="tabpanel" aria-labelledby="ser-1-tab">
+                        
+                            <div class="row">
+             
+       <form action="/users/<%= @user.id %>/" method="get" style="width: 80%;margin-top: -20px;margin-left: 22px;">               
+
+    <div class="row">
+
+      <% if params[:stats] %>
+
+       <input type="hidden" name="stats" class="form-control form-control-sm" style="height: 40px" value="true"> 
+              <% end %>
+
+
+      
+          <div class="col-10">
+            <input type="text" id="demo" name="date_range" class="form-control form-control-sm" style="height: 40px" value="<%= params[:date_range] %>"> 
+          </div>
+<div class="col-2">
+   <button class="btn btn-default" style="width: 100px;height: 40px;background-color: #00357a;color: #fff;border-radius: 4px;cursor:pointer;text-align: center;pad">Filter</button>
+          </div>
+
+
+    </div>
+ 
+
+</form>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
+ <script src="https://www.cssscript.com/demo/date-range-picker-lightpick/lightpick.js"></script>
+<script>
+    function rangeText(start, end) {
+    var str = '';
+    str += start ? start.format('Do MMMM YYYY') + ' to ' : '';
+    str += end ? end.format('Do MMMM YYYY') : '...';
+
+    return str;
+}
+    new lightPick({
+    field: document.getElementById('demo'),
+    lang: 'en',
+    numberOfMonths:2,
+    numberOfColumns: 3,
+    singleDate: false,
+    onSelect: function(start, end){
+        document.getElementById('result').innerHTML = rangeText(start, end);
+    }
+});
+</script>
+  <% if params[:date_range] %>
+                    <% array_date = params[:date_range].split(' - ') %>
+                     <% start = array_date[0] %>
+                     <% end_date = array_date[1] %>
+
+                     <% t_start = Time.parse(start) %>
+                     <% t_end = Time.parse(end_date) %>
+          <% end %>
+<br><br> 
+
+   
+
+
+
+                              <div class="col-4"style="margin-top:-10px;">
+
+                                <div style="margin-top:-10px;background-image: url(/recent_eval.png);margin-bottom: 10px;margin-right: 10px;margin-left: 10px;margin-top: 10px;width:80%;background-repeat: no-repeat;  background-size: cover;">
+                                  <div style="" align="center">
+                                      <img src="/user_placeholder_final.png" style="margin-left:0px;width: 120px;height: 120px;margin-top: 20px;border-radius: 50%;border-color: #fff;border-width: 4px;">
+
+                                        <img src="/line_user_profile.png" style="width: 80%;margin-top: 20px;">
+
+                            
+                                  <div class="row" style="margin-top: 20px;    width: 100%;" align="center" >
+                                    <div align="center" style="    width: 100%;">
+                                  <h2 style=" font-family: HelveticaNeue;  font-size: 18px;  font-weight: bold;  font-style: normal;  font-stretch: normal;  line-height: 0.5;  letter-spacing: 3px;  text-align: center;  color: #4a4a4a;margin-top: 10px;"><%= @user.name %></h2>
+
+
+                                             <h2 style="  font-family: HelveticaNeue;  font-size: 15px;  font-weight: 300;  font-style: normal;  font-stretch: normal;  line-height: 0.58;  letter-spacing: 2.6px;  text-align: center;  color: #4a4a4a;margin-top: 20px;opacity: 0.6"><%= @user.email %></h2>
+<br><br>
+                                           </div>
+                                  </div>
+                                </div>
+                                </div>
+                              </div>
+
+      
+
+            <% if params[:stats] == nil %>
+                <div class="col-8"  style="background-image: url(/recent_eval.png);height: 270px;max-width: 530px;min-width: 320px;border-radius: 4px;">
+<style type="text/css">
+  #myChart{
+
+        max-width: 530px;
+        min-width: 320px;
+        height: 365px;
+  }
+</style>
+                               
+
+
+<% january = Date.strptime("01/01/2019", "%m/%d/%Y") %>
+<% febuary = Date.strptime("02/01/2019", "%m/%d/%Y") %>
+<% march = Date.strptime("03/01/2019", "%m/%d/%Y") %>
+<% april = Date.strptime("04/01/2019", "%m/%d/%Y") %>
+<% may = Date.strptime("05/01/2019", "%m/%d/%Y") %>
+<% june = Date.strptime("06/01/2019", "%m/%d/%Y") %>
+
+
+
+<canvas id="myChart"></canvas>
+<script>
+var ctx = document.getElementById("myChart").getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+        datasets: [{
+            label: 'Evaluations',
+            data: [<%= Valuation.where("created_at >=? AND created_at <=? AND user_id =?",january.at_beginning_of_month,january.at_end_of_month,@user.id).count %>, <%= Valuation.where("created_at >=? AND created_at <=? AND user_id =?",febuary.at_beginning_of_month,febuary.at_end_of_month,@user.id).count %>, <%= Valuation.where("created_at >=? AND created_at <=? AND user_id =?",march.at_beginning_of_month,march.at_end_of_month,@user.id).count %>, <%= Valuation.where("created_at >=? AND created_at <=? AND user_id =?",april.at_beginning_of_month,april.at_end_of_month,@user.id).count %>, <%= Valuation.where("created_at >=? AND created_at <=? AND user_id =?",may.at_beginning_of_month,may.at_end_of_month,@user.id).count %>, <%= Valuation.where("created_at >=? AND created_at <=? AND user_id =?",june.at_beginning_of_month,june.at_end_of_month,@user.id).count %>],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255,99,132,1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        }
+    }
+});
+</script>
+
+<% else %>
+  <!-- jvectormap -->
+    <div class="col-8"  style="background-image: url(/recent_eval.png);height: 270px;max-width: 530px;min-width: 320px;border-radius: 4px;">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="https://adminlte.io/themes/AdminLTE/dist/css/AdminLTE.min.css">
+  <!-- AdminLTE Skins. Choose a skin from the css/skins
+       folder instead of downloading all of them to reduce the load. -->
+  
+
+<br>
+
+<div class="row">
+
+  <% if params[:date_range] %>
+  <% @car_model = Valuation.where(user_id:(@user.id),created_at: t_start.beginning_of_day..t_end.end_of_day).group(:model_car).order('COUNT(*) DESC').select('model_car').limit(1)[0] %>
+  <% @brand = Valuation.where(user_id:(@user.id),created_at: t_start.beginning_of_day..t_end.end_of_day).group(:brand).order('COUNT(*) DESC').select('brand').limit(1)[0] %>   
+
+              <% @millage = Valuation.where(user_id:(@user.id),created_at: t_start.beginning_of_day..t_end.end_of_day).group(:kilometers).order('COUNT(*) DESC').select('kilometers').limit(1)[0] %>           
+ <% @year = Valuation.where(user_id:(@user.id),created_at: t_start.beginning_of_day..t_end.end_of_day).group(:year_car).order('COUNT(*) DESC').select('year_car').limit(1)[0] %>   
+
+
+
+  <% else %>
+<% @car_model = Valuation.where(user_id:(@user.id)).group(:model_car).order('COUNT(*) DESC').select('model_car').limit(1)[0] %>
+  <% @brand = Valuation.where(user_id:(@user.id)).group(:brand).order('COUNT(*) DESC').select('brand').limit(1)[0] %>   
+            <% @millage = Valuation.where(user_id:(@user.id)).group(:kilometers).order('COUNT(*) DESC').select('kilometers').limit(1)[0] %>           
+ <% @year = Valuation.where(user_id:(@user.id)).group(:year_car).order('COUNT(*) DESC').select('year_car').limit(1)[0] %>   
+  <% end %>
+    
+                  
+
+
+
+        <div class="col-md-6 col-sm-6 col-xs-12">
+          <div class="info-box">
+               <% if @brand %>
+            <span class="info-box-icon bg-aqua"><img src="<%= Brand.find(@brand.brand).picture.url %>" style="width: 70px;"></span>
+<% else %>
+  <span class="info-box-icon bg-aqua">-</span>
+<% end %>
+            <div class="info-box-content">
+              <span class="info-box-text">Top Brand</span>
+              <% if @brand != nil %>
+              <span class="info-box-number"><%= Brand.find(@brand.brand).name %></span>
+              <% else %>
+              <span class="info-box-number">-</span>
+              <% end %>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+        <div class="col-md-6 col-sm-6 col-xs-12">
+          <div class="info-box">
+            <% if @brand %>
+            <span class="info-box-icon bg-aqua"><img src="<%= Brand.find(@brand.brand).picture.url %>" style="width: 70px;"></span>
+<% else %>
+  <span class="info-box-icon bg-aqua">-</span>
+<% end %>
+
+            <div class="info-box-content">
+              <span class="info-box-text">Top Model</span>
+              <% if @car_model %>
+
+               <span class="info-box-number"><%= CarModel.find(@car_model.model_car).name %></span>
+              <% else %>
+
+               <span class="info-box-number">-</span>
+              <% end %>
+             
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+
+<br><br>
+<br><br>
+<br>
+
+
+                <div class="col-md-6 col-sm-6 col-xs-12">
+          <div class="info-box">
+        <span class="info-box-icon bg-aqua">-</span>
+            <div class="info-box-content">
+              <span class="info-box-text">Top Years</span>
+              <% if @year != nil %>
+              <span class="info-box-number"><%= Year.find(@year.year_car).date %></span>
+              <% else %>
+              <span class="info-box-number">-</span>
+              <% end %>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+        <div class="col-md-6 col-sm-6 col-xs-12">
+          <div class="info-box">
+              <span class="info-box-icon bg-aqua">-</span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">Top Millage</span>
+              <% if @millage %>
+
+               <span class="info-box-number"><%= Millage.find(@millage.kilometers).range %></span>
+              <% else %>
+
+               <span class="info-box-number">-</span>
+              <% end %>
+             
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+
+
+
+</div>
+
+<% end %>
+
+
+
+</div>
+
+                            </div>
+
+
+
+
+
+<br><br>
+
+
+<% if params[:stats] == nil %>
+                            <div class="row">
+
+                           
+<% if params[:date_range] %>
+     <h2 style="height: 25px;  font-family: Arial;  font-size: 22px;  font-weight: normal;  font-style: normal;  font-stretch: normal;  line-height: 2.05;  letter-spacing: 1.7px;  text-align: left;  color: #404447;margin-left: 30px;">Filtered Evaluations</h2>
+                                <div class="col-12">
+                                  <% @valuations = Valuation.where("user_id =? AND created_at >=? AND created_at <=?",@user.id,t_start.beginning_of_day,t_end.end_of_day) %>
+<% else %>
+     <h2 style="height: 25px;  font-family: Arial;  font-size: 22px;  font-weight: normal;  font-style: normal;  font-stretch: normal;  line-height: 2.05;  letter-spacing: 1.7px;  text-align: left;  color: #404447;margin-left: 30px;">Recent Evaluations</h2>
+                                <div class="col-12">
+  <% @valuations = Valuation.where("user_id =?",@user.id) %>
+
+<% end %>
+                                    <div class="row">
+                                      <% if @valuations.count != 0 %>
+                                         <% @valuations.each do |valuation| %>
+                                        <div class="col-3" align="center" style="background-color: #fff;border-radius: 4px;margin-left: 20px;margin-top:20px;">
+                                          <% if Brand.find_by_name(valuation.brand) %>
+                                          <img src="<%= Brand.find_by_name(valuation.brand).picture.url %>" style="width: 200px; margin-top: 20px;" alt="">
+                                          <%else %>
+                                          <img src="https://wiki.tripwireinteractive.com/images/4/47/Placeholder.png" style="width: 200px; margin-top: 20px;" alt="">
+
+                                          <% end %>
+                                            <br><br>
+                                             <h2 style="color: #4a4a4a;font-family: 'Helvetica Neue';font-size: 13px;font-weight: 500;letter-spacing: 1.79px;line-height: 8px;font-family: 'Segoe UI';font-weight: 400;"><%= Brand.find(valuation.brand).name %> - <%= CarModel.find(valuation.model_car).name %><br><br><br><%= valuation.created_at.strftime("%m/%d/%Y") %></h2>
+                                                    <span><a href="/valuations/<%= valuation.id %>" style="color: #4a4a4a;font-family: 'Helvetica Neue';font-size: 9px;
+font-weight: 700;letter-spacing: 1.24px;line-height: 8px;text-transform: uppercase;font-family: 'Segoe UI';font-weight: 700;">SEE DETAILS</a></span>
+                                     <br><br>
+                                        </div>
+
+                                          <% end %>
+                                         
+                                        <% else %>
+
+                                          <div class="row">
+
+                                            <div class="col-12">  <br><br>
+                                              <% if params[:date_range] %>
+                                              <div style="margin-left: 30px;"> No Valuations between dates selected </div>
+                                              <% else %>
+                                                        <div style="margin-left: 30px;"> No Valuations yet </div>
+                                           
+                                              <%  end %>
+
+                                            </div>
+                                            </div>
+
+                                        <% end %>
+
+                                     </div>
+                      
+
+
+
+                                </div>
+                            </div>
+
+
+
+
+<% else %>
+     
+
+<% end %>
+
+
+
+
+
+
+
+                        </div>
+               
+
+
+
+
+
+
+
+
+
+                         
+                    </div>
+
+</div>
+
+
+
+        </section>
+
+   <div class="modal fade" id="sendMessageModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content"  style="margin-left: -250px;width: 950px;height: 645px;background-color: #ffffff;;margin-top: 130px;">
+      
+      <form id="message_form" action="/send_message">
+      <div class="modal-body mx-3" style="margin-left: 100px;margin-top: 50px;">
+
+                <div class="row" style="margin-left: 50px;">
+        <div class="col-12">
+            <label for="option1" class="form_label">
+
+              <div class="row">
+      
+    
+        <div class="col-4" >
+                          <div style="width: 164px;
+height: 31px;
+opacity: 0.74;
+color: #b5b5b5;
+font-family: 'Helvetica Neue';
+font-size: 17px;
+font-weight: 700;
+letter-spacing: 0.85px;
+line-height: 31px;
+
+font-family: Arial;
+font-weight: 700;">
+          Subject 
+        </div>
+        </div>
+
+
+        <div class="col-8">
+             
+           <div style="width: 39px;height: 1px;border: 1px solid #ff8409;margin-left:-5px;margin-top:17px;"></div>
+        </div>
+
+
+      </div>
+
+
+            </label>
+            <input type="text"  name="subject" placeholder="Subject" class="form-control" style="width: 439px;
+height: 74px;border-radius: 8px;background-color: #f6f6f6;color: #4a4a4a;font-family: 'Helvetica Neue';font-size: 14px;font-weight: 700;letter-spacing: 0.7px;line-height: 26px;font-family: Arial;font-weight: 700;" >
+
+
+
+
+
+     <input type="hidden"  name="user_id" value="<%= @user.id %>" class="form-control" >
+
+       <input type="hidden"  name="admin_id" value="<%= session[:admin_id] %>" class="form-control" >
+
+
+        </div>
+     
+    </div>
+
+
+
+
+
+
+
+<br><br>
+
+        <div class="row" style="margin-left: 50px;"s>
+        <div class="col-12">
+            <label for="option1" class="form_label">
+
+              <div class="row">
+      
+    
+        <div class="col-4" >
+                          <div style="width: 164px;
+height: 31px;
+opacity: 0.74;
+color: #b5b5b5;
+font-family: 'Helvetica Neue';
+font-size: 17px;
+font-weight: 700;
+letter-spacing: 0.85px;
+line-height: 31px;
+
+font-family: Arial;
+font-weight: 700;">
+          Message 
+        </div>
+        </div>
+
+
+        <div class="col-8">
+             
+           <div style="width: 39px;height: 1px;border: 1px solid #ff8409;margin-left:5px;margin-top:17px;"></div>
+        </div>
+
+
+      </div>
+
+
+            </label>
+ <textarea class="form-control" name="text" placeholder="Message" style="margin-left: 0px;width: 80%;height: 194px;background-color: #f6f6f6;"></textarea>  
+
+
+        </div>
+     
+    </div>
+
+
+
+
+
+
+        
+      </div>
+
+      <div class="modal-footer d-flex justify-content-center" style="border-top: 0px;">
+  <img src="/send_message_profile.png"  onclick="return submitForm();">
+      </div>
+
+
+       </form>
+    </div>
+  </div>
+</div>
+
+
+
+                                           <script>
+
+                                               function submitForm(){
+
+
+    var form = document.getElementById("message_form");
+    form.submit();
+  }
+
+
+
+                                    function deleteUser() {
+                                        window.location.replace("/delete_user?user_id=<%= @user.id %>");
+                                    }
+
+
+                                    function sendMessageToUser() {
+                                      
+                                          $('#sendMessageModal').modal('show');
+                                    }
+                                    </script>
+
+
+
+
+
+        <% else %>
+        <div align="center" style="margin-top: -700px;">
+ <button class="value_button" data-toggle="modal" data-target="#modalLoginForm" style="margin-top: 35%;">PLEASE SIGN IN</button>
+</div><br><br><br>
+        <% end %>

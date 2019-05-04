@@ -1,0 +1,265 @@
+  <% if session[:admin_id] %>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.js"></script>
+
+    <section class="tabs-section"style="margin-top: -80px">
+     <%= render 'layouts/header_profile_admin' %>
+
+<br><br><br>
+
+<link href="https://www.cssscript.com/demo/date-range-picker-lightpick/css/lightpick.css" rel="stylesheet" type="text/css">
+            <div class="container" >
+   <div class="row">
+          <form action="/users/" method="get" style="width: 100%;margin-top: -20px;margin-left: 16px;">               
+
+    <div class="row">
+
+      <% if params[:stats] %>
+
+       <input type="hidden" name="stats" class="form-control form-control-sm" style="height: 40px" value="true"> 
+              <% end %>
+
+
+      
+          <div class="col-10">
+            <input type="text" id="demo" name="date_range" class="form-control form-control-sm" style="height: 40px" value="<%= params[:date_range] %>"> 
+          </div>
+<div class="col-2">
+   <button class="btn btn-default" style="margin-left:50px;width: 100px;height: 40px;background-color: #00357a;color: #fff;border-radius: 4px;cursor:pointer;text-align: center;pad">Filter</button>
+          </div>
+
+
+    </div>
+ 
+<br><br>
+</form>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
+ <script src="https://www.cssscript.com/demo/date-range-picker-lightpick/lightpick.js"></script>
+<script>
+    function rangeText(start, end) {
+    var str = '';
+    str += start ? start.format('Do MMMM YYYY') + ' to ' : '';
+    str += end ? end.format('Do MMMM YYYY') : '...';
+
+    return str;
+}
+    new lightPick({
+    field: document.getElementById('demo'),
+    lang: 'en',
+    numberOfMonths:2,
+    numberOfColumns: 3,
+    singleDate: false,
+    onSelect: function(start, end){
+        document.getElementById('result').innerHTML = rangeText(start, end);
+    }
+});
+</script>
+  <% if params[:date_range] %>
+                    <% array_date = params[:date_range].split(' - ') %>
+                     <% start = array_date[0] %>
+                     <% end_date = array_date[1] %>
+
+                     <% t_start = Time.parse(start) %>
+                     <% t_end = Time.parse(end_date) %>
+          <% end %>
+
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                               <% if params[:date_range] %>
+                                <h4 class="card-title">Filtered Users</h4>
+                                <% @users = User.where("created_at >=? AND created_at <=?",t_start.beginning_of_day,t_end.end_of_day) %>
+                     <% else %>
+ <h4 class="card-title">Users</h4>
+<% @user = User.all.reverse %>
+                      <% end %>
+              <div class="table-responsive m-t-40">
+                                    <div id="example23_wrapper" class="dataTables_wrapper dt-bootstrap4">
+
+                                
+
+                                          <table id="example23" class="display nowrap table table-hover table-bordered dataTable" cellspacing="0" width="100%" role="grid" aria-describedby="example23_info" style="width: 100%;">
+                                        <thead>
+                                        <tr><th class="sorting_asc" tabindex="0" aria-controls="example23" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 171px;">ID</th><th rowspan="1" colspan="1">Name</th><th rowspan="1" colspan="1">Email</th><th rowspan="1" colspan="1">Phone</th><th rowspan="1" colspan="1">Registered</th><th rowspan="1" colspan="1">Valuations</th><th rowspan="1" colspan="1">Top Brand</th><th rowspan="1" colspan="1">TopModel</th><th rowspan="1" colspan="1"></th></tr>
+                                        </thead>
+                                     
+                                        <tbody>
+                                
+                                            
+                               
+                                  
+    
+
+           <% @users.each do |user| %>
+                                            
+                                        <tr role="row" class="odd">
+                                            <td class="sorting_1"><div  style="margin-top: 12px;margin-left: 15px;"><%= user.id %></div></td>
+                                                <td class="sorting_1"><div  style="margin-top: 12px;margin-left: 15px;"><%= user.name %></div></td>
+                                                <td><div  style="margin-top: 12px;margin-left: 15px;"><%= user.email %></div></td>
+                                                <td><div  style="margin-top: 12px;margin-left: 15px;"><%= user.phone %></div></td>
+                                                        <td class="sorting_1" ><div  style="margin-top: 12px;margin-left: 15px;"><%= user.created_at.strftime("%m/%d/%Y") %></div></td>
+                                                <td><div  style="margin-top: 12px;margin-left: 15px;"><%= Valuation.where("user_id =?",user.id).count %></div></td>
+                                              
+                                            <% if Valuation.where("user_id =?",user.id).count > 0 %>
+
+                                                   <% @car_model = Valuation.where(user_id:(user.id)).group(:model_car).order('COUNT(*) DESC').select('model_car').limit(1)[0] %>
+                                 <% @brand = Valuation.where(user_id:(user.id)).group(:brand).order('COUNT(*) DESC').select('brand').limit(1)[0] %>    
+                                  
+
+                                    <td><div  style="margin-top: 12px;margin-left: 15px;"><%= Brand.find(@brand.brand).name %></div></td>
+                                                <td><div  style="margin-top: 12px;margin-left: 15px;"><%= CarModel.find(@car_model.model_car).name %></div></td>
+
+
+                                            <% else %>
+
+                                    <td><div  style="margin-top: 12px;margin-left: 15px;">-</div></td>
+                                                <td><div  style="margin-top: 12px;margin-left: 15px;">-</div></td>
+
+                                            <% end %>
+                          
+
+
+        <td align="center"><button type="button" class="btn btn-default" data-toggle="dropdown" aria-expanded="false" style="background-color: transparent;">
+                  <img src="/3-Dots.png" style="margin-top: 10px;margin-left: -15px;" style="background-color: transparent;">
+                 
+                  </button>
+                  <ul class="dropdown-menu" role="menu" style="width: 140px;  height: 140px;  border: solid 1px #d2d2d2;  background-color: #f7f8f9;">
+                    <li class="options_links"><a href="/users/<%= user.id %>/" style="color: #a4a4a4;">User Profile</a></li>
+                    <li class="options_links"><a href="/users/<%= user.id %>/?stats=true" style="color: #a4a4a4;">View Stats</a></li>
+                    <li class="options_links"><a href="#"  onclick="return pendingUser(<%= user.id %>);" style="color: #a4a4a4;">Delete User</a></li>
+                  
+               
+                  </ul></td>
+                                            </tr>
+ <% end %>
+
+
+
+                                        </tbody>
+                                    </table>
+                                  
+                                 
+
+                                </div>
+                                </div>
+                                </div>
+                                </div>
+                                </div>
+                                </div>
+
+            </div>
+
+
+
+        </section>
+
+<div class="modal fade" id="pendingUserModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content"  style="margin-left: -250px;width: 950px;height: 300px;background-color: #ffffff;;margin-top: 130px;">
+      
+      
+<form id="message_form">
+      <div class="modal-body mx-3" style="margin-left: 100px;margin-top: 50px;">
+
+                <div class="row" style="margin-left: 50px;">
+        <div class="col-12">
+            <label for="option1" class="form_label">
+
+              <div class="row">
+      
+    
+        <div class="col-4" >
+                          <div style="width: 700px;
+height: 31px;
+opacity: 0.74;
+color: #b5b5b5;
+font-family: 'Helvetica Neue';
+font-size: 17px;
+font-weight: 700;
+letter-spacing: 0.85px;
+line-height: 31px;
+
+font-family: Arial;
+font-weight: 700;">
+        Are You Sure You want to Delete This User  ?
+        </div>
+        </div>
+
+
+        <div class="col-8">
+             
+           <div style="width: 39px;height: 1px;border: 1px solid #ff8409;margin-left:180px;margin-top:15px;"></div>
+        </div>
+
+
+      </div>
+
+
+            </label>
+            <br><br>
+       <img src="/yes_btn.png" onclick="return deleteuser();"><img src="cancel_btn.png" style="margin-left: 16px;" onclick="return cancel_delete_user();">
+
+        <input type="hidden" id="user_to_delete">
+        </div>
+     
+    </div>
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+
+
+       </form>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+<script type="text/javascript">
+  
+
+  function deleteuser(){
+    var user_id = document.getElementById("user_to_delete").value;
+    document.location.href = "/delete_user?user_id=" + user_id;
+
+  }
+
+   function pendingUser(user){
+
+
+    document.getElementById("user_to_delete").value = user;
+    $('#pendingUserModal').modal('show');
+
+  }
+
+
+function cancel_delete_user(){
+
+   $('#pendingUserModal').modal('hide');
+
+}
+
+
+</script>
+        <% else %>
+        <div align="center" style="margin-top: -700px;">
+ <button class="value_button" data-toggle="modal" data-target="#modalLoginForm" style="margin-top: 35%;">PLEASE SIGN IN</button>
+</div><br><br><br>
+        <% end %>
+
+
+

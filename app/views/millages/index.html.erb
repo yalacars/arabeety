@@ -1,0 +1,145 @@
+    <% if session[:admin_id] %>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.js"></script>
+
+    <section class="tabs-section"style="margin-top: -80px">
+     <%= render 'layouts/header_profile_admin' %>
+<link href="https://www.cssscript.com/demo/date-range-picker-lightpick/css/lightpick.css" rel="stylesheet" type="text/css">
+<br><br><br>
+
+
+            <div class="container" >
+   <div class="row">
+     <form action="/millages/" method="get" style="width: 100%;margin-top: -20px;margin-left: 16px;">               
+
+    <div class="row">
+
+      <% if params[:stats] %>
+
+       <input type="hidden" name="stats" class="form-control form-control-sm" style="height: 40px" value="true"> 
+              <% end %>
+
+
+      
+          <div class="col-10">
+            <input type="text" id="demo" name="date_range" class="form-control form-control-sm" style="height: 40px" value="<%= params[:date_range] %>"> 
+          </div>
+<div class="col-2">
+   <button class="btn btn-default" style="margin-left:50px;width: 100px;height: 40px;background-color: #00357a;color: #fff;border-radius: 4px;cursor:pointer;text-align: center;pad">Filter</button>
+          </div>
+
+
+    </div>
+ 
+<br><br>
+</form>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
+ <script src="https://www.cssscript.com/demo/date-range-picker-lightpick/lightpick.js"></script>
+<script>
+    function rangeText(start, end) {
+    var str = '';
+    str += start ? start.format('Do MMMM YYYY') + ' to ' : '';
+    str += end ? end.format('Do MMMM YYYY') : '...';
+
+    return str;
+}
+    new lightPick({
+    field: document.getElementById('demo'),
+    lang: 'en',
+    numberOfMonths:2,
+    numberOfColumns: 3,
+    singleDate: false,
+    onSelect: function(start, end){
+        document.getElementById('result').innerHTML = rangeText(start, end);
+    }
+});
+</script>
+
+
+
+  <% if params[:date_range] %>
+                    <% array_date = params[:date_range].split(' - ') %>
+                     <% start = array_date[0] %>
+                     <% end_date = array_date[1] %>
+
+                     <% t_start = Time.parse(start) %>
+                     <% t_end = Time.parse(øend_date) %>
+          <% end %>
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                               <% if params[:date_range] %>
+                                <h4 class="card-title">Filtered Kilometers <a href="/millages/new" style="font-size: 16px;">Add Kilometer Range</a></h4>
+                                  <% @millages = Millage.where("created_at >=? AND created_at <=?",t_start.beginning_of_day,t_end.end_of_day) %>
+                    <% else %>
+                    <h4 class="card-title">Kilometers <a href="/millages/new" style="font-size: 16px;">Add Kilometer Range</a></h4>
+  <% @millages = Millage.all %>
+                     <% end %>
+              <div class="table-responsive m-t-40">
+                                    <div id="example23_wrapper" class="dataTables_wrapper dt-bootstrap4">
+
+                                    
+
+
+                                   <table id="example23" class="display nowrap table table-hover table-bordered dataTable" cellspacing="0" width="100%" role="grid" aria-describedby="example23_info" style="width: 100%;">
+                                        <thead>
+                                        <tr><th class="sorting_asc" tabindex="0" aria-controls="example23" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 171px;">ID</th><th rowspan="1" colspan="1">Range</th><th rowspan="1" colspan="1"></th></tr>
+                                        </thead>
+                                     
+                                        <tbody>
+                                
+                                            
+                           
+                                  
+    
+
+           <% @millages.each do |models| %>
+                                            
+                                        <tr role="row" class="odd">
+                                            <td class="sorting_1"><div  style="margin-top: 12px;margin-left: 15px;"><%= models.id %></div></td>
+                                                <td class="sorting_1" ><div  style="margin-top: 12px;margin-left: 15px;"><%= models.range %></div></td>
+                                               
+                              
+                                                 <td align="center"><button type="button" class="btn btn-default" data-toggle="dropdown" aria-expanded="false" style="background-color: transparent;">
+                  <img src="/3-Dots.png" style="margin-top: 10px;margin-left: -15px;" style="background-color: transparent;">
+                 
+                  </button>
+                  <ul class="dropdown-menu" role="menu" style="width: 140px;  height: 102px;  border: solid 1px #d2d2d2;  background-color: #f7f8f9;">
+                    <li class="options_links"><a href="/millages/<%= models.id %>/edit" style="color: #a4a4a4;">Edit Range</a></li>
+                    <li class="options_links"><a href="/delete_millage?millage=<%= models.id %>" style="color: #a4a4a4;">Delete Range</a></li>
+                  
+               
+                  </ul></td>
+                                            </tr>
+ <% end %>
+
+
+
+                                        </tbody>
+                                    </table>
+                                 
+
+                                </div>
+                                </div>
+                                </div>
+                                </div>
+                                </div>
+                                </div>
+
+            </div>
+
+
+
+        </section>
+
+        <% else %>
+        <div align="center" style="margin-top: -700px;">
+ <button class="value_button" data-toggle="modal" data-target="#modalLoginForm" style="margin-top: 35%;">PLEASE SIGN IN</button>
+</div><br><br><br>
+        <% end %>
+
+
+
+
