@@ -5,7 +5,7 @@ class AddValuationTypeNumberOwnersBrakesElectricalRimsSeatsSteeringSuspensionTra
     add_column :valuations, :brakes, :string
     add_column :valuations, :electrical, :string
     add_column :valuations, :rims, :string
-    add_column :valuations, :seats, :String
+    add_column :valuations, :seats, :string
     add_column :valuations, :steering, :string
     add_column :valuations, :suspension, :string
     add_column :valuations, :transmission, :string
